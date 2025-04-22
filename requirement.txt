@@ -1,0 +1,15 @@
+Please update this structure, every thing from vietlot55 to vietlot45.
+Please note that the different is 
+vietlot45 ball is from 1 to 45
+vietlot55 ball is from 1 to 55
+
+the url for fetching data is:
+https://www.ketquadientoan.com/tat-ca-ky-xo-so-mega-6-45.html?datef=01-01-2016&datet=02-02-2025
+
+datet is current date, datef is fixed date
+
+
+vietlot45 result only have 6 numbers, dont have the lucky number (last one of vietlot55)
+
+
+

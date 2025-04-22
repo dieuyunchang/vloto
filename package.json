@@ -4,8 +4,10 @@
   "description": "Vietlott data fetcher and number generator",
   "main": "vietlot55/update-data.js",
   "scripts": {
-    "update": "node vietlot55/update-data.js",
-    "start": "node vietlot55/server.js"
+    "update55": "node vietlot55/update-data.js",
+    "start55": "node vietlot55/server.js",
+    "update45": "node vietlot45/update-data.js",
+    "start45": "node vietlot45/server.js"
   },
   "dependencies": {
     "axios": "^1.6.7",

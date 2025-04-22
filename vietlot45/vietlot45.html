@@ -4,138 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vietlott 6/45 Generator</title>
+    <title>Vietlott Mega 6/45 Number Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .number-group {
+            display: flex;
+            gap: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .number-group span {
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        .last-draw {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .number {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .percentage {
+            color: #666;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <h1>Vietlott Mega 6/45 Number Generator</h1>
     <button onclick="generateGroups()">Generate Numbers</button>
-    <div class="results" id="results"></div>
-    <div class="summary" id="summary"></div>
+    
+    <div id="last-draw"></div>
+    <div id="results"></div>
+    <div id="summary"></div>
+
+    <script src="vietlot45.js"></script>
     <script>
         // Load data from JSON file
-        let lotteryData = [];
-        
         fetch('vietlot45-data.json')
             .then(response => response.json())
             .then(data => {
-                lotteryData = data;
-                calculateSummary();
+                window.lotteryData = data;
+                initializePage();
             })
-            .catch(error => console.error('Error loading lottery data:', error));
-
-        const totalNumber = 45;
-        
-        // Process existing groups from the JSON data
-        function getExistingGroups() {
-            return lotteryData.map(item => item.numbers);
-        }
-
-        function has3Odd3Even(numbers) {
-            let evenCount = numbers.filter(n => n % 2 === 0).length;
-            return evenCount === 3;
-        }
-
-        function groupExists(group) {
-            const existingGroups = getExistingGroups();
-            return existingGroups.includes(group);
-        }
-
-        function generateGroup() {
-            while (true) {
-                let numbers = Array.from({ length: totalNumber }, (_, i) => i + 1)
-                                   .sort(() => Math.random() - 0.5)
-                                   .slice(0, 6)
-                                   .sort((a, b) => a - b);
-                
-                let group = numbers.map(n => String(n).padStart(2, '0')).join(" ");
-                
-                if (!has3Odd3Even(numbers) && !groupExists(group)) {
-                    return numbers.map(n => `<span>${String(n).padStart(2, '0')}</span>`).join("");
-                }
-            }
-        }
-
-        function generateGroups() {
-            let newGroups = [];
-            for (let i = 0; i < 5; i++) {
-                newGroups.push(generateGroup());
-            }
-            
-            document.getElementById("results").innerHTML = newGroups
-                .map((group, index) => `<p>Array number ${index + 1}: <span class='number-group'>${group}</span></p>`)
-                .join("");
-        }
-        
-        function calculateSummary() {
-            if (!lotteryData.length) return;
-            
-            let countMap = Array(totalNumber).fill(0);
-            
-            lotteryData.forEach(draw => {
-                if (draw.numbers) {
-                    draw.numbers.split(" ").forEach(num => {
-                        countMap[parseInt(num) - 1]++;
-                    });
-                }
+            .catch(error => {
+                console.error('Error loading data:', error);
+                document.getElementById("summary").innerHTML = "Error loading data. Please try again later.";
             });
-            
-            let percentages = countMap.map(count => ((count / lotteryData.length) * 100).toFixed(1) + "%");
-        
-            let tableHTML = "<div class='container'>"
-            for (let i = 1; i <= totalNumber; i++) {
-                tableHTML += "<div class='item'>";
-                tableHTML += `<div class='number'><strong>${String(i).padStart(2, '0')}</strong></div>`;
-                tableHTML += `<div class='percentage'>${percentages[i-1]}</div>`;
-                tableHTML += "</div>";
-            }
-            tableHTML += "</div>"
-            document.getElementById("summary").innerHTML = tableHTML;
-        }   
-
-        // function calculateSummaryByWeekDay() {
-        //   GroupByWeekDay = []
-        //   existingGroupLines.forEach(group => {
-        //       group.split(" ").forEach(num => {
-        //         GroupByWeekDay[parseInt(num) - 1]++;
-        //       });
-        //   });
-        // }
     </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-        }
-        .results {
-            margin-top: 20px;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .container > .item {
-            border: 1px solid black;
-            display: flex;
-            flex-direction: column;
-            margin: 5px;
-        }
-        .number, .percentage {
-            padding: 5px;
-        }
-        .number {
-            border-bottom: 1px solid black;
-        }
-        .number-group {
-            font-size: 16px;
-            font-weight: 600;
-        }
-        .number-group span {
-            margin: 5px;
-            border: 1px solid black;
-            padding: 5px;
-            border-radius: 50%;
-        }
-    </style>
 </body>
 </html>
