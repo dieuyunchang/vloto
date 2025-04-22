@@ -149,10 +149,9 @@ function showLastDraw() {
 }
 
 function calculateSummary() {
-  console.log("window.lotteryData", window.lotteryData)
-    if (!window.lotteryData.length) {
-        console.log('No lottery data available');
-        document.getElementById("summary").innerHTML = "No data available for summary";
+    if (!window.lotteryData || !window.lotteryData.length) {
+        console.error('Lottery data not loaded yet');
+        document.getElementById("summary").innerHTML = "Loading data...";
         return;
     }
     
@@ -167,13 +166,29 @@ function calculateSummary() {
         }
     });
     
-    let percentages = countMap.map(count => ((count / window.lotteryData.length) * 100).toFixed(1) + "%");
+    // Calculate percentages and find min/max for scaling
+    const percentages = countMap.map(count => (count / window.lotteryData.length) * 100);
+    const minPercent = Math.min(...percentages);
+    const maxPercent = Math.max(...percentages);
+    const range = maxPercent - minPercent;
+    
+    // Define percentage ranges for colors
+    const getFrequencyClass = (percent) => {
+        const normalized = (percent - minPercent) / range;
+        if (normalized < 0.2) return 'frequency-low';
+        if (normalized < 0.4) return 'frequency-medium-low';
+        if (normalized < 0.6) return 'frequency-medium';
+        if (normalized < 0.8) return 'frequency-medium-high';
+        return 'frequency-high';
+    };
 
     let tableHTML = "<h2>Number Frequency Summary</h2><div class='container'>"
     for (let i = 1; i <= totalNumber; i++) {
-        tableHTML += "<div class='item'>";
+        const percent = percentages[i-1];
+        const frequencyClass = getFrequencyClass(percent);
+        tableHTML += `<div class='item ${frequencyClass}'>`;
         tableHTML += `<div class='number'><strong>${String(i).padStart(2, '0')}</strong></div>`;
-        tableHTML += `<div class='percentage'>${percentages[i-1]}</div>`;
+        tableHTML += `<div class='percentage'>${percent.toFixed(1)}%</div>`;
         tableHTML += "</div>";
     }
     tableHTML += "</div>"

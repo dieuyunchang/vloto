@@ -4,101 +4,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vietlott 6/55 Generator</title>
+    <title>Vietlott Mega 6/55 Number Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .number-group {
+            display: flex;
+            gap: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .number-group span {
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        .last-draw {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .number {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .percentage {
+            color: #333; /* Darker color for better readability */
+            font-weight: 500; /* Slightly bolder */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        /* Color coding for frequency ranges */
+        .frequency-low {
+            background-color: #fff3cd; /* Light yellow */
+        }
+        .frequency-medium-low {
+            background-color: #cce5ff; /* Light blue */
+        }
+        .frequency-medium {
+            background-color: #80bdff; /* Medium blue */
+        }
+        .frequency-medium-high {
+            background-color: #28a745; /* Light green */
+            color: white;
+        }
+        .frequency-medium-high .percentage {
+            color: #fff;
+        }
+        .frequency-high {
+            background-color: #155724; /* Dark green */
+            color: white;
+        }
+        .frequency-high .percentage {
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <h1>Vietlott Mega 6/55 Number Generator</h1>
     <button onclick="generateGroups()">Generate Numbers</button>
+    
     <div id="last-draw"></div>
-    <div class="results" id="results"></div>
-    <div class="summary" id="summary"></div>
-        
-    <style>
-      body {
-          font-family: Arial, sans-serif;
-          text-align: center;
-          margin: 20px;
-      }
-      .results {
-          margin-top: 20px;
-      }
-      .container {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          margin-top: 20px;
-      }
-      .container > .item {
-          border: 1px solid black;
-          display: flex;
-          flex-direction: column;
-          margin: 5px;
-          min-width: 50px;
-      }
-      .number, .percentage {
-          padding: 5px;
-      }
-      .number {
-          border-bottom: 1px solid black;
-          background-color: #f0f0f0;
-      }
-      .number-group {
-        font-size: 16px;
-        font-weight: 600;
-        display: flex;
-        justify-content: center;
-        gap: 5px;
-        flex-wrap: nowrap;
-      }
-      .number-group span {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 30px;
-        height: 30px;
-        border: 1px solid black;
-        padding: 5px;
-        border-radius: 50%;
-        background-color: #f0f0f0;
-        white-space: nowrap;
-      }
-      .last-draw .number-group span:last-child {
-        background-color: #ffcccc;
-      }
-      h2 {
-        margin: 20px 0;
-      }
-      .last-draw {
-        margin: 20px 0;
-        padding: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #f9f9f9;
-      }
-      button {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #45a049;
-      }
-    </style>
+    <div id="results"></div>
+    <div id="summary"></div>
+
+    <script src="vietlot55.js"></script>
     <script>
-        // Load the JSON data
+        // Load data from JSON file
         fetch('vietlot55-data.json')
             .then(response => response.json())
             .then(data => {
                 window.lotteryData = data;
-                console.log('Data loaded:', data.length, 'records');
                 initializePage();
             })
-            .catch(error => console.error('Error loading data:', error));
+            .catch(error => {
+                console.error('Error loading data:', error);
+                document.getElementById("summary").innerHTML = "Error loading data. Please try again later.";
+            });
     </script>
-    <script src="vietlot55.js"></script>
 </body>
 </html>

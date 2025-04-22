@@ -40,15 +40,20 @@
             flex-direction: column;
             align-items: center;
             padding: 10px;
-            background-color: #f8f9fa;
             border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         .number {
             font-weight: bold;
             margin-bottom: 5px;
         }
         .percentage {
-            color: #666;
+            color: #333; /* Darker color for better readability */
+            font-weight: 500; /* Slightly bolder */
         }
         button {
             padding: 10px 20px;
@@ -61,6 +66,30 @@
         }
         button:hover {
             background-color: #0056b3;
+        }
+        /* Color coding for frequency ranges */
+        .frequency-low {
+            background-color: #fff3cd; /* Light yellow */
+        }
+        .frequency-medium-low {
+            background-color: #cce5ff; /* Light blue */
+        }
+        .frequency-medium {
+            background-color: #80bdff; /* Medium blue */
+        }
+        .frequency-medium-high {
+            background-color: #28a745; /* Light green */
+            color: white;
+        }
+        .frequency-medium-high .percentage {
+            color: #fff;
+        }
+        .frequency-high {
+            background-color: #155724; /* Dark green */
+            color: white;
+        }
+        .frequency-high .percentage {
+            color: #fff;
         }
     </style>
 </head>
