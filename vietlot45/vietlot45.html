@@ -1,0 +1,141 @@
+<!-- https://www.ketquadientoan.com/tat-ca-ky-xo-so-mega-6-45.html?datef=01-01-2016&datet=02-02-2025 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietlott 6/45 Generator</title>
+</head>
+<body>
+    <h1>Vietlott Mega 6/45 Number Generator</h1>
+    <button onclick="generateGroups()">Generate Numbers</button>
+    <div class="results" id="results"></div>
+    <div class="summary" id="summary"></div>
+    <script>
+        // Load data from JSON file
+        let lotteryData = [];
+        
+        fetch('vietlot45-data.json')
+            .then(response => response.json())
+            .then(data => {
+                lotteryData = data;
+                calculateSummary();
+            })
+            .catch(error => console.error('Error loading lottery data:', error));
+
+        const totalNumber = 45;
+        
+        // Process existing groups from the JSON data
+        function getExistingGroups() {
+            return lotteryData.map(item => item.numbers);
+        }
+
+        function has3Odd3Even(numbers) {
+            let evenCount = numbers.filter(n => n % 2 === 0).length;
+            return evenCount === 3;
+        }
+
+        function groupExists(group) {
+            const existingGroups = getExistingGroups();
+            return existingGroups.includes(group);
+        }
+
+        function generateGroup() {
+            while (true) {
+                let numbers = Array.from({ length: totalNumber }, (_, i) => i + 1)
+                                   .sort(() => Math.random() - 0.5)
+                                   .slice(0, 6)
+                                   .sort((a, b) => a - b);
+                
+                let group = numbers.map(n => String(n).padStart(2, '0')).join(" ");
+                
+                if (!has3Odd3Even(numbers) && !groupExists(group)) {
+                    return numbers.map(n => `<span>${String(n).padStart(2, '0')}</span>`).join("");
+                }
+            }
+        }
+
+        function generateGroups() {
+            let newGroups = [];
+            for (let i = 0; i < 5; i++) {
+                newGroups.push(generateGroup());
+            }
+            
+            document.getElementById("results").innerHTML = newGroups
+                .map((group, index) => `<p>Array number ${index + 1}: <span class='number-group'>${group}</span></p>`)
+                .join("");
+        }
+        
+        function calculateSummary() {
+            if (!lotteryData.length) return;
+            
+            let countMap = Array(totalNumber).fill(0);
+            
+            lotteryData.forEach(draw => {
+                if (draw.numbers) {
+                    draw.numbers.split(" ").forEach(num => {
+                        countMap[parseInt(num) - 1]++;
+                    });
+                }
+            });
+            
+            let percentages = countMap.map(count => ((count / lotteryData.length) * 100).toFixed(1) + "%");
+        
+            let tableHTML = "<div class='container'>"
+            for (let i = 1; i <= totalNumber; i++) {
+                tableHTML += "<div class='item'>";
+                tableHTML += `<div class='number'><strong>${String(i).padStart(2, '0')}</strong></div>`;
+                tableHTML += `<div class='percentage'>${percentages[i-1]}</div>`;
+                tableHTML += "</div>";
+            }
+            tableHTML += "</div>"
+            document.getElementById("summary").innerHTML = tableHTML;
+        }   
+
+        // function calculateSummaryByWeekDay() {
+        //   GroupByWeekDay = []
+        //   existingGroupLines.forEach(group => {
+        //       group.split(" ").forEach(num => {
+        //         GroupByWeekDay[parseInt(num) - 1]++;
+        //       });
+        //   });
+        // }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .container > .item {
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            margin: 5px;
+        }
+        .number, .percentage {
+            padding: 5px;
+        }
+        .number {
+            border-bottom: 1px solid black;
+        }
+        .number-group {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .number-group span {
+            margin: 5px;
+            border: 1px solid black;
+            padding: 5px;
+            border-radius: 50%;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!-- https://www.ketquadientoan.com/tat-ca-ky-xo-so-power-655.html?datef=24-08-2024&datet=21-04-2025 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietlott 6/55 Generator</title>
+</head>
+<body>
+    <h1>Vietlott Mega 6/55 Number Generator</h1>
+    <button onclick="generateGroups()">Generate Numbers</button>
+    <div id="last-draw"></div>
+    <div class="results" id="results"></div>
+    <div class="summary" id="summary"></div>
+        
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+          margin: 20px;
+      }
+      .results {
+          margin-top: 20px;
+      }
+      .container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin-top: 20px;
+      }
+      .container > .item {
+          border: 1px solid black;
+          display: flex;
+          flex-direction: column;
+          margin: 5px;
+          min-width: 50px;
+      }
+      .number, .percentage {
+          padding: 5px;
+      }
+      .number {
+          border-bottom: 1px solid black;
+          background-color: #f0f0f0;
+      }
+      .number-group {
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        flex-wrap: nowrap;
+      }
+      .number-group span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 50%;
+        background-color: #f0f0f0;
+        white-space: nowrap;
+      }
+      .last-draw .number-group span:last-child {
+        background-color: #ffcccc;
+      }
+      h2 {
+        margin: 20px 0;
+      }
+      .last-draw {
+        margin: 20px 0;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+    <script>
+        // Load the JSON data
+        fetch('vietlot55-data.json')
+            .then(response => response.json())
+            .then(data => {
+                window.lotteryData = data;
+                console.log('Data loaded:', data.length, 'records');
+                initializePage();
+            })
+            .catch(error => console.error('Error loading data:', error));
+    </script>
+    <script src="vietlot55.js"></script>
+</body>
+</html>
