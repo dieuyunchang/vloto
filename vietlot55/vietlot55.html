@@ -12,6 +12,36 @@
             margin: 0 auto;
             padding: 20px;
         }
+        .nav-bar {
+            background-color: #333;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .nav-bar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .nav-bar li {
+            display: inline;
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .nav-bar a:hover {
+            background-color: #555;
+        }
+        .nav-bar a.active {
+            background-color: #007bff;
+        }
         .number-group {
             display: flex;
             gap: 5px;
@@ -94,6 +124,13 @@
     </style>
 </head>
 <body>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="/vietlot55/vietlot55.html" class="active">Mega 6/55</a></li>
+            <li><a href="/vietlot45/vietlot45.html">Mega 6/45</a></li>
+        </ul>
+    </nav>
+
     <h1>Vietlott Mega 6/55 Number Generator</h1>
     <button onclick="generateGroups()">Generate Numbers</button>
     
@@ -101,10 +138,10 @@
     <div id="results"></div>
     <div id="summary"></div>
 
-    <script src="vietlot55.js"></script>
+    <script src="/vietlot55/vietlot55.js"></script>
     <script>
         // Load data from JSON file
-        fetch('vietlot55-data.json')
+        fetch('/vietlot55/vietlot55-data.json')
             .then(response => response.json())
             .then(data => {
                 window.lotteryData = data;
