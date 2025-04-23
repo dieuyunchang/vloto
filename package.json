@@ -1,7 +1,7 @@
 {
-  "name": "vloto",
+  "name": "vietlott-number-generator",
   "version": "1.0.0",
-  "description": "Vietlott Number Generator",
+  "description": "A web application for generating and analyzing Vietlott lottery numbers",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "axios": "^1.6.7",
+    "axios": "^1.6.2",
     "cheerio": "^1.0.0-rc.12"
   }
 } 
