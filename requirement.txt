@@ -1,15 +1,106 @@
-Please update this structure, every thing from vietlot55 to vietlot45.
-Please note that the different is 
-vietlot45 ball is from 1 to 45
-vietlot55 ball is from 1 to 55
+When running update-data for vietlot55, please also create new folder json-data, move current vietlot55-data.json to json-data/vietlot55-data.json
+and some another json file into json-data folder:
 
-the url for fetching data is:
-https://www.ketquadientoan.com/tat-ca-ky-xo-so-mega-6-45.html?datef=01-01-2016&datet=02-02-2025
+file 1/ summary the count of each number, and the percentage of each number with day of week:
+maybe like this:
+{
+  "mon": [
+    {
+    "number": 1,
+    "percentage": 10.5
+    },
+    {
+      "number": 2,
+      "percentage": 10.5
+    },
+  ],
+  "tue": {
+    "number": 2,
+    "percentage": 10.5
+  }
+  ...
+  "sun": [ // sun is the last day of the week
+    {
+      "number": 1,
+      "percentage": 10.5
+    },
+  ],
+}
 
-datet is current date, datef is fixed date
+file 2/ summary the count of each number, and the percentage of each number with even and odd of date:
+maybe like this:
+{
+  "even": [
+    {
+      "number": 1,
+      "percentage": 10.5
+    },
+    {
+      "number": 2,
+      "percentage": 10.5
+    },
+  ],
+  "odd": [
+    {
+      "number": 1,
+      "percentage": 10.5
+    },
+  ],
+}
 
+file 3/ summary the count of each number, and the percentage of each number with in month:
+maybe like this:
+{
+  "1": [
+    {
+      "number": 1,
+      "percentage": 10.5
+    },
+    {
+      "number": 2,
+      "percentage": 10.5
+    },
+  ],
+  "2": [
+    {
+      "number": 1,
+      "percentage": 10.5
+    },
+  ],
 
-vietlot45 result only have 6 numbers, dont have the lucky number (last one of vietlot55)
+  ....
+  "12": [ // 12 is the last month of the year
+    {
+      "number": 1,
+      "percentage": 10.5
+    },
+  ],
+}
 
-
-
+file 4/ summary the count of each number, and the percentage of each number with in date in month:
+maybe like this:
+{
+  "1": [
+    {
+      "number": 1,
+      "percentage": 10.5
+    },
+    {
+      "number": 2,
+      "percentage": 10.5
+    },
+  ],
+  "2": [
+    {
+      "number": 1,
+      "percentage": 10.5
+    },
+  ],
+  ...
+  "31": [ // 31 is the last day of the month
+    {
+      "number": 1,
+      "percentage": 10.5
+    },
+  ],
+}
