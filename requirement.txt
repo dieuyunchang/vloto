@@ -1,106 +1,14 @@
-When running update-data for vietlot55, please also create new folder json-data, move current vietlot55-data.json to json-data/vietlot55-data.json
-and some another json file into json-data folder:
 
-file 1/ summary the count of each number, and the percentage of each number with day of week:
-maybe like this:
-{
-  "mon": [
-    {
-    "number": 1,
-    "percentage": 10.5
-    },
-    {
-      "number": 2,
-      "percentage": 10.5
-    },
-  ],
-  "tue": {
-    "number": 2,
-    "percentage": 10.5
-  }
-  ...
-  "sun": [ // sun is the last day of the week
-    {
-      "number": 1,
-      "percentage": 10.5
-    },
-  ],
-}
 
-file 2/ summary the count of each number, and the percentage of each number with even and odd of date:
-maybe like this:
-{
-  "even": [
-    {
-      "number": 1,
-      "percentage": 10.5
-    },
-    {
-      "number": 2,
-      "percentage": 10.5
-    },
-  ],
-  "odd": [
-    {
-      "number": 1,
-      "percentage": 10.5
-    },
-  ],
-}
 
-file 3/ summary the count of each number, and the percentage of each number with in month:
-maybe like this:
-{
-  "1": [
-    {
-      "number": 1,
-      "percentage": 10.5
-    },
-    {
-      "number": 2,
-      "percentage": 10.5
-    },
-  ],
-  "2": [
-    {
-      "number": 1,
-      "percentage": 10.5
-    },
-  ],
+Ok, I will need some changes 
+rename even-odd-summary.json to date-even-odd-summary-all.json
+in the "Number Frequency Summary", rename to "Number Frequency Summary (All)"
+Add the tab with 
+tab 1: Number Frequency Summary, keep current Number Frequency Summary
+tab 2: Month Summary, get from month-summary.json, list the 12 months with each month will list the percentage of each number 
+tab 3: Day of Week Summary, get from day-of-week-summary.json, list the 7 days with each day will list the percentage of each number
+tab 4: Day of Month Summary, get from day-of-month-summary.json, list the 31 days with each day will list the percentage of each number
+tab 5: Date Even/Odd Summary, get from even-odd-summary.json, list the date even and odd with the percentage of each number
 
-  ....
-  "12": [ // 12 is the last month of the year
-    {
-      "number": 1,
-      "percentage": 10.5
-    },
-  ],
-}
 
-file 4/ summary the count of each number, and the percentage of each number with in date in month:
-maybe like this:
-{
-  "1": [
-    {
-      "number": 1,
-      "percentage": 10.5
-    },
-    {
-      "number": 2,
-      "percentage": 10.5
-    },
-  ],
-  "2": [
-    {
-      "number": 1,
-      "percentage": 10.5
-    },
-  ],
-  ...
-  "31": [ // 31 is the last day of the month
-    {
-      "number": 1,
-      "percentage": 10.5
-    },
-  ],
-}

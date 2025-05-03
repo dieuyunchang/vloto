@@ -5,6 +5,15 @@ const app = express();
 // Serve static files from the current directory
 app.use(express.static(__dirname));
 
+// Serve JSON files with proper content type
+app.use('/json-data', express.static(path.join(__dirname, 'json-data'), {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.json')) {
+            res.setHeader('Content-Type', 'application/json');
+        }
+    }
+}));
+
 // Start the server
 const PORT = 3000;
 app.listen(PORT, () => {
