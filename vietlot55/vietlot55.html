@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -183,6 +183,54 @@
             font-style: italic;
             color: #666;
         }
+        .results-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .result-group {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .result-group h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .result-group .number-group {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        
+        .result-group .number-group span {
+            padding: 8px 12px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .selected-number {
+            background-color: #cce5ff !important;
+            color: #004085;
+        }
+        
+        .result-group .number-group span {
+            padding: 8px 12px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .action-button {
+          text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -238,24 +286,25 @@
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="exclude-recent-check" checked>
                 <label class="form-check-label" for="exclude-recent-check">
-                    Exclude numbers from last <input type="number" id="exclude-count" value="2" min="1" max="5" class="count-input"> results
+                    Exclude numbers from last <input type="number" id="exclude-count" value="2" min="1" max="99" class="count-input"> results
                 </label>
                 <div class="selected-numbers" id="excluded-numbers"></div>
             </div>
 
             <div class="form-check">
                 <label class="form-check-label">
-                    Generate up to <input type="number" id="group-limit" value="2" min="1" max="20" class="count-input"> groups
+                    Generate up to <input type="number" id="group-limit" value="5" min="1" max="999" class="count-input"> groups
                 </label>
             </div>
         </div>
     </div>
-
-    <button onclick="generateGroups()">Generate Numbers</button>
+    <div class="action-button">
+      <button onclick="generateGroups()">Generate Numbers</button>
+    </div>
     
-    <div id="last-draw"></div>
     <div id="results"></div>
-    
+    <div id="last-draw"></div>
+
     <div class="summary-container">
         <ul class="nav nav-tabs" id="summaryTabs" role="tablist">
             <li class="nav-item" role="presentation">
@@ -640,49 +689,75 @@
             // Remove excluded numbers from included numbers
             const finalNumbers = Array.from(includedNumbers).filter(num => !excludedNumbers.has(num));
             
-            // If we have less than 6 numbers, add random numbers from 1-55 (excluding excluded numbers)
-            if (finalNumbers.length < 6) {
-                const allNumbers = Array.from({length: 55}, (_, i) => i + 1);
-                const availableNumbers = allNumbers.filter(num => !excludedNumbers.has(num));
-                
-                // Shuffle available numbers
-                for (let i = availableNumbers.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [availableNumbers[i], availableNumbers[j]] = [availableNumbers[j], availableNumbers[i]];
-                }
-                
-                // Add random numbers until we have 6
-                while (finalNumbers.length < 6 && availableNumbers.length > 0) {
-                    const randomNum = availableNumbers.pop();
-                    if (!finalNumbers.includes(randomNum)) {
-                        finalNumbers.push(randomNum);
-                    }
-                }
-            }
-            
             // Get group limit
             const groupLimit = parseInt(document.getElementById('group-limit').value) || 2;
-            console.log('Generating up to', groupLimit, 'groups');
+            console.log('Selected numbers:', finalNumbers);
             
-            // Generate groups of 6 numbers
-            const groups = [];
-            
-            // Create multiple groups by shuffling the numbers each time
-            for (let i = 0; i < groupLimit; i++) {
-                // Create a new shuffled copy of the numbers for each group
-                const shuffledNumbers = [...finalNumbers];
-                for (let j = shuffledNumbers.length - 1; j > 0; j--) {
-                    const k = Math.floor(Math.random() * (j + 1));
-                    [shuffledNumbers[j], shuffledNumbers[k]] = [shuffledNumbers[k], shuffledNumbers[j]];
-                }
-                
-                // Take the first 6 numbers and sort them
-                const group = shuffledNumbers.slice(0, 6).sort((a, b) => a - b);
-                groups.push(group);
+            // If we have exactly 6 numbers, we can only generate 1 group
+            if (finalNumbers.length === 6) {
+                const group = finalNumbers.sort((a, b) => a - b);
+                displayResults([group]);
+                return;
             }
             
-            // Display the results
-            displayResults(groups);
+            // If we have more than 6 numbers, generate combinations
+            if (finalNumbers.length > 6) {
+                const groups = [];
+                // Generate all possible combinations of 6 numbers
+                const generateCombinations = (arr, size, start, current, result) => {
+                    if (current.length === size) {
+                        result.push([...current].sort((a, b) => a - b));
+                        return;
+                    }
+                    for (let i = start; i < arr.length; i++) {
+                        current.push(arr[i]);
+                        generateCombinations(arr, size, i + 1, current, result);
+                        current.pop();
+                    }
+                };
+                
+                const combinations = [];
+                generateCombinations(finalNumbers, 6, 0, [], combinations);
+                
+                // Take up to groupLimit combinations
+                const selectedGroups = combinations.slice(0, groupLimit);
+                displayResults(selectedGroups);
+                return;
+            }
+            
+            // If we have less than 6 numbers, we need to add more numbers
+            if (finalNumbers.length < 6) {
+                const groups = [];
+                // Get all available numbers (1-55) excluding:
+                // 1. Numbers already in finalNumbers
+                // 2. Numbers in excludedNumbers (if exclude-recent-check is checked)
+                const availableNumbers = Array.from({length: 55}, (_, i) => i + 1)
+                    .filter(num => !finalNumbers.includes(num) && !excludedNumbers.has(num));
+                
+                console.log('Available numbers for combinations:', availableNumbers);
+                
+                // Generate combinations with additional numbers
+                const generateCombinations = (base, available, size, start, current, result) => {
+                    if (current.length === size) {
+                        const group = [...base, ...current].sort((a, b) => a - b);
+                        result.push(group);
+                        return;
+                    }
+                    for (let i = start; i < available.length; i++) {
+                        current.push(available[i]);
+                        generateCombinations(base, available, size, i + 1, current, result);
+                        current.pop();
+                    }
+                };
+                
+                const combinations = [];
+                generateCombinations(finalNumbers, availableNumbers, 6 - finalNumbers.length, 0, [], combinations);
+                
+                // Take up to groupLimit combinations
+                const selectedGroups = combinations.slice(0, groupLimit);
+                displayResults(selectedGroups);
+                return;
+            }
         }
 
         function displayResults(groups) {
@@ -692,13 +767,54 @@
                 return;
             }
             
+            // Get all selected numbers from checked categories
+            const selectedNumbers = new Set();
+            
+            if (document.getElementById('month-check').checked) {
+                const monthNumbers = getTopNumbersFromMonth(
+                    getNextLotteryDay().getMonth() + 1,
+                    parseInt(document.getElementById('month-count').value)
+                );
+                monthNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            
+            if (document.getElementById('even-odd-check').checked) {
+                const dateType = getNextLotteryDay().getDate() % 2 === 0 ? 'even' : 'odd';
+                const evenOddNumbers = getTopNumbersFromEvenOdd(
+                    dateType,
+                    parseInt(document.getElementById('even-odd-count').value)
+                );
+                evenOddNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            
+            if (document.getElementById('day-week-check').checked) {
+                const dayOfWeek = getNextLotteryDay().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+                const dayWeekNumbers = getTopNumbersFromDayWeek(
+                    dayOfWeek,
+                    parseInt(document.getElementById('day-week-count').value)
+                );
+                dayWeekNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            
+            if (document.getElementById('day-month-check').checked) {
+                const dayOfMonth = getNextLotteryDay().getDate();
+                const dayMonthNumbers = getTopNumbersFromDayMonth(
+                    dayOfMonth,
+                    parseInt(document.getElementById('day-month-count').value)
+                );
+                dayMonthNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            
             let html = '<div class="results-container">';
             groups.forEach((group, index) => {
                 html += `
                     <div class="result-group">
                         <h3>Group ${index + 1}</h3>
                         <div class="number-group">
-                            ${group.map(num => `<span>${String(num).padStart(2, '0')}</span>`).join('')}
+                            ${group.map(num => {
+                                const isSelected = selectedNumbers.has(num);
+                                return `<span class="${isSelected ? 'selected-number' : ''}">${String(num).padStart(2, '0')}</span>`;
+                            }).join('')}
                         </div>
                     </div>
                 `;
