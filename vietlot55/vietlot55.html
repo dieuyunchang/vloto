@@ -221,6 +221,11 @@
             color: #004085;
         }
         
+        .custom-number {
+            background-color: #fff3cd !important;
+            color: #856404;
+        }
+        
         .result-group .number-group span {
             padding: 8px 12px;
             background-color: #e9ecef;
@@ -230,6 +235,33 @@
         }
         .action-button {
           text-align: center;
+        }
+        .custom-numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .custom-number-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .custom-number-checkbox:disabled {
+            cursor: not-allowed;
+        }
+        
+        .custom-number-checkbox:disabled + label {
+            color: #007bff;
+        }
+        
+        .custom-number-checkbox:disabled[data-excluded="true"] + label {
+            color: #dc3545;
         }
     </style>
 </head>
@@ -292,10 +324,24 @@
             </div>
 
             <div class="form-check">
-                <label class="form-check-label">
-                    Generate up to <input type="number" id="group-limit" value="5" min="1" max="999" class="count-input"> groups
+                <input class="form-check-input" type="checkbox" id="custom-numbers-check">
+                <label class="form-check-label" for="custom-numbers-check">
+                    Custom Numbers Selection
                 </label>
             </div>
+            
+            <div id="custom-numbers-container" style="display: none;">
+                <div class="custom-numbers-grid" id="custom-numbers-grid">
+                    <!-- Numbers will be added dynamically -->
+                </div>
+            </div>
+
+            
+            <div class="form-check">
+              <label class="form-check-label">
+                  Generate up to <input type="number" id="group-limit" value="5" min="1" max="999" class="count-input"> groups
+              </label>
+          </div>
         </div>
     </div>
     <div class="action-button">
@@ -528,6 +574,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadData();
             updateNextDrawInfo();
+            initializeCustomNumbers();
             
             // Add event listeners for count inputs and checkboxes
             ['month-count', 'even-odd-count', 'day-week-count', 'day-month-count', 'exclude-count'].forEach(id => {
@@ -538,7 +585,35 @@
             ['month-check', 'even-odd-check', 'day-week-check', 'day-month-check', 'exclude-recent-check'].forEach(id => {
                 document.getElementById(id).addEventListener('change', updateSelectedNumbers);
             });
+
+            // Add event listener for custom numbers checkbox
+            document.getElementById('custom-numbers-check').addEventListener('change', function() {
+                const container = document.getElementById('custom-numbers-container');
+                container.style.display = this.checked ? 'block' : 'none';
+                updateCustomNumbersState();
+            });
         });
+
+        function initializeCustomNumbers() {
+            const grid = document.getElementById('custom-numbers-grid');
+            for (let i = 1; i <= 55; i++) {
+                const div = document.createElement('div');
+                div.className = 'custom-number-item';
+                
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `custom-num-${i}`;
+                checkbox.className = 'custom-number-checkbox';
+                
+                const label = document.createElement('label');
+                label.htmlFor = `custom-num-${i}`;
+                label.textContent = String(i).padStart(2, '0');
+                
+                div.appendChild(checkbox);
+                div.appendChild(label);
+                grid.appendChild(div);
+            }
+        }
 
         function updateSelectedNumbers() {
             const nextDraw = getNextLotteryDay();
@@ -679,6 +754,16 @@
                 dayMonthNumbers.forEach(num => includedNumbers.add(num));
             }
             
+            // Add custom numbers if selected
+            if (document.getElementById('custom-numbers-check').checked) {
+                for (let i = 1; i <= 55; i++) {
+                    const checkbox = document.getElementById(`custom-num-${i}`);
+                    if (checkbox.checked && !checkbox.disabled) {
+                        includedNumbers.add(i);
+                    }
+                }
+            }
+            
             // Get excluded numbers
             const excludedNumbers = new Set();
             if (document.getElementById('exclude-recent-check').checked) {
@@ -769,6 +854,7 @@
             
             // Get all selected numbers from checked categories
             const selectedNumbers = new Set();
+            const customNumbers = new Set();
             
             if (document.getElementById('month-check').checked) {
                 const monthNumbers = getTopNumbersFromMonth(
@@ -805,6 +891,16 @@
                 dayMonthNumbers.forEach(num => selectedNumbers.add(num));
             }
             
+            // Get custom numbers if selected
+            if (document.getElementById('custom-numbers-check').checked) {
+                for (let i = 1; i <= 55; i++) {
+                    const checkbox = document.getElementById(`custom-num-${i}`);
+                    if (checkbox.checked && !checkbox.disabled) {
+                        customNumbers.add(i);
+                    }
+                }
+            }
+            
             let html = '<div class="results-container">';
             groups.forEach((group, index) => {
                 html += `
@@ -812,8 +908,13 @@
                         <h3>Group ${index + 1}</h3>
                         <div class="number-group">
                             ${group.map(num => {
-                                const isSelected = selectedNumbers.has(num);
-                                return `<span class="${isSelected ? 'selected-number' : ''}">${String(num).padStart(2, '0')}</span>`;
+                                let className = '';
+                                if (selectedNumbers.has(num)) {
+                                    className = 'selected-number';
+                                } else if (customNumbers.has(num)) {
+                                    className = 'custom-number';
+                                }
+                                return `<span class="${className}">${String(num).padStart(2, '0')}</span>`;
                             }).join('')}
                         </div>
                     </div>
@@ -852,6 +953,71 @@
             document.getElementById('current-day').textContent = nextDraw.toLocaleDateString('en-US', { weekday: 'long' });
             document.getElementById('current-date').textContent = nextDraw.getDate();
             document.getElementById('date-type').textContent = nextDraw.getDate() % 2 === 0 ? 'even' : 'odd';
+        }
+
+        function updateCustomNumbersState() {
+            // Get all selected numbers from other categories
+            const selectedNumbers = new Set();
+            const excludedNumbers = new Set();
+            
+            if (document.getElementById('month-check').checked) {
+                const monthNumbers = getTopNumbersFromMonth(
+                    getNextLotteryDay().getMonth() + 1,
+                    parseInt(document.getElementById('month-count').value)
+                );
+                monthNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            
+            if (document.getElementById('even-odd-check').checked) {
+                const dateType = getNextLotteryDay().getDate() % 2 === 0 ? 'even' : 'odd';
+                const evenOddNumbers = getTopNumbersFromEvenOdd(
+                    dateType,
+                    parseInt(document.getElementById('even-odd-count').value)
+                );
+                evenOddNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            
+            if (document.getElementById('day-week-check').checked) {
+                const dayOfWeek = getNextLotteryDay().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+                const dayWeekNumbers = getTopNumbersFromDayWeek(
+                    dayOfWeek,
+                    parseInt(document.getElementById('day-week-count').value)
+                );
+                dayWeekNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            
+            if (document.getElementById('day-month-check').checked) {
+                const dayOfMonth = getNextLotteryDay().getDate();
+                const dayMonthNumbers = getTopNumbersFromDayMonth(
+                    dayOfMonth,
+                    parseInt(document.getElementById('day-month-count').value)
+                );
+                dayMonthNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            
+            if (document.getElementById('exclude-recent-check').checked) {
+                const recentNumbers = getExcludedNumbers(parseInt(document.getElementById('exclude-count').value));
+                recentNumbers.forEach(num => excludedNumbers.add(num));
+            }
+            
+            // Update checkboxes state
+            for (let i = 1; i <= 55; i++) {
+                const checkbox = document.getElementById(`custom-num-${i}`);
+                const label = checkbox.nextElementSibling;
+                
+                if (selectedNumbers.has(i)) {
+                    checkbox.disabled = true;
+                    checkbox.checked = true;
+                    label.style.color = '#007bff';
+                } else if (excludedNumbers.has(i)) {
+                    checkbox.disabled = true;
+                    checkbox.checked = false;
+                    label.style.color = '#dc3545';
+                } else {
+                    checkbox.disabled = false;
+                    label.style.color = '';
+                }
+            }
         }
     </script>
 </body>
