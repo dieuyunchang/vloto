@@ -100,27 +100,37 @@
         button:hover {
             background-color: #0056b3;
         }
+        .frequency-very-low {
+            background-color: #fff3cd;  /* Light yellow */
+        }
         .frequency-low {
-            background-color: #fff3cd;
+            background-color: #ffeeba;  /* Slightly darker yellow */
         }
         .frequency-medium-low {
-            background-color: #cce5ff;
+            background-color: #d1ecf1;  /* Light blue */
         }
         .frequency-medium {
-            background-color: #80bdff;
+            background-color: #bee5eb;  /* Medium blue */
         }
         .frequency-medium-high {
-            background-color: #28a745;
-            color: white;
+            background-color: #ffc107;  /* Amber */
+            color: #000;
         }
         .frequency-medium-high .percentage {
-            color: #fff;
+            color: #000;
         }
         .frequency-high {
-            background-color: #155724;
+            background-color: #fd7e14;  /* Orange */
             color: white;
         }
         .frequency-high .percentage {
+            color: #fff;
+        }
+        .frequency-very-high {
+            background-color: #dc3545;  /* Red */
+            color: white;
+        }
+        .frequency-very-high .percentage {
             color: #fff;
         }
         .summary-container {
@@ -335,11 +345,16 @@
         }
 
         function getFrequencyClass(percentage) {
-            if (percentage >= 8) return 'frequency-high';
-            if (percentage >= 6) return 'frequency-medium-high';
-            if (percentage >= 4) return 'frequency-medium';
-            if (percentage >= 2) return 'frequency-medium-low';
-            return 'frequency-low';
+            // Convert percentage to number if it's a string
+            const percent = typeof percentage === 'string' ? parseFloat(percentage) : percentage;
+            
+            if (percent >= 15) return 'frequency-very-high';
+            if (percent >= 12) return 'frequency-high';
+            if (percent >= 9) return 'frequency-medium-high';
+            if (percent >= 6) return 'frequency-medium';
+            if (percent >= 3) return 'frequency-medium-low';
+            if (percent >= 1) return 'frequency-low';
+            return 'frequency-very-low';
         }
 
         // Load data when page loads
