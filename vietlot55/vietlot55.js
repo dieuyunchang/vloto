@@ -36,7 +36,8 @@ const totalNumber = 55;
 
 // Process existing groups from the JSON data
 function getExistingGroups() {
-    return window.lotteryData.map(item => item.numbers);
+    if (!window.lotteryData || !window.lotteryData.draws) return [];
+    return window.lotteryData.draws.map(item => item.numbers);
 }
 
 function has3Odd3Even(numbers) {
@@ -51,8 +52,10 @@ function groupExists(group) {
 
 // Calculate number frequency
 function calculateNumberFrequency() {
+    if (!window.lotteryData || !window.lotteryData.draws) return Array(totalNumber).fill(0);
+    
     const frequency = Array(totalNumber).fill(0);
-    window.lotteryData.forEach(draw => {
+    window.lotteryData.draws.forEach(draw => {
         if (draw.numbers) {
             draw.numbers.split(" ").forEach(num => {
                 frequency[parseInt(num) - 1]++;
@@ -64,8 +67,10 @@ function calculateNumberFrequency() {
 
 // Calculate number pairs frequency
 function calculatePairFrequency() {
+    if (!window.lotteryData || !window.lotteryData.draws) return {};
+    
     const pairs = {};
-    window.lotteryData.forEach(draw => {
+    window.lotteryData.draws.forEach(draw => {
         if (draw.numbers) {
             const numbers = draw.numbers.split(" ").map(n => parseInt(n));
             for (let i = 0; i < numbers.length; i++) {
@@ -130,35 +135,37 @@ function generateGroups() {
 }
 
 function showLastDraw() {
-    if (window.lotteryData.length > 0) {
-        const lastDraw = window.lotteryData[0];
-        const list_numbers = lastDraw.numbers
-            .split(/\s+/)  // Split by any whitespace (spaces, tabs, newlines)
-            .map(n => n.trim())  // Remove whitespace
-            .filter(n => n !== "");  // Remove empty strings
-        const numbers = list_numbers.map(n => `<span>${n}</span>`).join("");
-        const lastDrawHTML = `
-            <div class="last-draw">
-                <h2>Last Draw (${lastDraw.date})</h2>
-                <p>Numbers: <span class='number-group'>${numbers}</span></p>
-                <p>Prize: ${lastDraw.prize}</p>
-            </div>
-        `;
-        document.getElementById("last-draw").innerHTML = lastDrawHTML;
+    if (!window.lotteryData || !window.lotteryData.draws || window.lotteryData.draws.length === 0) {
+        return;
     }
+    
+    const lastDraw = window.lotteryData.draws[0];
+    const list_numbers = lastDraw.numbers
+        .split(/\s+/)  // Split by any whitespace (spaces, tabs, newlines)
+        .map(n => n.trim())  // Remove whitespace
+        .filter(n => n !== "");  // Remove empty strings
+    const numbers = list_numbers.map(n => `<span>${n}</span>`).join("");
+    const lastDrawHTML = `
+        <div class="last-draw">
+            <h2>Last Draw (${lastDraw.date})</h2>
+            <p>Numbers: <span class='number-group'>${numbers}</span></p>
+            <p>Prize: ${lastDraw.prize}</p>
+        </div>
+    `;
+    document.getElementById("last-draw").innerHTML = lastDrawHTML;
 }
 
 function calculateSummary() {
-    if (!window.lotteryData || !window.lotteryData.length) {
+    if (!window.lotteryData || !window.lotteryData.draws) {
         console.error('Lottery data not loaded yet');
         document.getElementById("summary").innerHTML = "Loading data...";
         return;
     }
     
-    console.log('Calculating summary for', window.lotteryData.length, 'records');
+    console.log('Calculating summary for', window.lotteryData.draws.length, 'records');
     let countMap = Array(totalNumber).fill(0);
     
-    window.lotteryData.forEach(draw => {
+    window.lotteryData.draws.forEach(draw => {
         if (draw.numbers) {
             draw.numbers.split(" ").forEach(num => {
                 countMap[parseInt(num) - 1]++;
@@ -167,7 +174,7 @@ function calculateSummary() {
     });
     
     // Calculate percentages and find min/max for scaling
-    const percentages = countMap.map(count => (count / window.lotteryData.length) * 100);
+    const percentages = countMap.map(count => (count / window.lotteryData.draws.length) * 100);
     const minPercent = Math.min(...percentages);
     const maxPercent = Math.max(...percentages);
     const range = maxPercent - minPercent;
@@ -198,6 +205,11 @@ function calculateSummary() {
 // Initialize the page when data is loaded
 function initializePage() {
     console.log('Initializing page...');
+    if (!window.lotteryData || !window.lotteryData.draws) {
+        console.error('Lottery data not loaded yet');
+        document.getElementById("summary").innerHTML = "Loading data...";
+        return;
+    }
     calculateSummary();
     showLastDraw();
 }

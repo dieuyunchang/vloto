@@ -242,6 +242,12 @@
                 </label>
                 <div class="selected-numbers" id="excluded-numbers"></div>
             </div>
+
+            <div class="form-check">
+                <label class="form-check-label">
+                    Generate up to <input type="number" id="group-limit" value="2" min="1" max="10" class="count-input"> groups
+                </label>
+            </div>
         </div>
     </div>
 
@@ -294,38 +300,43 @@
         // Load data from JSON files
         async function loadData() {
             try {
-                // Load main data
-                const mainResponse = await fetch('json-data/vietlot55-data.json');
-                const mainData = await mainResponse.json();
+                console.log('Loading data...');
+                const [mainResponse, dayOfWeekResponse, dayOfMonthResponse, monthResponse, evenOddResponse] = await Promise.all([
+                    fetch('json-data/vietlot55-data.json'),
+                    fetch('json-data/day-of-week-summary.json'),
+                    fetch('json-data/day-of-month-summary.json'),
+                    fetch('json-data/month-summary.json'),
+                    fetch('json-data/even-odd-summary.json')
+                ]);
+
+                if (!mainResponse.ok || !dayOfWeekResponse.ok || !dayOfMonthResponse.ok || !monthResponse.ok || !evenOddResponse.ok) {
+                    throw new Error('Failed to load data');
+                }
+
+                const [mainData, dayOfWeekData, dayOfMonthData, monthData, evenOddData] = await Promise.all([
+                    mainResponse.json(),
+                    dayOfWeekResponse.json(),
+                    dayOfMonthResponse.json(),
+                    monthResponse.json(),
+                    evenOddResponse.json()
+                ]);
+
                 window.lotteryData = {
-                    draws: mainData
+                    draws: mainData,
+                    dayOfWeek: dayOfWeekData,
+                    dayOfMonth: dayOfMonthData,
+                    month: monthData,
+                    evenOdd: evenOddData
                 };
-                initializePage();
 
-                // Load summary data
-                const monthResponse = await fetch('json-data/month-summary.json');
-                const dayWeekResponse = await fetch('json-data/day-of-week-summary.json');
-                const dayMonthResponse = await fetch('json-data/day-of-month-summary.json');
-                const dateEvenOddResponse = await fetch('json-data/even-odd-summary.json');
-
-                const monthData = await monthResponse.json();
-                const dayWeekData = await dayWeekResponse.json();
-                const dayMonthData = await dayMonthResponse.json();
-                const dateEvenOddData = await dateEvenOddResponse.json();
-
-                // Add summary data to lotteryData
-                window.lotteryData.monthSummary = monthData;
-                window.lotteryData.dayWeekSummary = dayWeekData;
-                window.lotteryData.dayMonthSummary = dayMonthData;
-                window.lotteryData.dateEvenOddSummary = dateEvenOddData;
-
-                // Display summaries
+                console.log('Data loaded successfully:', window.lotteryData);
+                
+                // Initialize the page and display summaries
+                window.initializePage();
                 displayMonthSummary(monthData);
-                displayDayWeekSummary(dayWeekData);
-                displayDayMonthSummary(dayMonthData);
-                displayDateEvenOddSummary(dateEvenOddData);
-
-                // Update selected numbers
+                displayDayWeekSummary(dayOfWeekData);
+                displayDayMonthSummary(dayOfMonthData);
+                displayDateEvenOddSummary(evenOddData);
                 updateSelectedNumbers();
             } catch (error) {
                 console.error('Error loading data:', error);
@@ -335,8 +346,12 @@
 
         function displayMonthSummary(data) {
             const container = document.getElementById('month-summary');
-            let html = '';
+            if (!data) {
+                container.innerHTML = "No month summary data available";
+                return;
+            }
             
+            let html = '';
             for (const [month, numbers] of Object.entries(data)) {
                 html += `<div class="summary-section">
                     <div class="summary-title">Month ${month}</div>
@@ -358,19 +373,18 @@
 
         function displayDayWeekSummary(data) {
             const container = document.getElementById('day-week-summary');
-            let html = '';
+            if (!data) {
+                container.innerHTML = "No day of week summary data available";
+                return;
+            }
             
-            // Only show days that have data (Tue, Thu, Sat)
+            let html = '';
             const validDays = ['tue', 'thu', 'sat'];
             
             for (const [day, numbers] of Object.entries(data)) {
-                // Skip days that don't have data
                 if (!validDays.includes(day)) continue;
                 
-                // Calculate total count for the day
                 const totalCount = numbers.reduce((sum, item) => sum + (item.count || 0), 0);
-                
-                // Skip days with no data
                 if (totalCount === 0) continue;
                 
                 html += `<div class="summary-section">
@@ -378,7 +392,6 @@
                     <div class="summary-grid">`;
                 
                 numbers.forEach(item => {
-                    // Calculate percentage if it's null
                     const percentage = item.percentage !== null ? item.percentage : 
                         totalCount > 0 ? ((item.count || 0) / totalCount * 100).toFixed(2) : 0;
                     
@@ -397,8 +410,12 @@
 
         function displayDayMonthSummary(data) {
             const container = document.getElementById('day-month-summary');
-            let html = '';
+            if (!data) {
+                container.innerHTML = "No day of month summary data available";
+                return;
+            }
             
+            let html = '';
             for (const [day, numbers] of Object.entries(data)) {
                 html += `<div class="summary-section">
                     <div class="summary-title">Day ${day}</div>
@@ -420,8 +437,12 @@
 
         function displayDateEvenOddSummary(data) {
             const container = document.getElementById('date-even-odd-summary');
-            let html = '';
+            if (!data) {
+                container.innerHTML = "No date even/odd summary data available";
+                return;
+            }
             
+            let html = '';
             for (const [type, numbers] of Object.entries(data)) {
                 html += `<div class="summary-section">
                     <div class="summary-title">${type.charAt(0).toUpperCase() + type.slice(1)} Dates</div>
@@ -455,43 +476,17 @@
         }
 
         // Load data when page loads
-        document.addEventListener('DOMContentLoaded', loadData);
-
-        function getNextLotteryDay() {
-            const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
-            const today = new Date();
-            const currentDay = days[today.getDay()];
-            
-            // If today is a lottery day, return today
-            if (['tue', 'thu', 'sat'].includes(currentDay)) {
-                return today;
-            }
-            
-            // Otherwise, find the next lottery day
-            let nextDay = new Date(today);
-            while (!['tue', 'thu', 'sat'].includes(days[nextDay.getDay()])) {
-                nextDay.setDate(nextDay.getDate() + 1);
-            }
-            return nextDay;
-        }
-
-        function updateNextDrawInfo() {
-            const nextDraw = getNextLotteryDay();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById('next-draw-date').textContent = nextDraw.toLocaleDateString('en-US', options);
-            
-            // Update current month, day, and date
-            document.getElementById('current-month').textContent = nextDraw.getMonth() + 1;
-            document.getElementById('current-day').textContent = nextDraw.toLocaleDateString('en-US', { weekday: 'long' });
-            document.getElementById('current-date').textContent = nextDraw.getDate();
-            document.getElementById('date-type').textContent = nextDraw.getDate() % 2 === 0 ? 'even' : 'odd';
-        }
-
-        // Call this when the page loads
         document.addEventListener('DOMContentLoaded', () => {
+            loadData();
             updateNextDrawInfo();
-            // Add event listeners for count inputs
+            
+            // Add event listeners for count inputs and checkboxes
             ['month-count', 'even-odd-count', 'day-week-count', 'day-month-count', 'exclude-count'].forEach(id => {
+                document.getElementById(id).addEventListener('change', updateSelectedNumbers);
+            });
+            
+            // Add event listeners for checkboxes
+            ['month-check', 'even-odd-check', 'day-week-check', 'day-month-check', 'exclude-recent-check'].forEach(id => {
                 document.getElementById(id).addEventListener('change', updateSelectedNumbers);
             });
         });
@@ -520,7 +515,7 @@
 
         function getTopNumbersFromMonth(month, count) {
             if (!window.lotteryData) return [];
-            const monthData = window.lotteryData.monthSummary[month.toString()];
+            const monthData = window.lotteryData.month[month.toString()];
             if (!monthData) return [];
             
             return monthData
@@ -531,7 +526,7 @@
 
         function getTopNumbersFromEvenOdd(dateType, count) {
             if (!window.lotteryData) return [];
-            const evenOddData = window.lotteryData.dateEvenOddSummary[dateType];
+            const evenOddData = window.lotteryData.evenOdd[dateType];
             if (!evenOddData) return [];
             
             return evenOddData
@@ -541,11 +536,11 @@
         }
 
         function getTopNumbersFromDayWeek(day, count) {
-            if (!window.lotteryData || !window.lotteryData.dayWeekSummary) return [];
+            if (!window.lotteryData || !window.lotteryData.dayOfWeek) return [];
             
             // Convert day to lowercase and get the first 3 letters (e.g., "sat" for "saturday")
             const dayKey = day.toLowerCase().substring(0, 3);
-            const dayData = window.lotteryData.dayWeekSummary[dayKey];
+            const dayData = window.lotteryData.dayOfWeek[dayKey];
             if (!dayData) return [];
             
             // Filter out items with null percentage and sort by percentage
@@ -558,7 +553,7 @@
 
         function getTopNumbersFromDayMonth(day, count) {
             if (!window.lotteryData) return [];
-            const dayData = window.lotteryData.dayMonthSummary[day.toString()];
+            const dayData = window.lotteryData.dayOfMonth[day.toString()];
             if (!dayData) return [];
             
             return dayData
@@ -665,6 +660,9 @@
                 }
             }
             
+            // Get group limit
+            const groupLimit = parseInt(document.getElementById('group-limit').value) || 2;
+            
             // Generate groups of 6 numbers
             const groups = [];
             const shuffledNumbers = [...finalNumbers];
@@ -675,8 +673,8 @@
                 [shuffledNumbers[i], shuffledNumbers[j]] = [shuffledNumbers[j], shuffledNumbers[i]];
             }
             
-            // Create groups of 6 numbers
-            for (let i = 0; i < shuffledNumbers.length; i += 6) {
+            // Create groups of 6 numbers up to the limit
+            for (let i = 0; i < shuffledNumbers.length && groups.length < groupLimit; i += 6) {
                 if (i + 6 <= shuffledNumbers.length) {
                     const group = shuffledNumbers.slice(i, i + 6).sort((a, b) => a - b);
                     groups.push(group);
@@ -700,7 +698,7 @@
                     <div class="result-group">
                         <h3>Group ${index + 1}</h3>
                         <div class="number-group">
-                            ${group.map(num => `<span>${num}</span>`).join('')}
+                            ${group.map(num => `<span>${String(num).padStart(2, '0')}</span>`).join('')}
                         </div>
                     </div>
                 `;
@@ -708,6 +706,36 @@
             html += '</div>';
             
             resultsDiv.innerHTML = html;
+        }
+
+        function getNextLotteryDay() {
+            const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+            const today = new Date();
+            const currentDay = days[today.getDay()];
+            
+            // If today is a lottery day, return today
+            if (['tue', 'thu', 'sat'].includes(currentDay)) {
+                return today;
+            }
+            
+            // Otherwise, find the next lottery day
+            let nextDay = new Date(today);
+            while (!['tue', 'thu', 'sat'].includes(days[nextDay.getDay()])) {
+                nextDay.setDate(nextDay.getDate() + 1);
+            }
+            return nextDay;
+        }
+
+        function updateNextDrawInfo() {
+            const nextDraw = getNextLotteryDay();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('next-draw-date').textContent = nextDraw.toLocaleDateString('en-US', options);
+            
+            // Update current month, day, and date
+            document.getElementById('current-month').textContent = nextDraw.getMonth() + 1;
+            document.getElementById('current-day').textContent = nextDraw.toLocaleDateString('en-US', { weekday: 'long' });
+            document.getElementById('current-date').textContent = nextDraw.getDate();
+            document.getElementById('date-type').textContent = nextDraw.getDate() % 2 === 0 ? 'even' : 'odd';
         }
     </script>
 </body>
