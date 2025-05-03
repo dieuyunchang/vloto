@@ -245,7 +245,7 @@
 
             <div class="form-check">
                 <label class="form-check-label">
-                    Generate up to <input type="number" id="group-limit" value="2" min="1" max="10" class="count-input"> groups
+                    Generate up to <input type="number" id="group-limit" value="2" min="1" max="20" class="count-input"> groups
                 </label>
             </div>
         </div>
@@ -662,23 +662,23 @@
             
             // Get group limit
             const groupLimit = parseInt(document.getElementById('group-limit').value) || 2;
+            console.log('Generating up to', groupLimit, 'groups');
             
             // Generate groups of 6 numbers
             const groups = [];
-            const shuffledNumbers = [...finalNumbers];
             
-            // Fisher-Yates shuffle
-            for (let i = shuffledNumbers.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [shuffledNumbers[i], shuffledNumbers[j]] = [shuffledNumbers[j], shuffledNumbers[i]];
-            }
-            
-            // Create groups of 6 numbers up to the limit
-            for (let i = 0; i < shuffledNumbers.length && groups.length < groupLimit; i += 6) {
-                if (i + 6 <= shuffledNumbers.length) {
-                    const group = shuffledNumbers.slice(i, i + 6).sort((a, b) => a - b);
-                    groups.push(group);
+            // Create multiple groups by shuffling the numbers each time
+            for (let i = 0; i < groupLimit; i++) {
+                // Create a new shuffled copy of the numbers for each group
+                const shuffledNumbers = [...finalNumbers];
+                for (let j = shuffledNumbers.length - 1; j > 0; j--) {
+                    const k = Math.floor(Math.random() * (j + 1));
+                    [shuffledNumbers[j], shuffledNumbers[k]] = [shuffledNumbers[k], shuffledNumbers[j]];
                 }
+                
+                // Take the first 6 numbers and sort them
+                const group = shuffledNumbers.slice(0, 6).sort((a, b) => a - b);
+                groups.push(group);
             }
             
             // Display the results
