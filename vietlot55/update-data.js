@@ -3,7 +3,13 @@ const path = require('path');
 const axios = require('axios');
 const cheerio = require('cheerio');
 
-const DATA_FILE = path.join(__dirname, 'vietlot55-data.json');
+// Create json-data directory if it doesn't exist
+const jsonDataDir = path.join(__dirname, 'json-data');
+if (!fs.existsSync(jsonDataDir)) {
+    fs.mkdirSync(jsonDataDir);
+}
+
+const DATA_FILE = path.join(jsonDataDir, 'vietlot55-data.json');
 const BASE_URL = 'https://www.ketquadientoan.com/tat-ca-ky-xo-so-power-655.html';
 
 async function fetchData() {
