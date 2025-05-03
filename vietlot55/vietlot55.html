@@ -149,6 +149,40 @@
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             gap: 10px;
         }
+        .next-draw-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .number-selection {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .selection-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .count-input {
+            width: 50px;
+            padding: 2px 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .selected-numbers {
+            margin-left: 25px;
+            margin-top: 5px;
+            font-style: italic;
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -160,6 +194,57 @@
     </nav>
 
     <h1>Vietlott Mega 6/55 Number Generator</h1>
+    
+    <div class="next-draw-info mb-3">
+        <h3>Next Draw: <span id="next-draw-date"></span></h3>
+    </div>
+
+    <div class="number-selection mb-3">
+        <h3>Number Selection Criteria</h3>
+        
+        <div class="selection-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="month-check" checked>
+                <label class="form-check-label" for="month-check">
+                    Include top <input type="number" id="month-count" value="3" min="1" max="10" class="count-input"> numbers from month <span id="current-month"></span>
+                </label>
+                <div class="selected-numbers" id="month-numbers"></div>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="even-odd-check" checked>
+                <label class="form-check-label" for="even-odd-check">
+                    Include top <input type="number" id="even-odd-count" value="3" min="1" max="10" class="count-input"> numbers from <span id="date-type"></span> dates
+                </label>
+                <div class="selected-numbers" id="even-odd-numbers"></div>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="day-week-check" checked>
+                <label class="form-check-label" for="day-week-check">
+                    Include top <input type="number" id="day-week-count" value="3" min="1" max="10" class="count-input"> numbers from <span id="current-day"></span>
+                </label>
+                <div class="selected-numbers" id="day-week-numbers"></div>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="day-month-check" checked>
+                <label class="form-check-label" for="day-month-check">
+                    Include top <input type="number" id="day-month-count" value="3" min="1" max="10" class="count-input"> numbers from day <span id="current-date"></span>
+                </label>
+                <div class="selected-numbers" id="day-month-numbers"></div>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="exclude-recent-check" checked>
+                <label class="form-check-label" for="exclude-recent-check">
+                    Exclude numbers from last <input type="number" id="exclude-count" value="2" min="1" max="5" class="count-input"> results
+                </label>
+                <div class="selected-numbers" id="excluded-numbers"></div>
+            </div>
+        </div>
+    </div>
+
     <button onclick="generateGroups()">Generate Numbers</button>
     
     <div id="last-draw"></div>
@@ -211,7 +296,10 @@
             try {
                 // Load main data
                 const mainResponse = await fetch('json-data/vietlot55-data.json');
-                window.lotteryData = await mainResponse.json();
+                const mainData = await mainResponse.json();
+                window.lotteryData = {
+                    draws: mainData
+                };
                 initializePage();
 
                 // Load summary data
@@ -225,11 +313,20 @@
                 const dayMonthData = await dayMonthResponse.json();
                 const dateEvenOddData = await dateEvenOddResponse.json();
 
+                // Add summary data to lotteryData
+                window.lotteryData.monthSummary = monthData;
+                window.lotteryData.dayWeekSummary = dayWeekData;
+                window.lotteryData.dayMonthSummary = dayMonthData;
+                window.lotteryData.dateEvenOddSummary = dateEvenOddData;
+
                 // Display summaries
                 displayMonthSummary(monthData);
                 displayDayWeekSummary(dayWeekData);
                 displayDayMonthSummary(dayMonthData);
                 displayDateEvenOddSummary(dateEvenOddData);
+
+                // Update selected numbers
+                updateSelectedNumbers();
             } catch (error) {
                 console.error('Error loading data:', error);
                 document.getElementById("summary").innerHTML = "Error loading data. Please try again later.";
@@ -359,6 +456,259 @@
 
         // Load data when page loads
         document.addEventListener('DOMContentLoaded', loadData);
+
+        function getNextLotteryDay() {
+            const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+            const today = new Date();
+            const currentDay = days[today.getDay()];
+            
+            // If today is a lottery day, return today
+            if (['tue', 'thu', 'sat'].includes(currentDay)) {
+                return today;
+            }
+            
+            // Otherwise, find the next lottery day
+            let nextDay = new Date(today);
+            while (!['tue', 'thu', 'sat'].includes(days[nextDay.getDay()])) {
+                nextDay.setDate(nextDay.getDate() + 1);
+            }
+            return nextDay;
+        }
+
+        function updateNextDrawInfo() {
+            const nextDraw = getNextLotteryDay();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('next-draw-date').textContent = nextDraw.toLocaleDateString('en-US', options);
+            
+            // Update current month, day, and date
+            document.getElementById('current-month').textContent = nextDraw.getMonth() + 1;
+            document.getElementById('current-day').textContent = nextDraw.toLocaleDateString('en-US', { weekday: 'long' });
+            document.getElementById('current-date').textContent = nextDraw.getDate();
+            document.getElementById('date-type').textContent = nextDraw.getDate() % 2 === 0 ? 'even' : 'odd';
+        }
+
+        // Call this when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            updateNextDrawInfo();
+            // Add event listeners for count inputs
+            ['month-count', 'even-odd-count', 'day-week-count', 'day-month-count', 'exclude-count'].forEach(id => {
+                document.getElementById(id).addEventListener('change', updateSelectedNumbers);
+            });
+        });
+
+        function updateSelectedNumbers() {
+            const nextDraw = getNextLotteryDay();
+            const month = nextDraw.getMonth() + 1;
+            const dayOfWeek = nextDraw.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+            const dayOfMonth = nextDraw.getDate();
+            const dateType = dayOfMonth % 2 === 0 ? 'even' : 'odd';
+
+            // Get top numbers from each category
+            const monthNumbers = getTopNumbersFromMonth(month, parseInt(document.getElementById('month-count').value));
+            const evenOddNumbers = getTopNumbersFromEvenOdd(dateType, parseInt(document.getElementById('even-odd-count').value));
+            const dayWeekNumbers = getTopNumbersFromDayWeek(dayOfWeek, parseInt(document.getElementById('day-week-count').value));
+            const dayMonthNumbers = getTopNumbersFromDayMonth(dayOfMonth, parseInt(document.getElementById('day-month-count').value));
+            const excludedNumbers = getExcludedNumbers(parseInt(document.getElementById('exclude-count').value));
+
+            // Update the display
+            updateNumberDisplay('month-numbers', monthNumbers);
+            updateNumberDisplay('even-odd-numbers', evenOddNumbers);
+            updateNumberDisplay('day-week-numbers', dayWeekNumbers);
+            updateNumberDisplay('day-month-numbers', dayMonthNumbers);
+            updateNumberDisplay('excluded-numbers', excludedNumbers);
+        }
+
+        function getTopNumbersFromMonth(month, count) {
+            if (!window.lotteryData) return [];
+            const monthData = window.lotteryData.monthSummary[month.toString()];
+            if (!monthData) return [];
+            
+            return monthData
+                .sort((a, b) => b.percentage - a.percentage)
+                .slice(0, count)
+                .map(item => item.number);
+        }
+
+        function getTopNumbersFromEvenOdd(dateType, count) {
+            if (!window.lotteryData) return [];
+            const evenOddData = window.lotteryData.dateEvenOddSummary[dateType];
+            if (!evenOddData) return [];
+            
+            return evenOddData
+                .sort((a, b) => b.percentage - a.percentage)
+                .slice(0, count)
+                .map(item => item.number);
+        }
+
+        function getTopNumbersFromDayWeek(day, count) {
+            if (!window.lotteryData || !window.lotteryData.dayWeekSummary) return [];
+            
+            // Convert day to lowercase and get the first 3 letters (e.g., "sat" for "saturday")
+            const dayKey = day.toLowerCase().substring(0, 3);
+            const dayData = window.lotteryData.dayWeekSummary[dayKey];
+            if (!dayData) return [];
+            
+            // Filter out items with null percentage and sort by percentage
+            return dayData
+                .filter(item => item.percentage !== null)
+                .sort((a, b) => b.percentage - a.percentage)
+                .slice(0, count)
+                .map(item => item.number);
+        }
+
+        function getTopNumbersFromDayMonth(day, count) {
+            if (!window.lotteryData) return [];
+            const dayData = window.lotteryData.dayMonthSummary[day.toString()];
+            if (!dayData) return [];
+            
+            return dayData
+                .sort((a, b) => b.percentage - a.percentage)
+                .slice(0, count)
+                .map(item => item.number);
+        }
+
+        function getExcludedNumbers(count) {
+            if (!window.lotteryData || !window.lotteryData.draws) return [];
+            
+            // Get the first 'count' draws (since data is already sorted with latest first)
+            const recentDraws = window.lotteryData.draws.slice(0, count);
+            // Extract all numbers and remove duplicates
+            const excludedNumbers = new Set();
+            recentDraws.forEach(draw => {
+                if (draw.numbers) {
+                    // Split the numbers string and convert to numbers
+                    const numbers = draw.numbers.split(' ').map(num => parseInt(num));
+                    numbers.forEach(num => {
+                        if (!isNaN(num)) excludedNumbers.add(num);
+                    });
+                }
+            });
+            return Array.from(excludedNumbers).sort((a, b) => a - b);
+        }
+
+        function updateNumberDisplay(elementId, numbers) {
+            const element = document.getElementById(elementId);
+            if (numbers.length === 0) {
+                element.textContent = 'No numbers available';
+                return;
+            }
+            element.textContent = `Numbers: ${numbers.join(', ')}`;
+        }
+
+        function generateGroups() {
+            // Get all selected numbers from checked categories
+            const includedNumbers = new Set();
+            
+            // Add numbers from checked categories
+            if (document.getElementById('month-check').checked) {
+                const monthNumbers = getTopNumbersFromMonth(
+                    getNextLotteryDay().getMonth() + 1,
+                    parseInt(document.getElementById('month-count').value)
+                );
+                monthNumbers.forEach(num => includedNumbers.add(num));
+            }
+            
+            if (document.getElementById('even-odd-check').checked) {
+                const dateType = getNextLotteryDay().getDate() % 2 === 0 ? 'even' : 'odd';
+                const evenOddNumbers = getTopNumbersFromEvenOdd(
+                    dateType,
+                    parseInt(document.getElementById('even-odd-count').value)
+                );
+                evenOddNumbers.forEach(num => includedNumbers.add(num));
+            }
+            
+            if (document.getElementById('day-week-check').checked) {
+                const dayOfWeek = getNextLotteryDay().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+                const dayWeekNumbers = getTopNumbersFromDayWeek(
+                    dayOfWeek,
+                    parseInt(document.getElementById('day-week-count').value)
+                );
+                dayWeekNumbers.forEach(num => includedNumbers.add(num));
+            }
+            
+            if (document.getElementById('day-month-check').checked) {
+                const dayOfMonth = getNextLotteryDay().getDate();
+                const dayMonthNumbers = getTopNumbersFromDayMonth(
+                    dayOfMonth,
+                    parseInt(document.getElementById('day-month-count').value)
+                );
+                dayMonthNumbers.forEach(num => includedNumbers.add(num));
+            }
+            
+            // Get excluded numbers
+            const excludedNumbers = new Set();
+            if (document.getElementById('exclude-recent-check').checked) {
+                const recentNumbers = getExcludedNumbers(parseInt(document.getElementById('exclude-count').value));
+                recentNumbers.forEach(num => excludedNumbers.add(num));
+            }
+            
+            // Remove excluded numbers from included numbers
+            const finalNumbers = Array.from(includedNumbers).filter(num => !excludedNumbers.has(num));
+            
+            // If we have less than 6 numbers, add random numbers from 1-55 (excluding excluded numbers)
+            if (finalNumbers.length < 6) {
+                const allNumbers = Array.from({length: 55}, (_, i) => i + 1);
+                const availableNumbers = allNumbers.filter(num => !excludedNumbers.has(num));
+                
+                // Shuffle available numbers
+                for (let i = availableNumbers.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [availableNumbers[i], availableNumbers[j]] = [availableNumbers[j], availableNumbers[i]];
+                }
+                
+                // Add random numbers until we have 6
+                while (finalNumbers.length < 6 && availableNumbers.length > 0) {
+                    const randomNum = availableNumbers.pop();
+                    if (!finalNumbers.includes(randomNum)) {
+                        finalNumbers.push(randomNum);
+                    }
+                }
+            }
+            
+            // Generate groups of 6 numbers
+            const groups = [];
+            const shuffledNumbers = [...finalNumbers];
+            
+            // Fisher-Yates shuffle
+            for (let i = shuffledNumbers.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledNumbers[i], shuffledNumbers[j]] = [shuffledNumbers[j], shuffledNumbers[i]];
+            }
+            
+            // Create groups of 6 numbers
+            for (let i = 0; i < shuffledNumbers.length; i += 6) {
+                if (i + 6 <= shuffledNumbers.length) {
+                    const group = shuffledNumbers.slice(i, i + 6).sort((a, b) => a - b);
+                    groups.push(group);
+                }
+            }
+            
+            // Display the results
+            displayResults(groups);
+        }
+
+        function displayResults(groups) {
+            const resultsDiv = document.getElementById('results');
+            if (groups.length === 0) {
+                resultsDiv.innerHTML = '<p>No groups could be generated with the current criteria.</p>';
+                return;
+            }
+            
+            let html = '<div class="results-container">';
+            groups.forEach((group, index) => {
+                html += `
+                    <div class="result-group">
+                        <h3>Group ${index + 1}</h3>
+                        <div class="number-group">
+                            ${group.map(num => `<span>${num}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            resultsDiv.innerHTML = html;
+        }
     </script>
 </body>
 </html>
