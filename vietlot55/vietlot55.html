@@ -113,21 +113,21 @@
             background-color: #bee5eb;  /* Medium blue */
         }
         .frequency-medium-high {
-            background-color: #ffc107;  /* Amber */
+            background-color: #ffdf81;  /* Amber */
             color: #000;
         }
         .frequency-medium-high .percentage {
             color: #000;
         }
         .frequency-high {
-            background-color: #fd7e14;  /* Orange */
+            background-color: #ec9954;  /* Orange */
             color: white;
         }
         .frequency-high .percentage {
             color: #fff;
         }
         .frequency-very-high {
-            background-color: #dc3545;  /* Red */
+            background-color: #e85765;  /* Red */
             color: white;
         }
         .frequency-very-high .percentage {
@@ -283,6 +283,22 @@
         <h3>Number Selection Criteria</h3>
         
         <div class="selection-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="day-week-check" checked>
+            <label class="form-check-label" for="day-week-check">
+                Include top <input type="number" id="day-week-count" value="3" min="1" max="10" class="count-input"> numbers from <span id="current-day"></span>
+            </label>
+            <div class="selected-numbers" id="day-week-numbers"></div>
+        </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="day-month-check" checked>
+                <label class="form-check-label" for="day-month-check">
+                    Include top <input type="number" id="day-month-count" value="3" min="1" max="10" class="count-input"> numbers from day <span id="current-date"></span>
+                </label>
+                <div class="selected-numbers" id="day-month-numbers"></div>
+            </div>
+
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="month-check" checked>
                 <label class="form-check-label" for="month-check">
@@ -297,22 +313,6 @@
                     Include top <input type="number" id="even-odd-count" value="3" min="1" max="10" class="count-input"> numbers from <span id="date-type"></span> dates
                 </label>
                 <div class="selected-numbers" id="even-odd-numbers"></div>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="day-week-check" checked>
-                <label class="form-check-label" for="day-week-check">
-                    Include top <input type="number" id="day-week-count" value="3" min="1" max="10" class="count-input"> numbers from <span id="current-day"></span>
-                </label>
-                <div class="selected-numbers" id="day-week-numbers"></div>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="day-month-check" checked>
-                <label class="form-check-label" for="day-month-check">
-                    Include top <input type="number" id="day-month-count" value="3" min="1" max="10" class="count-input"> numbers from day <span id="current-date"></span>
-                </label>
-                <div class="selected-numbers" id="day-month-numbers"></div>
             </div>
 
             <div class="form-check">
