@@ -225,6 +225,11 @@
             background-color: #fff3cd !important;
             color: #856404;
         }
+
+        .couple-number {
+            background-color: #fff3cd !important;
+            color: #856404;
+        }
         
         .result-group .number-group span {
             padding: 8px 12px;
@@ -313,6 +318,14 @@
                     Include top <input type="number" id="even-odd-count" value="3" min="1" max="10" class="count-input"> numbers from <span id="date-type"></span> dates
                 </label>
                 <div class="selected-numbers" id="even-odd-numbers"></div>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="include-highest-couple-check">
+                <label class="form-check-label" for="include-highest-couple-check">
+                    Include top <input type="number" id="highest-couple-count" value="3" min="1" max="10" class="count-input"> highest couple numbers
+                </label>
+                <div class="selected-numbers" id="highest-couple-numbers"></div>
             </div>
 
             <div class="form-check">
@@ -577,12 +590,12 @@
             initializeCustomNumbers();
             
             // Add event listeners for count inputs and checkboxes
-            ['month-count', 'even-odd-count', 'day-week-count', 'day-month-count', 'exclude-count'].forEach(id => {
+            ['month-count', 'even-odd-count', 'day-week-count', 'day-month-count', 'exclude-count', 'highest-couple-count'].forEach(id => {
                 document.getElementById(id).addEventListener('change', updateSelectedNumbers);
             });
             
             // Add event listeners for checkboxes
-            ['month-check', 'even-odd-check', 'day-week-check', 'day-month-check', 'exclude-recent-check'].forEach(id => {
+            ['month-check', 'even-odd-check', 'day-week-check', 'day-month-check', 'exclude-recent-check', 'include-highest-couple-check'].forEach(id => {
                 document.getElementById(id).addEventListener('change', updateSelectedNumbers);
             });
 
@@ -616,6 +629,7 @@
         }
 
         function updateSelectedNumbers() {
+            console.log('Updating selected numbers...');
             const nextDraw = getNextLotteryDay();
             const month = nextDraw.getMonth() + 1;
             const dayOfWeek = nextDraw.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
@@ -629,12 +643,38 @@
             const dayMonthNumbers = getTopNumbersFromDayMonth(dayOfMonth, parseInt(document.getElementById('day-month-count').value));
             const excludedNumbers = getExcludedNumbers(parseInt(document.getElementById('exclude-count').value));
 
+            console.log('Numbers from categories:');
+            console.log('Month:', monthNumbers);
+            console.log('Even/Odd:', evenOddNumbers);
+            console.log('Day of week:', dayWeekNumbers);
+            console.log('Day of month:', dayMonthNumbers);
+            console.log('Excluded:', excludedNumbers);
+
             // Update the display
             updateNumberDisplay('month-numbers', monthNumbers);
             updateNumberDisplay('even-odd-numbers', evenOddNumbers);
             updateNumberDisplay('day-week-numbers', dayWeekNumbers);
             updateNumberDisplay('day-month-numbers', dayMonthNumbers);
             updateNumberDisplay('excluded-numbers', excludedNumbers);
+
+            // Calculate and display highest couple numbers if option is checked
+            if (document.getElementById('include-highest-couple-check').checked) {
+                console.log('Calculating highest couple numbers...');
+                const highestCoupleNumbers = getHighestCoupleNumbers(
+                    monthNumbers,
+                    evenOddNumbers,
+                    dayWeekNumbers,
+                    dayMonthNumbers,
+                    parseInt(document.getElementById('highest-couple-count').value)
+                );
+                console.log('Highest couple numbers:', highestCoupleNumbers);
+                updateNumberDisplay('highest-couple-numbers', highestCoupleNumbers);
+            } else {
+                console.log('Highest couple numbers option not checked');
+                document.getElementById('highest-couple-numbers').textContent = '';
+            }
+
+            updateCustomNumbersState();
         }
 
         function getTopNumbersFromMonth(month, count) {
@@ -707,11 +747,20 @@
 
         function updateNumberDisplay(elementId, numbers) {
             const element = document.getElementById(elementId);
-            if (numbers.length === 0) {
+            if (!numbers || numbers.length === 0) {
                 element.textContent = 'No numbers available';
                 return;
             }
-            element.textContent = `Numbers: ${numbers.join(', ')}`;
+
+            if (elementId === 'highest-couple-numbers') {
+                // Special formatting for highest couple numbers
+                const formattedNumbers = numbers.map(item => {
+                    return `<span>${String(item.number).padStart(2, '0')} - <span class="couple-number">${String(item.couple).padStart(2, '0')}</span></span>`;
+                }).join(', ');
+                element.innerHTML = `Numbers: ${formattedNumbers}`;
+            } else {
+                element.textContent = `Numbers: ${numbers.join(', ')}`;
+            }
         }
 
         function generateGroups() {
@@ -752,6 +801,18 @@
                     parseInt(document.getElementById('day-month-count').value)
                 );
                 dayMonthNumbers.forEach(num => includedNumbers.add(num));
+            }
+            
+            // Add couple numbers if option is checked
+            if (document.getElementById('include-highest-couple-check').checked) {
+                const highestCoupleNumbers = getHighestCoupleNumbers(
+                    Array.from(includedNumbers),
+                    [],
+                    [],
+                    [],
+                    parseInt(document.getElementById('highest-couple-count').value)
+                );
+                highestCoupleNumbers.forEach(item => includedNumbers.add(item.couple));
             }
             
             // Add custom numbers if selected
@@ -855,6 +916,7 @@
             // Get all selected numbers from checked categories
             const selectedNumbers = new Set();
             const customNumbers = new Set();
+            const coupleNumbers = new Set();
             
             if (document.getElementById('month-check').checked) {
                 const monthNumbers = getTopNumbersFromMonth(
@@ -901,6 +963,18 @@
                 }
             }
             
+            // Get couple numbers if selected
+            if (document.getElementById('include-highest-couple-check').checked) {
+                const highestCoupleNumbers = getHighestCoupleNumbers(
+                    Array.from(selectedNumbers),
+                    [],
+                    [],
+                    [],
+                    parseInt(document.getElementById('highest-couple-count').value)
+                );
+                highestCoupleNumbers.forEach(item => coupleNumbers.add(item.couple));
+            }
+            
             let html = '<div class="results-container">';
             groups.forEach((group, index) => {
                 html += `
@@ -913,6 +987,8 @@
                                     className = 'selected-number';
                                 } else if (customNumbers.has(num)) {
                                     className = 'custom-number';
+                                } else if (coupleNumbers.has(num)) {
+                                    className = 'couple-number';
                                 }
                                 return `<span class="${className}">${String(num).padStart(2, '0')}</span>`;
                             }).join('')}
@@ -959,6 +1035,7 @@
             // Get all selected numbers from other categories
             const selectedNumbers = new Set();
             const excludedNumbers = new Set();
+            const coupleNumbers = new Set();
             
             if (document.getElementById('month-check').checked) {
                 const monthNumbers = getTopNumbersFromMonth(
@@ -1000,6 +1077,18 @@
                 recentNumbers.forEach(num => excludedNumbers.add(num));
             }
             
+            // Get couple numbers if option is checked
+            if (document.getElementById('include-highest-couple-check').checked) {
+                const highestCoupleNumbers = getHighestCoupleNumbers(
+                    Array.from(selectedNumbers),
+                    [],
+                    [],
+                    [],
+                    parseInt(document.getElementById('highest-couple-count').value)
+                );
+                highestCoupleNumbers.forEach(item => coupleNumbers.add(item.couple));
+            }
+            
             // Update checkboxes state
             for (let i = 1; i <= 55; i++) {
                 const checkbox = document.getElementById(`custom-num-${i}`);
@@ -1013,11 +1102,148 @@
                     checkbox.disabled = true;
                     checkbox.checked = false;
                     label.style.color = '#dc3545';
+                } else if (coupleNumbers.has(i)) {
+                    checkbox.disabled = true;
+                    checkbox.checked = true;
+                    label.style.color = '#856404';
                 } else {
                     checkbox.disabled = false;
                     label.style.color = '';
                 }
             }
+        }
+
+        function getHighestCoupleNumbers(monthNumbers, evenOddNumbers, dayWeekNumbers, dayMonthNumbers, count) {
+            console.log('Getting highest couple numbers with:');
+            console.log('Month numbers:', monthNumbers);
+            console.log('Even/Odd numbers:', evenOddNumbers);
+            console.log('Day of week numbers:', dayWeekNumbers);
+            console.log('Day of month numbers:', dayMonthNumbers);
+            console.log('Count:', count);
+            
+            // Combine all selected numbers
+            const allNumbers = [...monthNumbers, ...evenOddNumbers, ...dayWeekNumbers, ...dayMonthNumbers];
+            console.log('All combined numbers:', allNumbers);
+            
+            // Count frequency of each number
+            const frequencyMap = new Map();
+            allNumbers.forEach(num => {
+                frequencyMap.set(num, (frequencyMap.get(num) || 0) + 1);
+            });
+            console.log('Frequency map:', Object.fromEntries(frequencyMap));
+            
+            // Sort by frequency and get top N numbers
+            const topNumbers = Array.from(frequencyMap.entries())
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, count)
+                .map(([num]) => num);
+            console.log('Top numbers:', topNumbers);
+            
+            // Find couples for each top number
+            const couples = [];
+            for (const num of topNumbers) {
+                console.log(`Finding couple for number ${num}`);
+                const couple = findCoupleForNumber(num);
+                if (couple) {
+                    console.log(`Found couple ${couple} for number ${num}`);
+                    couples.push({ number: num, couple: couple });
+                } else {
+                    console.log(`No couple found for number ${num}`);
+                }
+            }
+            console.log('Final couples:', couples);
+            
+            return couples;
+        }
+
+        function findCoupleForNumber(targetNumber) {
+            if (!window.lotteryData || !window.lotteryData.draws) {
+                console.log('No lottery data available');
+                return null;
+            }
+            
+            console.log(`Finding couple for target number ${targetNumber}`);
+            
+            // Count frequency of numbers appearing with targetNumber
+            const coupleFrequency = new Map();
+            
+            for (const draw of window.lotteryData.draws) {
+                const numbers = draw.numbers.split(' ').map(num => parseInt(num));
+                if (numbers.includes(targetNumber)) {
+                    console.log(`Found target number ${targetNumber} in draw:`, numbers);
+                    numbers.forEach(num => {
+                        if (num !== targetNumber) {
+                            coupleFrequency.set(num, (coupleFrequency.get(num) || 0) + 1);
+                        }
+                    });
+                }
+            }
+            
+            console.log('Couple frequency map:', Object.fromEntries(coupleFrequency));
+            
+            if (coupleFrequency.size === 0) {
+                console.log('No couples found for target number');
+                return null;
+            }
+            
+            // Get all selected numbers from other categories
+            const selectedNumbers = new Set();
+            if (document.getElementById('month-check').checked) {
+                const monthNumbers = getTopNumbersFromMonth(
+                    getNextLotteryDay().getMonth() + 1,
+                    parseInt(document.getElementById('month-count').value)
+                );
+                monthNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            if (document.getElementById('even-odd-check').checked) {
+                const dateType = getNextLotteryDay().getDate() % 2 === 0 ? 'even' : 'odd';
+                const evenOddNumbers = getTopNumbersFromEvenOdd(
+                    dateType,
+                    parseInt(document.getElementById('even-odd-count').value)
+                );
+                evenOddNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            if (document.getElementById('day-week-check').checked) {
+                const dayOfWeek = getNextLotteryDay().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+                const dayWeekNumbers = getTopNumbersFromDayWeek(
+                    dayOfWeek,
+                    parseInt(document.getElementById('day-week-count').value)
+                );
+                dayWeekNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            if (document.getElementById('day-month-check').checked) {
+                const dayOfMonth = getNextLotteryDay().getDate();
+                const dayMonthNumbers = getTopNumbersFromDayMonth(
+                    dayOfMonth,
+                    parseInt(document.getElementById('day-month-count').value)
+                );
+                dayMonthNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            
+            console.log('Selected numbers from other categories:', Array.from(selectedNumbers));
+            
+            // Find the best couple
+            let bestCouple = null;
+            let maxFrequency = 0;
+            let maxSelectedCount = 0;
+            
+            for (const [num, frequency] of coupleFrequency.entries()) {
+                const isSelected = selectedNumbers.has(num);
+                const selectedCount = isSelected ? frequency : 0;
+                
+                console.log(`Evaluating number ${num}: frequency=${frequency}, isSelected=${isSelected}, selectedCount=${selectedCount}`);
+                
+                if (frequency > maxFrequency || 
+                    (frequency === maxFrequency && selectedCount > maxSelectedCount)) {
+                    bestCouple = num;
+                    maxFrequency = frequency;
+                    maxSelectedCount = selectedCount;
+                    console.log(`New best couple: ${num} with frequency=${frequency}, selectedCount=${selectedCount}`);
+                }
+            }
+            
+            console.log(`Final best couple for ${targetNumber}: ${bestCouple}`);
+            return bestCouple;
         }
     </script>
 </body>
