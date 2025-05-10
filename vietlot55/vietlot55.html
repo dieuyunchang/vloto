@@ -60,6 +60,9 @@
             background-color: #f8f9fa;
             border-radius: 8px;
         }
+        .last-draw .number-group span:last-child {
+          background-color: #f3d44e;
+        }
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -435,17 +438,11 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="even-odd-balance-check">
+                <input class="form-check-input" type="checkbox" id="even-odd-balance-check" checked>
                 <label class="form-check-label" for="even-odd-balance-check">
                     Generate groups with 3 even and 3 odd numbers
                 </label>
             </div>
-
-            <div class="form-check">
-              <label class="form-check-label">
-                  Generate up to <input type="number" id="group-limit" value="5" min="1" max="999" class="count-input"> groups
-              </label>
-          </div>
         </div>
     </div>
 
@@ -472,7 +469,12 @@
     </div>
 
     <div class="action-button">
-      <button onclick="generateGroups()">Generate Numbers</button>
+        <div class="d-flex align-items-center justify-content-center gap-3 mb-3">
+            <label class="form-check-label">
+                Generate up to <input type="number" id="group-limit" value="5" min="1" max="999" class="count-input"> groups
+            </label>
+            <button onclick="generateGroups()">Generate Numbers</button>
+        </div>
     </div>
     
     <div id="results"></div>
@@ -1117,7 +1119,8 @@
                                 } else {
                                     className = 'custom-number';
                                 }
-                                return `<span class="${className}">${String(num).padStart(2, '0')}</span>`;
+                                const isEven = num % 2 === 0;
+                                return `<span class="${className}">${isEven ? '<u>' : ''}${String(num).padStart(2, '0')}${isEven ? '</u>' : ''}</span>`;
                             }).join('')}
                         </div>
                     </div>
