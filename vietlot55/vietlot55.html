@@ -407,7 +407,13 @@
                 </div>
             </div>
 
-            
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="even-odd-balance-check">
+                <label class="form-check-label" for="even-odd-balance-check">
+                    Generate groups with 3 even and 3 odd numbers
+                </label>
+            </div>
+
             <div class="form-check">
               <label class="form-check-label">
                   Generate up to <input type="number" id="group-limit" value="5" min="1" max="999" class="count-input"> groups
@@ -917,7 +923,16 @@
             // If we have exactly 6 numbers, we can only generate 1 group
             if (finalNumbers.length === 6) {
                 const group = finalNumbers.sort((a, b) => a - b);
-                displayResults([group]);
+                if (document.getElementById('even-odd-balance-check').checked) {
+                    const evenCount = group.filter(num => num % 2 === 0).length;
+                    if (evenCount === 3) {
+                        displayResults([group]);
+                    } else {
+                        displayResults([]);
+                    }
+                } else {
+                    displayResults([group]);
+                }
                 return;
             }
             
@@ -927,7 +942,15 @@
                 // Generate all possible combinations of 6 numbers
                 const generateCombinations = (arr, size, start, current, result) => {
                     if (current.length === size) {
-                        result.push([...current].sort((a, b) => a - b));
+                        const group = [...current].sort((a, b) => a - b);
+                        if (document.getElementById('even-odd-balance-check').checked) {
+                            const evenCount = group.filter(num => num % 2 === 0).length;
+                            if (evenCount === 3) {
+                                result.push(group);
+                            }
+                        } else {
+                            result.push(group);
+                        }
                         return;
                     }
                     for (let i = start; i < arr.length; i++) {
@@ -965,7 +988,14 @@
                 const generateCombinations = (base, available, size, start, current, result) => {
                     if (current.length === size) {
                         const group = [...base, ...current].sort((a, b) => a - b);
-                        result.push(group);
+                        if (document.getElementById('even-odd-balance-check').checked) {
+                            const evenCount = group.filter(num => num % 2 === 0).length;
+                            if (evenCount === 3) {
+                                result.push(group);
+                            }
+                        } else {
+                            result.push(group);
+                        }
                         return;
                     }
                     for (let i = start; i < available.length; i++) {
