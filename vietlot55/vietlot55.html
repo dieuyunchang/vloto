@@ -815,6 +815,13 @@
                 highestCoupleNumbers.forEach(item => includedNumbers.add(item.couple));
             }
             
+            // Get excluded numbers
+            const excludedNumbers = new Set();
+            if (document.getElementById('exclude-recent-check').checked) {
+                const recentNumbers = getExcludedNumbers(parseInt(document.getElementById('exclude-count').value));
+                recentNumbers.forEach(num => excludedNumbers.add(num));
+            }
+            
             // Add custom numbers if selected
             if (document.getElementById('custom-numbers-check').checked) {
                 for (let i = 1; i <= 55; i++) {
@@ -823,13 +830,6 @@
                         includedNumbers.add(i);
                     }
                 }
-            }
-            
-            // Get excluded numbers
-            const excludedNumbers = new Set();
-            if (document.getElementById('exclude-recent-check').checked) {
-                const recentNumbers = getExcludedNumbers(parseInt(document.getElementById('exclude-count').value));
-                recentNumbers.forEach(num => excludedNumbers.add(num));
             }
             
             // Remove excluded numbers from included numbers
@@ -1099,8 +1099,8 @@
                     checkbox.checked = true;
                     label.style.color = '#007bff';
                 } else if (excludedNumbers.has(i)) {
-                    checkbox.disabled = true;
-                    checkbox.checked = false;
+                    // checkbox.disabled = true;
+                    checkbox.checked = false; 
                     label.style.color = '#dc3545';
                 } else if (coupleNumbers.has(i)) {
                     checkbox.disabled = true;
