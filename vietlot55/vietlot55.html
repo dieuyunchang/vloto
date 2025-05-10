@@ -1119,16 +1119,17 @@
                     checkbox.disabled = true;
                     checkbox.checked = true;
                     label.style.color = '#007bff';
-                } else if (excludedNumbers.has(i)) {
-                    checkbox.checked = false; 
-                    label.style.color = '#dc3545';
                 } else if (coupleNumbers.has(i)) {
                     checkbox.disabled = true;
                     checkbox.checked = true;
                     label.style.color = '#856404';
                 } else {
                     checkbox.disabled = false;
-                    label.style.color = '';
+                    if (excludedNumbers.has(i)) {
+                        label.style.color = '#dc3545';
+                    } else {
+                        label.style.color = '';
+                    }
                 }
             }
         }
