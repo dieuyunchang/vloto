@@ -268,6 +268,63 @@
         .custom-number-checkbox:disabled[data-excluded="true"] + label {
             color: #dc3545;
         }
+
+        .selected-numbers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .selected-numbers-group {
+            padding: 10px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .selected-numbers-group h4 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .number-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .number-list span {
+            padding: 5px 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .number-list .selected-number {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+        
+        .number-list .custom-number {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .number-list .couple-number {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .number-list .excluded-number {
+            background-color: #f8d7da;
+            color: #721c24;
+            text-decoration: line-through;
+        }
     </style>
 </head>
 <body>
@@ -357,6 +414,29 @@
           </div>
         </div>
     </div>
+
+    <div class="number-selection mb-3">
+        <h3>Numbers for Group Generation</h3>
+        <div class="selected-numbers-container">
+            <div class="selected-numbers-group">
+                <h4>Selected Numbers</h4>
+                <div id="selected-numbers-list" class="number-list"></div>
+            </div>
+            <div class="selected-numbers-group">
+                <h4>Custom Numbers</h4>
+                <div id="custom-numbers-list" class="number-list"></div>
+            </div>
+            <div class="selected-numbers-group">
+                <h4>Couple Numbers</h4>
+                <div id="couple-numbers-list" class="number-list"></div>
+            </div>
+            <div class="selected-numbers-group">
+                <h4>Excluded Numbers</h4>
+                <div id="excluded-numbers-list" class="number-list"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="action-button">
       <button onclick="generateGroups()">Generate Numbers</button>
     </div>
@@ -604,6 +684,7 @@
                 const container = document.getElementById('custom-numbers-container');
                 container.style.display = this.checked ? 'block' : 'none';
                 updateCustomNumbersState();
+                updateSelectedNumbers();
             });
         });
 
@@ -617,6 +698,7 @@
                 checkbox.type = 'checkbox';
                 checkbox.id = `custom-num-${i}`;
                 checkbox.className = 'custom-number-checkbox';
+                checkbox.addEventListener('change', updateSelectedNumbers);
                 
                 const label = document.createElement('label');
                 label.htmlFor = `custom-num-${i}`;
@@ -636,43 +718,65 @@
             const dayOfMonth = nextDraw.getDate();
             const dateType = dayOfMonth % 2 === 0 ? 'even' : 'odd';
 
-            // Get top numbers from each category
-            const monthNumbers = getTopNumbersFromMonth(month, parseInt(document.getElementById('month-count').value));
-            const evenOddNumbers = getTopNumbersFromEvenOdd(dateType, parseInt(document.getElementById('even-odd-count').value));
-            const dayWeekNumbers = getTopNumbersFromDayWeek(dayOfWeek, parseInt(document.getElementById('day-week-count').value));
-            const dayMonthNumbers = getTopNumbersFromDayMonth(dayOfMonth, parseInt(document.getElementById('day-month-count').value));
-            const excludedNumbers = getExcludedNumbers(parseInt(document.getElementById('exclude-count').value));
+            // Get top numbers from each category and store in window variables
+            window.monthNumbers = document.getElementById('month-check').checked ? 
+                getTopNumbersFromMonth(month, parseInt(document.getElementById('month-count').value)) : [];
+            
+            window.evenOddNumbers = document.getElementById('even-odd-check').checked ? 
+                getTopNumbersFromEvenOdd(dateType, parseInt(document.getElementById('even-odd-count').value)) : [];
+            
+            window.dayWeekNumbers = document.getElementById('day-week-check').checked ? 
+                getTopNumbersFromDayWeek(dayOfWeek, parseInt(document.getElementById('day-week-count').value)) : [];
+            
+            window.dayMonthNumbers = document.getElementById('day-month-check').checked ? 
+                getTopNumbersFromDayMonth(dayOfMonth, parseInt(document.getElementById('day-month-count').value)) : [];
+            
+            // Get excluded numbers only if the checkbox is checked
+            window.excludedNumbers = document.getElementById('exclude-recent-check').checked ? 
+                getExcludedNumbers(parseInt(document.getElementById('exclude-count').value)) : [];
 
-            console.log('Numbers from categories:');
-            console.log('Month:', monthNumbers);
-            console.log('Even/Odd:', evenOddNumbers);
-            console.log('Day of week:', dayWeekNumbers);
-            console.log('Day of month:', dayMonthNumbers);
-            console.log('Excluded:', excludedNumbers);
+            // Get custom numbers
+            window.customNumbers = new Set();
+            if (document.getElementById('custom-numbers-check').checked) {
+                for (let i = 1; i <= 55; i++) {
+                    const checkbox = document.getElementById(`custom-num-${i}`);
+                    if (checkbox.checked) {
+                        window.customNumbers.add(i);
+                    }
+                }
+            }
 
-            // Update the display
-            updateNumberDisplay('month-numbers', monthNumbers);
-            updateNumberDisplay('even-odd-numbers', evenOddNumbers);
-            updateNumberDisplay('day-week-numbers', dayWeekNumbers);
-            updateNumberDisplay('day-month-numbers', dayMonthNumbers);
-            updateNumberDisplay('excluded-numbers', excludedNumbers);
-
-            // Calculate and display highest couple numbers if option is checked
+            // Get couple numbers
+            window.coupleNumbers = new Set();
             if (document.getElementById('include-highest-couple-check').checked) {
-                console.log('Calculating highest couple numbers...');
-                const highestCoupleNumbers = getHighestCoupleNumbers(
-                    monthNumbers,
-                    evenOddNumbers,
-                    dayWeekNumbers,
-                    dayMonthNumbers,
+                window.highestCoupleNumbers = getHighestCoupleNumbers(
+                    window.monthNumbers,
+                    window.evenOddNumbers,
+                    window.dayWeekNumbers,
+                    window.dayMonthNumbers,
                     parseInt(document.getElementById('highest-couple-count').value)
                 );
-                console.log('Highest couple numbers:', highestCoupleNumbers);
-                updateNumberDisplay('highest-couple-numbers', highestCoupleNumbers);
+                window.highestCoupleNumbers.forEach(item => window.coupleNumbers.add(item.couple));
+                updateNumberDisplay('highest-couple-numbers', window.highestCoupleNumbers);
             } else {
-                console.log('Highest couple numbers option not checked');
                 document.getElementById('highest-couple-numbers').textContent = '';
             }
+
+            // Update the display
+            updateNumberDisplay('month-numbers', window.monthNumbers);
+            updateNumberDisplay('even-odd-numbers', window.evenOddNumbers);
+            updateNumberDisplay('day-week-numbers', window.dayWeekNumbers);
+            updateNumberDisplay('day-month-numbers', window.dayMonthNumbers);
+            updateNumberDisplay('excluded-numbers', window.excludedNumbers);
+
+            // Update the numbers list display
+            updateNumbersList('selected-numbers-list', 
+                [...window.monthNumbers, ...window.evenOddNumbers, ...window.dayWeekNumbers, ...window.dayMonthNumbers], 
+                'selected-number'
+            );
+            updateNumbersList('custom-numbers-list', Array.from(window.customNumbers), 'custom-number');
+            updateNumbersList('couple-numbers-list', Array.from(window.coupleNumbers), 'couple-number');
+            updateNumbersList('excluded-numbers-list', window.excludedNumbers, 'excluded-number');
 
             updateCustomNumbersState();
         }
@@ -769,71 +873,41 @@
             
             // Add numbers from checked categories
             if (document.getElementById('month-check').checked) {
-                const monthNumbers = getTopNumbersFromMonth(
-                    getNextLotteryDay().getMonth() + 1,
-                    parseInt(document.getElementById('month-count').value)
-                );
-                monthNumbers.forEach(num => includedNumbers.add(num));
+                window.monthNumbers.forEach(num => includedNumbers.add(num));
             }
             
             if (document.getElementById('even-odd-check').checked) {
-                const dateType = getNextLotteryDay().getDate() % 2 === 0 ? 'even' : 'odd';
-                const evenOddNumbers = getTopNumbersFromEvenOdd(
-                    dateType,
-                    parseInt(document.getElementById('even-odd-count').value)
-                );
-                evenOddNumbers.forEach(num => includedNumbers.add(num));
+                window.evenOddNumbers.forEach(num => includedNumbers.add(num));
             }
             
             if (document.getElementById('day-week-check').checked) {
-                const dayOfWeek = getNextLotteryDay().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
-                const dayWeekNumbers = getTopNumbersFromDayWeek(
-                    dayOfWeek,
-                    parseInt(document.getElementById('day-week-count').value)
-                );
-                dayWeekNumbers.forEach(num => includedNumbers.add(num));
+                window.dayWeekNumbers.forEach(num => includedNumbers.add(num));
             }
             
             if (document.getElementById('day-month-check').checked) {
-                const dayOfMonth = getNextLotteryDay().getDate();
-                const dayMonthNumbers = getTopNumbersFromDayMonth(
-                    dayOfMonth,
-                    parseInt(document.getElementById('day-month-count').value)
-                );
-                dayMonthNumbers.forEach(num => includedNumbers.add(num));
+                window.dayMonthNumbers.forEach(num => includedNumbers.add(num));
             }
             
             // Add couple numbers if option is checked
             if (document.getElementById('include-highest-couple-check').checked) {
-                const highestCoupleNumbers = getHighestCoupleNumbers(
-                    Array.from(includedNumbers),
-                    [],
-                    [],
-                    [],
-                    parseInt(document.getElementById('highest-couple-count').value)
-                );
-                highestCoupleNumbers.forEach(item => includedNumbers.add(item.couple));
+                window.highestCoupleNumbers.forEach(item => includedNumbers.add(item.couple));
             }
             
             // Get excluded numbers
             const excludedNumbers = new Set();
             if (document.getElementById('exclude-recent-check').checked) {
-                const recentNumbers = getExcludedNumbers(parseInt(document.getElementById('exclude-count').value));
-                recentNumbers.forEach(num => excludedNumbers.add(num));
+                window.excludedNumbers.forEach(num => excludedNumbers.add(num));
             }
             
-            // Add custom numbers if selected
+            // Get custom numbers
             if (document.getElementById('custom-numbers-check').checked) {
-                for (let i = 1; i <= 55; i++) {
-                    const checkbox = document.getElementById(`custom-num-${i}`);
-                    if (checkbox.checked && !checkbox.disabled) {
-                        includedNumbers.add(i);
-                    }
-                }
+                window.customNumbers.forEach(num => includedNumbers.add(num));
             }
             
-            // Remove excluded numbers from included numbers
-            const finalNumbers = Array.from(includedNumbers).filter(num => !excludedNumbers.has(num));
+            // Remove excluded numbers from included numbers, but keep custom numbers
+            const finalNumbers = Array.from(includedNumbers).filter(num => 
+                !excludedNumbers.has(num) || window.customNumbers.has(num)
+            );
             
             // Get group limit
             const groupLimit = parseInt(document.getElementById('group-limit').value) || 2;
@@ -877,8 +951,12 @@
                 // Get all available numbers (1-55) excluding:
                 // 1. Numbers already in finalNumbers
                 // 2. Numbers in excludedNumbers (if exclude-recent-check is checked)
+                // 3. But keep custom numbers even if they are excluded
                 const availableNumbers = Array.from({length: 55}, (_, i) => i + 1)
-                    .filter(num => !finalNumbers.includes(num) && !excludedNumbers.has(num));
+                    .filter(num => 
+                        !finalNumbers.includes(num) && 
+                        (!excludedNumbers.has(num) || window.customNumbers.has(num))
+                    );
                 
                 console.log('Available numbers for combinations:', availableNumbers);
                 
@@ -919,60 +997,29 @@
             const coupleNumbers = new Set();
             
             if (document.getElementById('month-check').checked) {
-                const monthNumbers = getTopNumbersFromMonth(
-                    getNextLotteryDay().getMonth() + 1,
-                    parseInt(document.getElementById('month-count').value)
-                );
-                monthNumbers.forEach(num => selectedNumbers.add(num));
+                window.monthNumbers.forEach(num => selectedNumbers.add(num));
             }
             
             if (document.getElementById('even-odd-check').checked) {
-                const dateType = getNextLotteryDay().getDate() % 2 === 0 ? 'even' : 'odd';
-                const evenOddNumbers = getTopNumbersFromEvenOdd(
-                    dateType,
-                    parseInt(document.getElementById('even-odd-count').value)
-                );
-                evenOddNumbers.forEach(num => selectedNumbers.add(num));
+                window.evenOddNumbers.forEach(num => selectedNumbers.add(num));
             }
             
             if (document.getElementById('day-week-check').checked) {
-                const dayOfWeek = getNextLotteryDay().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
-                const dayWeekNumbers = getTopNumbersFromDayWeek(
-                    dayOfWeek,
-                    parseInt(document.getElementById('day-week-count').value)
-                );
-                dayWeekNumbers.forEach(num => selectedNumbers.add(num));
+                window.dayWeekNumbers.forEach(num => selectedNumbers.add(num));
             }
             
             if (document.getElementById('day-month-check').checked) {
-                const dayOfMonth = getNextLotteryDay().getDate();
-                const dayMonthNumbers = getTopNumbersFromDayMonth(
-                    dayOfMonth,
-                    parseInt(document.getElementById('day-month-count').value)
-                );
-                dayMonthNumbers.forEach(num => selectedNumbers.add(num));
+                window.dayMonthNumbers.forEach(num => selectedNumbers.add(num));
             }
             
             // Get custom numbers if selected
             if (document.getElementById('custom-numbers-check').checked) {
-                for (let i = 1; i <= 55; i++) {
-                    const checkbox = document.getElementById(`custom-num-${i}`);
-                    if (checkbox.checked && !checkbox.disabled) {
-                        customNumbers.add(i);
-                    }
-                }
+                window.customNumbers.forEach(num => customNumbers.add(num));
             }
             
             // Get couple numbers if selected
             if (document.getElementById('include-highest-couple-check').checked) {
-                const highestCoupleNumbers = getHighestCoupleNumbers(
-                    Array.from(selectedNumbers),
-                    [],
-                    [],
-                    [],
-                    parseInt(document.getElementById('highest-couple-count').value)
-                );
-                highestCoupleNumbers.forEach(item => coupleNumbers.add(item.couple));
+                window.highestCoupleNumbers.forEach(item => coupleNumbers.add(item.couple));
             }
             
             let html = '<div class="results-container">';
@@ -1038,55 +1085,28 @@
             const coupleNumbers = new Set();
             
             if (document.getElementById('month-check').checked) {
-                const monthNumbers = getTopNumbersFromMonth(
-                    getNextLotteryDay().getMonth() + 1,
-                    parseInt(document.getElementById('month-count').value)
-                );
-                monthNumbers.forEach(num => selectedNumbers.add(num));
+                window.monthNumbers.forEach(num => selectedNumbers.add(num));
             }
             
             if (document.getElementById('even-odd-check').checked) {
-                const dateType = getNextLotteryDay().getDate() % 2 === 0 ? 'even' : 'odd';
-                const evenOddNumbers = getTopNumbersFromEvenOdd(
-                    dateType,
-                    parseInt(document.getElementById('even-odd-count').value)
-                );
-                evenOddNumbers.forEach(num => selectedNumbers.add(num));
+                window.evenOddNumbers.forEach(num => selectedNumbers.add(num));
             }
             
             if (document.getElementById('day-week-check').checked) {
-                const dayOfWeek = getNextLotteryDay().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
-                const dayWeekNumbers = getTopNumbersFromDayWeek(
-                    dayOfWeek,
-                    parseInt(document.getElementById('day-week-count').value)
-                );
-                dayWeekNumbers.forEach(num => selectedNumbers.add(num));
+                window.dayWeekNumbers.forEach(num => selectedNumbers.add(num));
             }
             
             if (document.getElementById('day-month-check').checked) {
-                const dayOfMonth = getNextLotteryDay().getDate();
-                const dayMonthNumbers = getTopNumbersFromDayMonth(
-                    dayOfMonth,
-                    parseInt(document.getElementById('day-month-count').value)
-                );
-                dayMonthNumbers.forEach(num => selectedNumbers.add(num));
+                window.dayMonthNumbers.forEach(num => selectedNumbers.add(num));
             }
             
             if (document.getElementById('exclude-recent-check').checked) {
-                const recentNumbers = getExcludedNumbers(parseInt(document.getElementById('exclude-count').value));
-                recentNumbers.forEach(num => excludedNumbers.add(num));
+                window.excludedNumbers.forEach(num => excludedNumbers.add(num));
             }
             
             // Get couple numbers if option is checked
             if (document.getElementById('include-highest-couple-check').checked) {
-                const highestCoupleNumbers = getHighestCoupleNumbers(
-                    Array.from(selectedNumbers),
-                    [],
-                    [],
-                    [],
-                    parseInt(document.getElementById('highest-couple-count').value)
-                );
-                highestCoupleNumbers.forEach(item => coupleNumbers.add(item.couple));
+                window.highestCoupleNumbers.forEach(item => coupleNumbers.add(item.couple));
             }
             
             // Update checkboxes state
@@ -1099,7 +1119,6 @@
                     checkbox.checked = true;
                     label.style.color = '#007bff';
                 } else if (excludedNumbers.has(i)) {
-                    // checkbox.disabled = true;
                     checkbox.checked = false; 
                     label.style.color = '#dc3545';
                 } else if (coupleNumbers.has(i)) {
@@ -1170,7 +1189,6 @@
             for (const draw of window.lotteryData.draws) {
                 const numbers = draw.numbers.split(' ').map(num => parseInt(num));
                 if (numbers.includes(targetNumber)) {
-                    console.log(`Found target number ${targetNumber} in draw:`, numbers);
                     numbers.forEach(num => {
                         if (num !== targetNumber) {
                             coupleFrequency.set(num, (coupleFrequency.get(num) || 0) + 1);
@@ -1231,19 +1249,29 @@
                 const isSelected = selectedNumbers.has(num);
                 const selectedCount = isSelected ? frequency : 0;
                 
-                console.log(`Evaluating number ${num}: frequency=${frequency}, isSelected=${isSelected}, selectedCount=${selectedCount}`);
-                
                 if (frequency > maxFrequency || 
                     (frequency === maxFrequency && selectedCount > maxSelectedCount)) {
                     bestCouple = num;
                     maxFrequency = frequency;
                     maxSelectedCount = selectedCount;
-                    console.log(`New best couple: ${num} with frequency=${frequency}, selectedCount=${selectedCount}`);
                 }
             }
             
             console.log(`Final best couple for ${targetNumber}: ${bestCouple}`);
             return bestCouple;
+        }
+
+        function updateNumbersList(elementId, numbers, className) {
+            const element = document.getElementById(elementId);
+            if (!numbers || numbers.length === 0) {
+                element.innerHTML = '<span class="no-numbers">No numbers</span>';
+                return;
+            }
+
+            const uniqueNumbers = [...new Set(numbers)].sort((a, b) => a - b);
+            element.innerHTML = uniqueNumbers.map(num => 
+                `<span class="${className}">${String(num).padStart(2, '0')}</span>`
+            ).join('');
         }
     </script>
 </body>
