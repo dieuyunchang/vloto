@@ -311,8 +311,8 @@
         }
         
         .number-list .custom-number {
-            background-color: #fff3cd;
-            color: #856404;
+            background-color: #d4edda !important;
+            color: #155724;
         }
         
         .number-list .couple-number {
@@ -323,7 +323,34 @@
         .number-list .excluded-number {
             background-color: #f8d7da;
             color: #721c24;
-            text-decoration: line-through;
+        }
+
+        .result-group .number-group span {
+            padding: 8px 12px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .result-group .selected-number {
+            background-color: #cce5ff !important;
+            color: #004085;
+        }
+        
+        .result-group .custom-number {
+            background-color: #d4edda !important;
+            color: #155724;
+        }
+        
+        .result-group .couple-number {
+            background-color: #fff3cd !important;
+            color: #856404;
+        }
+        
+        .result-group .excluded-number {
+            background-color: #f8d7da !important;
+            color: #721c24;
         }
     </style>
 </head>
@@ -1046,8 +1073,8 @@
             
             // Get all selected numbers from checked categories
             const selectedNumbers = new Set();
-            const customNumbers = new Set();
             const coupleNumbers = new Set();
+            const excludedNumbers = new Set();
             
             if (document.getElementById('month-check').checked) {
                 window.monthNumbers.forEach(num => selectedNumbers.add(num));
@@ -1065,14 +1092,12 @@
                 window.dayMonthNumbers.forEach(num => selectedNumbers.add(num));
             }
             
-            // Get custom numbers if selected
-            if (document.getElementById('custom-numbers-check').checked) {
-                window.customNumbers.forEach(num => customNumbers.add(num));
-            }
-            
-            // Get couple numbers if selected
             if (document.getElementById('include-highest-couple-check').checked) {
                 window.highestCoupleNumbers.forEach(item => coupleNumbers.add(item.couple));
+            }
+            
+            if (document.getElementById('exclude-recent-check').checked) {
+                window.excludedNumbers.forEach(num => excludedNumbers.add(num));
             }
             
             let html = '<div class="results-container">';
@@ -1085,10 +1110,12 @@
                                 let className = '';
                                 if (selectedNumbers.has(num)) {
                                     className = 'selected-number';
-                                } else if (customNumbers.has(num)) {
-                                    className = 'custom-number';
                                 } else if (coupleNumbers.has(num)) {
                                     className = 'couple-number';
+                                } else if (excludedNumbers.has(num)) {
+                                    className = 'excluded-number';
+                                } else {
+                                    className = 'custom-number';
                                 }
                                 return `<span class="${className}">${String(num).padStart(2, '0')}</span>`;
                             }).join('')}
@@ -1170,18 +1197,17 @@
                 if (selectedNumbers.has(i)) {
                     checkbox.disabled = true;
                     checkbox.checked = true;
-                    label.style.color = '#007bff';
+                    label.style.color = '#004085';
                 } else if (coupleNumbers.has(i)) {
                     checkbox.disabled = true;
                     checkbox.checked = true;
                     label.style.color = '#856404';
+                } else if (excludedNumbers.has(i)) {
+                    checkbox.disabled = false;
+                    label.style.color = '#721c24';
                 } else {
                     checkbox.disabled = false;
-                    if (excludedNumbers.has(i)) {
-                        label.style.color = '#dc3545';
-                    } else {
-                        label.style.color = '';
-                    }
+                    label.style.color = '#155724';
                 }
             }
         }
@@ -1323,9 +1349,50 @@
             }
 
             const uniqueNumbers = [...new Set(numbers)].sort((a, b) => a - b);
-            element.innerHTML = uniqueNumbers.map(num => 
-                `<span class="${className}">${String(num).padStart(2, '0')}</span>`
-            ).join('');
+            
+            // For custom numbers list, we need to check the status of each number
+            if (elementId === 'custom-numbers-list') {
+                const selectedNumbers = new Set();
+                const coupleNumbers = new Set();
+                const excludedNumbers = new Set();
+                
+                if (document.getElementById('month-check').checked) {
+                    window.monthNumbers.forEach(num => selectedNumbers.add(num));
+                }
+                if (document.getElementById('even-odd-check').checked) {
+                    window.evenOddNumbers.forEach(num => selectedNumbers.add(num));
+                }
+                if (document.getElementById('day-week-check').checked) {
+                    window.dayWeekNumbers.forEach(num => selectedNumbers.add(num));
+                }
+                if (document.getElementById('day-month-check').checked) {
+                    window.dayMonthNumbers.forEach(num => selectedNumbers.add(num));
+                }
+                if (document.getElementById('include-highest-couple-check').checked) {
+                    window.highestCoupleNumbers.forEach(item => coupleNumbers.add(item.couple));
+                }
+                if (document.getElementById('exclude-recent-check').checked) {
+                    window.excludedNumbers.forEach(num => excludedNumbers.add(num));
+                }
+
+                element.innerHTML = uniqueNumbers.map(num => {
+                    let finalClassName = '';
+                    if (selectedNumbers.has(num)) {
+                        finalClassName = 'selected-number';
+                    } else if (coupleNumbers.has(num)) {
+                        finalClassName = 'couple-number';
+                    } else if (excludedNumbers.has(num)) {
+                        finalClassName = 'excluded-number';
+                    } else {
+                        finalClassName = 'custom-number';
+                    }
+                    return `<span class="${finalClassName}">${String(num).padStart(2, '0')}</span>`;
+                }).join('');
+            } else {
+                element.innerHTML = uniqueNumbers.map(num => 
+                    `<span class="${className}">${String(num).padStart(2, '0')}</span>`
+                ).join('');
+            }
         }
 
         function clearCustomNumbers() {
