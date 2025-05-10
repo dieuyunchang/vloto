@@ -398,6 +398,7 @@
                 <label class="form-check-label" for="custom-numbers-check">
                     Custom Numbers Selection
                 </label>
+                <button type="button" class="btn btn-sm btn-outline-secondary ms-2" onclick="clearCustomNumbers()">Clear</button>
             </div>
             
             <div id="custom-numbers-container" style="display: none;">
@@ -1272,6 +1273,18 @@
             element.innerHTML = uniqueNumbers.map(num => 
                 `<span class="${className}">${String(num).padStart(2, '0')}</span>`
             ).join('');
+        }
+
+        function clearCustomNumbers() {
+            // Uncheck all custom number checkboxes
+            for (let i = 1; i <= 55; i++) {
+                const checkbox = document.getElementById(`custom-num-${i}`);
+                if (checkbox && !checkbox.disabled) {
+                    checkbox.checked = false;
+                }
+            }
+            // Update the display
+            updateSelectedNumbers();
         }
     </script>
 </body>
