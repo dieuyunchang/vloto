@@ -473,6 +473,14 @@
             <label class="form-check-label">
                 Generate up to <input type="number" id="group-limit" value="5" min="1" max="999" class="count-input"> groups
             </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="groupOrder" id="randomOrder" value="random" checked>
+                <label class="form-check-label" for="randomOrder">Random</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="groupOrder" id="weightOrder" value="weight">
+                <label class="form-check-label" for="weightOrder">By Weight</label>
+            </div>
             <button onclick="generateGroups()">Generate Numbers</button>
         </div>
     </div>
@@ -903,6 +911,96 @@
             }
         }
 
+        function calculateGroupWeight(group) {
+            const weights = new Map();
+            
+            // Initialize weights for all numbers in the group
+            group.forEach(num => weights.set(num, 0));
+            
+            // Get all selected numbers and their percentages
+            const numberPercentages = new Map();
+            
+            // Add percentages from day-week-check
+            if (document.getElementById('day-week-check').checked) {
+                const dayOfWeek = getNextLotteryDay().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+                const dayWeekData = window.lotteryData.dayOfWeek[dayOfWeek.substring(0, 3)];
+                if (dayWeekData) {
+                    dayWeekData.forEach(item => {
+                        if (item.percentage !== null) {
+                            numberPercentages.set(item.number, (numberPercentages.get(item.number) || 0) + item.percentage);
+                        }
+                    });
+                }
+            }
+            
+            // Add percentages from day-month-check
+            if (document.getElementById('day-month-check').checked) {
+                const dayOfMonth = getNextLotteryDay().getDate();
+                const dayMonthData = window.lotteryData.dayOfMonth[dayOfMonth.toString()];
+                if (dayMonthData) {
+                    dayMonthData.forEach(item => {
+                        numberPercentages.set(item.number, (numberPercentages.get(item.number) || 0) + item.percentage);
+                    });
+                }
+            }
+            
+            // Add percentages from month-check
+            if (document.getElementById('month-check').checked) {
+                const month = getNextLotteryDay().getMonth() + 1;
+                const monthData = window.lotteryData.month[month.toString()];
+                if (monthData) {
+                    monthData.forEach(item => {
+                        numberPercentages.set(item.number, (numberPercentages.get(item.number) || 0) + item.percentage);
+                    });
+                }
+            }
+            
+            // Add percentages from even-odd-check
+            if (document.getElementById('even-odd-check').checked) {
+                const dateType = getNextLotteryDay().getDate() % 2 === 0 ? 'even' : 'odd';
+                const evenOddData = window.lotteryData.evenOdd[dateType];
+                if (evenOddData) {
+                    evenOddData.forEach(item => {
+                        numberPercentages.set(item.number, (numberPercentages.get(item.number) || 0) + item.percentage);
+                    });
+                }
+            }
+            
+            // Apply weights to numbers in the group
+            group.forEach(num => {
+                // Rule 1: Custom numbers not in other options get 0 weight
+                if (document.getElementById('custom-numbers-check').checked && 
+                    window.customNumbers.has(num) && 
+                    !numberPercentages.has(num)) {
+                    weights.set(num, 0);
+                }
+                // Rule 2: Excluded numbers get 0 weight
+                else if (document.getElementById('exclude-recent-check').checked && 
+                         window.excludedNumbers.includes(num)) {
+                    weights.set(num, 0);
+                }
+                // Rule 4: Other numbers get weight based on percentages
+                else {
+                    weights.set(num, numberPercentages.get(num) || 0);
+                }
+            });
+            
+            // Rule 3: Apply 10% bonus for couple numbers
+            if (document.getElementById('include-highest-couple-check').checked) {
+                window.highestCoupleNumbers.forEach(couple => {
+                    if (group.includes(couple.number) && group.includes(couple.couple)) {
+                        const weight1 = weights.get(couple.number);
+                        const weight2 = weights.get(couple.couple);
+                        weights.set(couple.number, weight1 * 1.1);
+                        weights.set(couple.couple, weight2 * 1.1);
+                    }
+                });
+            }
+            
+            // Calculate total weight
+            return Array.from(weights.values()).reduce((sum, weight) => sum + weight, 0);
+        }
+
         function generateGroups() {
             // Get all selected numbers from checked categories
             const includedNumbers = new Set();
@@ -992,16 +1090,27 @@
                 const combinations = [];
                 generateCombinations(finalNumbers, 6, 0, [], combinations);
                 
-                // Randomly select up to groupLimit combinations
+                // Select groups based on ordering option
                 const selectedGroups = [];
                 const maxGroups = Math.min(groupLimit, combinations.length);
-                const usedIndices = new Set();
                 
-                while (selectedGroups.length < maxGroups) {
-                    const randomIndex = Math.floor(Math.random() * combinations.length);
-                    if (!usedIndices.has(randomIndex)) {
-                        selectedGroups.push(combinations[randomIndex]);
-                        usedIndices.add(randomIndex);
+                if (document.getElementById('weightOrder').checked) {
+                    // Sort by weight and take top N
+                    const weightedGroups = combinations.map(group => ({
+                        numbers: group,
+                        weight: calculateGroupWeight(group)
+                    }));
+                    weightedGroups.sort((a, b) => b.weight - a.weight);
+                    selectedGroups.push(...weightedGroups.slice(0, maxGroups).map(g => g.numbers));
+                } else {
+                    // Random selection
+                    const usedIndices = new Set();
+                    while (selectedGroups.length < maxGroups) {
+                        const randomIndex = Math.floor(Math.random() * combinations.length);
+                        if (!usedIndices.has(randomIndex)) {
+                            selectedGroups.push(combinations[randomIndex]);
+                            usedIndices.add(randomIndex);
+                        }
                     }
                 }
                 
@@ -1012,17 +1121,11 @@
             // If we have less than 6 numbers, we need to add more numbers
             if (finalNumbers.length < 6) {
                 const groups = [];
-                // Get all available numbers (1-55) excluding:
-                // 1. Numbers already in finalNumbers
-                // 2. Numbers in excludedNumbers (if exclude-recent-check is checked)
-                // 3. But keep custom numbers even if they are excluded
                 const availableNumbers = Array.from({length: 55}, (_, i) => i + 1)
                     .filter(num => 
                         !finalNumbers.includes(num) && 
                         (!excludedNumbers.has(num) || window.customNumbers.has(num))
                     );
-                
-                console.log('Available numbers for combinations:', availableNumbers);
                 
                 // Generate combinations with additional numbers
                 const generateCombinations = (base, available, size, start, current, result) => {
@@ -1048,16 +1151,27 @@
                 const combinations = [];
                 generateCombinations(finalNumbers, availableNumbers, 6 - finalNumbers.length, 0, [], combinations);
                 
-                // Randomly select up to groupLimit combinations
+                // Select groups based on ordering option
                 const selectedGroups = [];
                 const maxGroups = Math.min(groupLimit, combinations.length);
-                const usedIndices = new Set();
                 
-                while (selectedGroups.length < maxGroups) {
-                    const randomIndex = Math.floor(Math.random() * combinations.length);
-                    if (!usedIndices.has(randomIndex)) {
-                        selectedGroups.push(combinations[randomIndex]);
-                        usedIndices.add(randomIndex);
+                if (document.getElementById('weightOrder').checked) {
+                    // Sort by weight and take top N
+                    const weightedGroups = combinations.map(group => ({
+                        numbers: group,
+                        weight: calculateGroupWeight(group)
+                    }));
+                    weightedGroups.sort((a, b) => b.weight - a.weight);
+                    selectedGroups.push(...weightedGroups.slice(0, maxGroups).map(g => g.numbers));
+                } else {
+                    // Random selection
+                    const usedIndices = new Set();
+                    while (selectedGroups.length < maxGroups) {
+                        const randomIndex = Math.floor(Math.random() * combinations.length);
+                        if (!usedIndices.has(randomIndex)) {
+                            selectedGroups.push(combinations[randomIndex]);
+                            usedIndices.add(randomIndex);
+                        }
                     }
                 }
                 
@@ -1104,9 +1218,10 @@
             
             let html = '<div class="results-container">';
             groups.forEach((group, index) => {
+                const weight = document.getElementById('weightOrder').checked ? calculateGroupWeight(group) : null;
                 html += `
                     <div class="result-group">
-                        <h3>Group ${index + 1}</h3>
+                        <h3>Group ${index + 1}${weight !== null ? ` <small class="text-muted">(Weight: ${weight.toFixed(1)})</small>` : ''}</h3>
                         <div class="number-group">
                             ${group.map(num => {
                                 let className = '';
