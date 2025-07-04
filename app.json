@@ -1,0 +1,9 @@
+{
+  "name": "VLOTOMobile",
+  "displayName": "VLOTO - Vietnamese Lottery Generator",
+  "version": "1.0.0",
+  "description": "Vietnamese Lottery Number Generator with Smart Analytics",
+  "main": "index.js",
+  "author": "VLOTO Team",
+  "license": "MIT"
+} 
