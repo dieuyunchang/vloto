@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const cheerio = require('cheerio');
-
+const totalNumber = 45;
 // Create json-data directory if it doesn't exist
 const jsonDataDir = path.join(__dirname, 'json-data');
 if (!fs.existsSync(jsonDataDir)) {
@@ -14,7 +14,13 @@ const BASE_URL = 'https://www.ketquadientoan.com/tat-ca-ky-xo-so-mega-6-45.html'
 
 // Function to parse date string to Date object
 function parseDate(dateStr) {
-    const [day, month, year] = dateStr.split('/').map(Number);
+    // Handle format like "T4, 02/07/2025" or just "02/07/2025"
+    let datePart = dateStr;
+    if (dateStr.includes(', ')) {
+        datePart = dateStr.split(', ')[1];
+    }
+    
+    const [day, month, year] = datePart.split('/').map(Number);
     return new Date(year, month - 1, day);
 }
 
@@ -59,8 +65,8 @@ function generateSummaries(data) {
     const monthSummary = {};
     const dayOfMonthSummary = {};
 
-    // Initialize counts for all numbers (1-55)
-    for (let i = 1; i <= 55; i++) {
+    // Initialize counts for all numbers (1-45)
+    for (let i = 1; i <= totalNumber; i++) {
         // Initialize day of week counts
         Object.keys(dayOfWeekSummary).forEach(day => {
             dayOfWeekSummary[day].push({ number: i, count: 0 });
@@ -89,7 +95,7 @@ function generateSummaries(data) {
 
     // Process each draw
     data.forEach(draw => {
-        const date = parseDate(draw.date.split(', ')[1]);
+        const date = parseDate(draw.date);
         const numbers = draw.numbers.split(' ').map(Number);
         const dayOfWeek = getDayOfWeek(date);
         const isEven = isEvenDate(date);
@@ -101,27 +107,39 @@ function generateSummaries(data) {
             // Update day of week counts
             const dayNames = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
             const dayIndex = dayOfWeekSummary[dayNames[dayOfWeek]].findIndex(item => item.number === number);
-            dayOfWeekSummary[dayNames[dayOfWeek]][dayIndex].count++;
+            if (dayIndex >= 0) {
+                dayOfWeekSummary[dayNames[dayOfWeek]][dayIndex].count++;
+            }
 
             // Update even/odd counts
             const evenOddKey = isEven ? "even" : "odd";
             const evenOddIndex = evenOddSummary[evenOddKey].findIndex(item => item.number === number);
-            evenOddSummary[evenOddKey][evenOddIndex].count++;
+            if (evenOddIndex >= 0) {
+                evenOddSummary[evenOddKey][evenOddIndex].count++;
+            }
 
             // Update month counts
-            const monthIndex = monthSummary[month].findIndex(item => item.number === number);
-            monthSummary[month][monthIndex].count++;
+            if (monthSummary[month]) {
+                const monthIndex = monthSummary[month].findIndex(item => item.number === number);
+                if (monthIndex >= 0) {
+                    monthSummary[month][monthIndex].count++;
+                }
+            }
 
             // Update day of month counts
-            const dayOfMonthIndex = dayOfMonthSummary[dayOfMonth].findIndex(item => item.number === number);
-            dayOfMonthSummary[dayOfMonth][dayOfMonthIndex].count++;
+            if (dayOfMonthSummary[dayOfMonth]) {
+                const dayOfMonthIndex = dayOfMonthSummary[dayOfMonth].findIndex(item => item.number === number);
+                if (dayOfMonthIndex >= 0) {
+                    dayOfMonthSummary[dayOfMonth][dayOfMonthIndex].count++;
+                }
+            }
         });
     });
 
     // Calculate percentages and sort by number
     Object.keys(dayOfWeekSummary).forEach(day => {
         const totalDraws = data.filter(draw => {
-            const date = parseDate(draw.date.split(', ')[1]);
+            const date = parseDate(draw.date);
             return getDayOfWeek(date) === ["sun", "mon", "tue", "wed", "thu", "fri", "sat"].indexOf(day);
         }).length;
         dayOfWeekSummary[day] = calculatePercentages(dayOfWeekSummary[day], totalDraws);
@@ -130,7 +148,7 @@ function generateSummaries(data) {
 
     Object.keys(evenOddSummary).forEach(key => {
         const totalDraws = data.filter(draw => {
-            const date = parseDate(draw.date.split(', ')[1]);
+            const date = parseDate(draw.date);
             return (key === "even" ? isEvenDate(date) : !isEvenDate(date));
         }).length;
         evenOddSummary[key] = calculatePercentages(evenOddSummary[key], totalDraws);
@@ -139,7 +157,7 @@ function generateSummaries(data) {
 
     Object.keys(monthSummary).forEach(month => {
         const totalDraws = data.filter(draw => {
-            const date = parseDate(draw.date.split(', ')[1]);
+            const date = parseDate(draw.date);
             return getMonth(date) === Number(month);
         }).length;
         monthSummary[month] = calculatePercentages(monthSummary[month], totalDraws);
@@ -148,7 +166,7 @@ function generateSummaries(data) {
 
     Object.keys(dayOfMonthSummary).forEach(day => {
         const totalDraws = data.filter(draw => {
-            const date = parseDate(draw.date.split(', ')[1]);
+            const date = parseDate(draw.date);
             return getDayOfMonth(date) === Number(day);
         }).length;
         dayOfMonthSummary[day] = calculatePercentages(dayOfMonthSummary[day], totalDraws);
@@ -197,30 +215,30 @@ async function fetchData() {
         console.log('Fetching data from:', url);
         
         const response = await axios.get(url);
+        // console.log(response.data)
         const $ = cheerio.load(response.data);
         
         const results = [];
-        $('table tr').each((i, row) => {
+        $('table.table-mini-result tr').each((i, row) => {
             const cols = $(row).find('td');
-            if (cols.length >= 4) {
+            if (cols.length >= 3) {  // Changed from 4 to 3
                 const date = $(cols[0]).text().trim();
-                const numbers = $(cols[1]).text()
-                    .trim()
-                    .split(/\s+/)  // Split by any whitespace
-                    .filter(n => n !== "")  // Remove empty strings
-                    .join(" ");  // Join with single space
+                const numbersText = $(cols[1]).text().trim();
                 const prize = $(cols[2]).text().trim();
                 
-                if (date && numbers && prize) {
+                // Parse numbers using regex to extract 1-2 digit numbers
+                const numbers = numbersText.match(/\b\d{1,2}\b/g);
+                
+                if (date && numbers && numbers.length === 6 && prize) {
                     results.push({
                         date,
-                        numbers,
+                        numbers: numbers.join(" "),
                         prize
                     });
                 }
             }
         });
-
+        console.log("vlot 45 results", results)
         return results;
     } catch (error) {
         console.error('Error fetching data:', error.message);
@@ -238,39 +256,36 @@ async function updateLocalData() {
         }
 
         // Get latest date from existing data
-        const latestDate = existingData.length > 0 ? new Date(existingData[0].date.split(', ')[1]) : null;
+        const latestDate = existingData.length > 0 ? parseDate(existingData[0].date) : null;
         const today = new Date();
         const yesterday = new Date(today);
         yesterday.setDate(yesterday.getDate() - 1);
 
-        // Check if we need to update
-        if (!latestDate || 
-            latestDate.getDate() !== today.getDate() || 
-            latestDate.getDate() !== yesterday.getDate()) {
+        // Check if we need to update (always update for now to ensure we have the latest data)
+        console.log('Fetching new data...');
+        const newData = await fetchData();
+        
+        if (newData.length > 0) {
+            // Merge new data with existing data
+            const updatedData = [...newData, ...existingData];
             
-            console.log('Fetching new data...');
-            const newData = await fetchData();
+            // Remove duplicates based on date
+            const uniqueData = updatedData.filter((item, index, self) =>
+                index === self.findIndex((t) => t.date === item.date)
+            );
             
-            if (newData.length > 0) {
-                // Merge new data with existing data
-                const updatedData = [...newData, ...existingData];
-                
-                // Remove duplicates based on date
-                const uniqueData = updatedData.filter((item, index, self) =>
-                    index === self.findIndex((t) => t.date === item.date)
-                );
-                
-                // Save to file
-                fs.writeFileSync(DATA_FILE, JSON.stringify(uniqueData, null, 2));
-                console.log('Data updated successfully');
+            // Save to file
+            fs.writeFileSync(DATA_FILE, JSON.stringify(uniqueData, null, 2));
+            console.log('Data updated successfully');
 
-                // Generate summary files
-                generateSummaries(uniqueData);
-            }
+            // Generate summary files
+            generateSummaries(uniqueData);
         } else {
-            console.log('Data is up to date');
-            // Generate summary files with existing data
-            generateSummaries(existingData);
+            console.log('No new data found');
+            if (existingData.length > 0) {
+                // Generate summary files with existing data
+                generateSummaries(existingData);
+            }
         }
     } catch (error) {
         console.error('Error updating data:', error.message);
