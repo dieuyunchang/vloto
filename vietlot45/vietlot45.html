@@ -104,33 +104,49 @@
             background-color: #0056b3;
         }
         .frequency-very-low {
-            background-color: #fff3cd;  /* Light yellow */
+            background-color: #f8f9fa;  /* Very light gray */
+            color: #6c757d;
+        }
+        .frequency-very-low .percentage {
+            color: #6c757d;
         }
         .frequency-low {
-            background-color: #ffeeba;  /* Slightly darker yellow */
+            background-color: #e3f2fd;  /* Very light blue */
+            color: #1565c0;
+        }
+        .frequency-low .percentage {
+            color: #1565c0;
         }
         .frequency-medium-low {
-            background-color: #d1ecf1;  /* Light blue */
+            background-color: #bbdefb;  /* Light blue */
+            color: #0d47a1;
+        }
+        .frequency-medium-low .percentage {
+            color: #0d47a1;
         }
         .frequency-medium {
-            background-color: #bee5eb;  /* Medium blue */
+            background-color: #81c784;  /* Light green */
+            color: #1b5e20;
+        }
+        .frequency-medium .percentage {
+            color: #1b5e20;
         }
         .frequency-medium-high {
-            background-color: #ffdf81;  /* Amber */
-            color: #000;
+            background-color: #ffb74d;  /* Light orange */
+            color: #e65100;
         }
         .frequency-medium-high .percentage {
-            color: #000;
+            color: #e65100;
         }
         .frequency-high {
-            background-color: #ec9954;  /* Orange */
+            background-color: #ff8a65;  /* Orange */
             color: white;
         }
         .frequency-high .percentage {
             color: #fff;
         }
         .frequency-very-high {
-            background-color: #e85765;  /* Red */
+            background-color: #e57373;  /* Light red */
             color: white;
         }
         .frequency-very-high .percentage {
@@ -360,8 +376,8 @@
 <body>
     <nav class="nav-bar">
         <ul>
-            <li><a href="/vietlot55/vietlot55.html" class="active">Mega 6/55</a></li>
-            <li><a href="/vietlot45/vietlot45.html">Mega 6/45</a></li>
+            <li><a href="/vietlot55/vietlot55.html" >Mega 6/55</a></li>
+            <li><a href="/vietlot45/vietlot45.html" class="active">Mega 6/45</a></li>
         </ul>
     </nav>
 
@@ -698,13 +714,14 @@
             // Convert percentage to number if it's a string
             const percent = typeof percentage === 'string' ? parseFloat(percentage) : percentage;
             
-            if (percent >= 15) return 'frequency-very-high';
-            if (percent >= 12) return 'frequency-high';
-            if (percent >= 9) return 'frequency-medium-high';
-            if (percent >= 6) return 'frequency-medium';
-            if (percent >= 3) return 'frequency-medium-low';
-            if (percent >= 1) return 'frequency-low';
-            return 'frequency-very-low';
+            // Updated thresholds for vietlot45 data (ranges from ~8% to ~18%)
+            if (percent >= 16.5) return 'frequency-very-high';   // Top tier (16.5%+)
+            if (percent >= 15) return 'frequency-high';          // High tier (15-16.4%)
+            if (percent >= 13.5) return 'frequency-medium-high'; // Medium-high (13.5-14.9%)
+            if (percent >= 12) return 'frequency-medium';        // Medium (12-13.4%)
+            if (percent >= 10.5) return 'frequency-medium-low';  // Medium-low (10.5-11.9%)
+            if (percent >= 9) return 'frequency-low';            // Low (9-10.4%)
+            return 'frequency-very-low';                         // Very low (<9%)
         }
 
         // Load data when page loads

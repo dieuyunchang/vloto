@@ -173,20 +173,25 @@ function calculateSummary() {
         }
     });
     
-    // Calculate percentages and find min/max for scaling
+    // Calculate percentages
     const percentages = countMap.map(count => (count / window.lotteryData.draws.length) * 100);
-    const minPercent = Math.min(...percentages);
-    const maxPercent = Math.max(...percentages);
-    const range = maxPercent - minPercent;
     
-    // Define percentage ranges for colors
+    // Sort percentages to determine distribution-based thresholds
+    const sortedPercentages = [...percentages].sort((a, b) => b - a);
+    const totalNumbers = sortedPercentages.length;
+    
+    // Define thresholds based on distribution (top 10%, 20%, 35%, 50%, 70%, 85%)
     const getFrequencyClass = (percent) => {
-        const normalized = (percent - minPercent) / range;
-        if (normalized < 0.2) return 'frequency-low';
-        if (normalized < 0.4) return 'frequency-medium-low';
-        if (normalized < 0.6) return 'frequency-medium';
-        if (normalized < 0.8) return 'frequency-medium-high';
-        return 'frequency-high';
+        const rank = sortedPercentages.indexOf(percent);
+        const percentile = rank / totalNumbers;
+        
+        if (percentile <= 0.1) return 'frequency-very-high';      // Top 10%
+        if (percentile <= 0.2) return 'frequency-high';          // Top 20%
+        if (percentile <= 0.35) return 'frequency-medium-high';  // Top 35%
+        if (percentile <= 0.5) return 'frequency-medium';        // Top 50%
+        if (percentile <= 0.7) return 'frequency-medium-low';    // Top 70%
+        if (percentile <= 0.85) return 'frequency-low';          // Top 85%
+        return 'frequency-very-low';                             // Bottom 15%
     };
 
     let tableHTML = "<h2>Number Frequency Summary</h2><div class='container'>"
