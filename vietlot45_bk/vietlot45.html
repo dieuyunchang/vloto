@@ -1,0 +1,156 @@
+<!-- https://www.ketquadientoan.com/tat-ca-ky-xo-so-mega-6-45.html?datef=01-01-2016&datet=02-02-2025 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietlott Mega 6/45 Number Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .nav-bar {
+            background-color: #333;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .nav-bar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .nav-bar li {
+            display: inline;
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .nav-bar a:hover {
+            background-color: #555;
+        }
+        .nav-bar a.active {
+            background-color: #007bff;
+        }
+        .number-group {
+            display: flex;
+            gap: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .number-group span {
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        .last-draw {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .number {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .percentage {
+            color: #333; /* Darker color for better readability */
+            font-weight: 500; /* Slightly bolder */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        /* Color coding for frequency ranges */
+        .frequency-low {
+            background-color: #fff3cd; /* Light yellow */
+        }
+        .frequency-medium-low {
+            background-color: #cce5ff; /* Light blue */
+        }
+        .frequency-medium {
+            background-color: #80bdff; /* Medium blue */
+        }
+        .frequency-medium-high {
+            background-color: #28a745; /* Light green */
+            color: white;
+        }
+        .frequency-medium-high .percentage {
+            color: #fff;
+        }
+        .frequency-high {
+            background-color: #155724; /* Dark green */
+            color: white;
+        }
+        .frequency-high .percentage {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="/vietlot55/vietlot55.html">Mega 6/55</a></li>
+            <li><a href="/vietlot45/vietlot45.html" class="active">Mega 6/45</a></li>
+        </ul>
+    </nav>
+
+    <h1>Vietlott Mega 6/45 Number Generator</h1>
+    <button onclick="generateGroups()">Generate Numbers</button>
+    
+    <div id="last-draw"></div>
+    <div id="results"></div>
+    <div id="summary"></div>
+
+    <script src="vietlot45.js"></script>
+    <script>
+        // Load data from JSON file
+        fetch('vietlot45-data.json')
+            .then(response => response.json())
+            .then(data => {
+                window.lotteryData = data;
+                initializePage();
+            })
+            .catch(error => {
+                console.error('Error loading data:', error);
+                document.getElementById("summary").innerHTML = "Error loading data. Please try again later.";
+            });
+    </script>
+</body>
+</html>

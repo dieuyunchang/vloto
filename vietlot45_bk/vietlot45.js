@@ -1,43 +1,12 @@
-// Embedded lottery data
-const data = [
-  {
-    "date": "T7, 15/03/2025",
-    "numbers": "01 34 39 40 42 50",
-    "prize": "133.643.776.800",
-    "jackpot2": "5.874.504.300" 
-  },
-  {
-    "date": "T5, 13/03/2025",
-    "numbers": "07 13 21 43 52 53",
-    "prize": "123.635.113.500",
-    "jackpot2": "4.762.430.600"
-  },
-  {
-    "date": "T3, 11/03/2025",
-    "numbers": "01 16 18 30 31 44",
-    "prize": "115.151.239.200",
-    "jackpot2": "3.819.777.900"
-  },
-  {
-    "date": "T7, 08/03/2025",
-    "numbers": "10 38 41 43 45 48",
-    "prize": "107.773.238.100",
-    "jackpot2": "3.676.491.050"
-  },
-  {
-    "date": "T5, 06/03/2025",
-    "numbers": "05 10 21 26 43 51",
-    "prize": "101.684.818.650",
-    "jackpot2": "3.571.245.300"
-  }
-];
-
 const totalNumber = 45;
 
 // Process existing groups from the JSON data
 function getExistingGroups() {
-    if (!window.lotteryData || !window.lotteryData.draws) return [];
-    return window.lotteryData.draws.map(item => item.numbers);
+    if (!window.lotteryData) {
+        console.error('Lottery data not loaded yet');
+        return [];
+    }
+    return window.lotteryData.map(item => item.numbers);
 }
 
 function has3Odd3Even(numbers) {
@@ -52,10 +21,12 @@ function groupExists(group) {
 
 // Calculate number frequency
 function calculateNumberFrequency() {
-    if (!window.lotteryData || !window.lotteryData.draws) return Array(totalNumber).fill(0);
-    
+    if (!window.lotteryData) {
+        console.error('Lottery data not loaded yet');
+        return Array(totalNumber).fill(0);
+    }
     const frequency = Array(totalNumber).fill(0);
-    window.lotteryData.draws.forEach(draw => {
+    window.lotteryData.forEach(draw => {
         if (draw.numbers) {
             draw.numbers.split(" ").forEach(num => {
                 frequency[parseInt(num) - 1]++;
@@ -67,10 +38,12 @@ function calculateNumberFrequency() {
 
 // Calculate number pairs frequency
 function calculatePairFrequency() {
-    if (!window.lotteryData || !window.lotteryData.draws) return {};
-    
+    if (!window.lotteryData) {
+        console.error('Lottery data not loaded yet');
+        return {};
+    }
     const pairs = {};
-    window.lotteryData.draws.forEach(draw => {
+    window.lotteryData.forEach(draw => {
         if (draw.numbers) {
             const numbers = draw.numbers.split(" ").map(n => parseInt(n));
             for (let i = 0; i < numbers.length; i++) {
@@ -122,26 +95,32 @@ function generateGroup() {
 }
 
 function generateGroups() {
-  console.log('Generating groups...');
-  let newGroups = [];
-  for (let i = 0; i < 5; i++) {
-      newGroups.push(generateGroup());
-  }
-  
-  document.getElementById("results").innerHTML = newGroups
-      .map((group, index) => `<p>Numbers ${index + 1}: <span class='number-group'>${group}</span></p>`)
-      .join("");
-  console.log('Done Generating groups');
-}
-
-function showLastDraw() {
-    if (!window.lotteryData || !window.lotteryData.draws || window.lotteryData.draws.length === 0) {
+    if (!window.lotteryData) {
+        console.error('Lottery data not loaded yet');
+        document.getElementById("results").innerHTML = "Please wait for data to load...";
         return;
     }
     
-    const lastDraw = window.lotteryData.draws[0];
+    console.log('Generating groups...');
+    let newGroups = [];
+    for (let i = 0; i < 5; i++) {
+        newGroups.push(generateGroup());
+    }
+    
+    document.getElementById("results").innerHTML = newGroups
+        .map((group, index) => `<p>Numbers ${index + 1}: <span class='number-group'>${group}</span></p>`)
+        .join("");
+}
+
+function showLastDraw() {
+    if (!window.lotteryData || !window.lotteryData.length) {
+        console.error('Lottery data not loaded yet');
+        return;
+    }
+    
+    const lastDraw = window.lotteryData[0];
     const list_numbers = lastDraw.numbers
-        .split(/\s+/)  // Split by any whitespace (spaces, tabs, newlines)
+        .split(/\s+/)  // Split by any whitespace
         .map(n => n.trim())  // Remove whitespace
         .filter(n => n !== "");  // Remove empty strings
     const numbers = list_numbers.map(n => `<span>${n}</span>`).join("");
@@ -156,16 +135,16 @@ function showLastDraw() {
 }
 
 function calculateSummary() {
-    if (!window.lotteryData || !window.lotteryData.draws) {
+    if (!window.lotteryData || !window.lotteryData.length) {
         console.error('Lottery data not loaded yet');
         document.getElementById("summary").innerHTML = "Loading data...";
         return;
     }
     
-    console.log('Calculating summary for', window.lotteryData.draws.length, 'records');
+    console.log('Calculating summary for', window.lotteryData.length, 'records');
     let countMap = Array(totalNumber).fill(0);
     
-    window.lotteryData.draws.forEach(draw => {
+    window.lotteryData.forEach(draw => {
         if (draw.numbers) {
             draw.numbers.split(" ").forEach(num => {
                 countMap[parseInt(num) - 1]++;
@@ -174,7 +153,7 @@ function calculateSummary() {
     });
     
     // Calculate percentages and find min/max for scaling
-    const percentages = countMap.map(count => (count / window.lotteryData.draws.length) * 100);
+    const percentages = countMap.map(count => (count / window.lotteryData.length) * 100);
     const minPercent = Math.min(...percentages);
     const maxPercent = Math.max(...percentages);
     const range = maxPercent - minPercent;
@@ -205,15 +184,10 @@ function calculateSummary() {
 // Initialize the page when data is loaded
 function initializePage() {
     console.log('Initializing page...');
-    if (!window.lotteryData || !window.lotteryData.draws) {
-        console.error('Lottery data not loaded yet');
-        document.getElementById("summary").innerHTML = "Loading data...";
-        return;
-    }
     calculateSummary();
     showLastDraw();
 }
 
 // Make functions available globally
 window.generateGroups = generateGroups;
-window.initializePage = initializePage;
+window.initializePage = initializePage; 
