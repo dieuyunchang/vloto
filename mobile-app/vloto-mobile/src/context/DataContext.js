@@ -41,6 +41,7 @@ export const DataProvider = ({children}) => {
   const loadLocalData = async () => {
     try {
       setIsLoading(true);
+      console.log('🔄 Loading local data...');
       
       // Load cached data
       const [cached45, cached55, lastUpdateTime] = await Promise.all([
@@ -49,19 +50,29 @@ export const DataProvider = ({children}) => {
         AsyncStorage.getItem('last_update'),
       ]);
 
+      console.log('💾 Cache check:', {
+        has45: !!cached45,
+        has55: !!cached55,
+        hasUpdate: !!lastUpdateTime,
+      });
+
       // Load cached data or fallback to bundled data
       if (cached45) {
+        console.log('✅ Loading cached Vietlot 45 data');
         setVietlot45Data(JSON.parse(cached45));
       } else {
         // Load bundled data if no cache exists
+        console.log('📦 Loading bundled Vietlot 45 data (no cache)');
         const bundledData45 = DataService.getBundledVietlot45Data();
         setVietlot45Data(bundledData45);
       }
 
       if (cached55) {
+        console.log('✅ Loading cached Vietlot 55 data');
         setVietlot55Data(JSON.parse(cached55));
       } else {
         // Load bundled data if no cache exists
+        console.log('📦 Loading bundled Vietlot 55 data (no cache)');
         const bundledData55 = DataService.getBundledVietlot55Data();
         setVietlot55Data(bundledData55);
       }
@@ -72,21 +83,25 @@ export const DataProvider = ({children}) => {
 
       // Try to fetch new data if needed and online
       if (shouldUpdateData(lastUpdateTime)) {
+        console.log('🔄 Data needs update, attempting refresh...');
         await updateDataIfNeeded();
       }
     } catch (error) {
-      console.error('Error loading local data:', error);
+      console.error('💥 Error loading local data:', error);
       // Ensure bundled data is loaded even if there's an error
       try {
+        console.log('🆘 Loading bundled data as fallback...');
         const bundledData45 = DataService.getBundledVietlot45Data();
         const bundledData55 = DataService.getBundledVietlot55Data();
         setVietlot45Data(bundledData45);
         setVietlot55Data(bundledData55);
+        console.log('✅ Bundled data loaded successfully');
       } catch (bundledError) {
-        console.error('Error loading bundled data:', bundledError);
+        console.error('💥 Error loading bundled data:', bundledError);
       }
     } finally {
       setIsLoading(false);
+      console.log('🏁 Data loading completed');
     }
   };
 

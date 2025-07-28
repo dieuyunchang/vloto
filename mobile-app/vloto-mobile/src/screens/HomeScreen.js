@@ -199,6 +199,22 @@ const HomeScreen = ({navigation}) => {
               <View style={styles.statsRow}>
                 <View style={styles.statItem}>
                   <Text style={styles.statNumber}>
+                    {vietlot45Data?.summary?.length || 0}
+                  </Text>
+                  <Text style={styles.statLabel}>45 Summary</Text>
+                </View>
+                
+                <View style={styles.statItem}>
+                  <Text style={styles.statNumber}>
+                    {vietlot55Data?.summary?.length || 0}
+                  </Text>
+                  <Text style={styles.statLabel}>55 Summary</Text>
+                </View>
+              </View>
+              
+              <View style={styles.statsRow}>
+                <View style={styles.statItem}>
+                  <Text style={styles.statNumber}>
                     {isLoading ? '...' : (isOnline ? 'Online' : 'Offline')}
                   </Text>
                   <Text style={styles.statLabel}>Status</Text>
