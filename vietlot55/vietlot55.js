@@ -2,33 +2,63 @@
 const data = [
   {
     "date": "T7, 15/03/2025",
-    "numbers": "01 34 39 40 42 50",
-    "prize": "133.643.776.800",
-    "jackpot2": "5.874.504.300" 
+    "jackpot1": "01 34 39 40 42 50",
+    "jackpot2": "07",
+    "numbers": "01 34 39 40 42 50 07",
+    "prize_s": "133.643.776.800≈ 133.6 Tỷ",
+    "prize": "133643776800",
+    "total": 252,
+    "total_even_or_odd": "even",
+    "odd_count": 3,
+    "even_count": 3
   },
   {
     "date": "T5, 13/03/2025",
-    "numbers": "07 13 21 43 52 53",
-    "prize": "123.635.113.500",
-    "jackpot2": "4.762.430.600"
+    "jackpot1": "07 13 21 43 52 53",
+    "jackpot2": "12",
+    "numbers": "07 13 21 43 52 53 12",
+    "prize_s": "123.635.113.500≈ 123.6 Tỷ",
+    "prize": "123635113500",
+    "total": 189,
+    "total_even_or_odd": "odd",
+    "odd_count": 4,
+    "even_count": 2
   },
   {
     "date": "T3, 11/03/2025",
-    "numbers": "01 16 18 30 31 44",
-    "prize": "115.151.239.200",
-    "jackpot2": "3.819.777.900"
+    "jackpot1": "01 16 18 30 31 44",
+    "jackpot2": "25",
+    "numbers": "01 16 18 30 31 44 25",
+    "prize_s": "115.151.239.200≈ 115.2 Tỷ",
+    "prize": "115151239200",
+    "total": 140,
+    "total_even_or_odd": "even",
+    "odd_count": 2,
+    "even_count": 4
   },
   {
     "date": "T7, 08/03/2025",
-    "numbers": "10 38 41 43 45 48",
-    "prize": "107.773.238.100",
-    "jackpot2": "3.676.491.050"
+    "jackpot1": "10 38 41 43 45 48",
+    "jackpot2": "33",
+    "numbers": "10 38 41 43 45 48 33",
+    "prize_s": "107.773.238.100≈ 107.8 Tỷ",
+    "prize": "107773238100",
+    "total": 225,
+    "total_even_or_odd": "odd",
+    "odd_count": 3,
+    "even_count": 3
   },
   {
     "date": "T5, 06/03/2025",
-    "numbers": "05 10 21 26 43 51",
-    "prize": "101.684.818.650",
-    "jackpot2": "3.571.245.300"
+    "jackpot1": "05 10 21 26 43 51",
+    "jackpot2": "17",
+    "numbers": "05 10 21 26 43 51 17",
+    "prize_s": "101.684.818.650≈ 101.7 Tỷ",
+    "prize": "101684818650",
+    "total": 156,
+    "total_even_or_odd": "even",
+    "odd_count": 3,
+    "even_count": 3
   }
 ];
 
@@ -149,7 +179,7 @@ function showLastDraw() {
         <div class="last-draw">
             <h2>Last Draw (${lastDraw.date})</h2>
             <p>Numbers: <span class='number-group'>${numbers}</span></p>
-            <p>Prize: ${lastDraw.prize}</p>
+            <p>Prize: ${lastDraw.prize_s}</p>
         </div>
     `;
     document.getElementById("last-draw").innerHTML = lastDrawHTML;

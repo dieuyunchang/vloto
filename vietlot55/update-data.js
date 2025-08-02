@@ -38,6 +38,52 @@ function getDayOfMonth(date) {
     return date.getDate();
 }
 
+// Function to calculate total of numbers (requirement.txt)
+function calculateTotal(numbersString) {
+    const numbers = numbersString.split(' ').map(num => parseInt(num.trim()));
+    return numbers.reduce((sum, num) => sum + num, 0);
+}
+
+// Function to determine if total is even or odd (requirement.txt)
+function getTotalEvenOrOdd(total) {
+    return total % 2 === 0 ? 'even' : 'odd';
+}
+
+// Function to extract numeric prize from prize string (updated requirement.txt)
+function extractNumericPrize(prizeString) {
+    const match = prizeString.match(/^([0-9.]+)/);
+    if (match) {
+        return match[1].replace(/\./g, '');
+    }
+    return "0";
+}
+
+// Function to count odd numbers (updated requirement.txt)
+function countOddNumbers(numbersString) {
+    const numbers = numbersString.split(' ').map(num => parseInt(num.trim()));
+    return numbers.filter(num => num % 2 === 1).length;
+}
+
+// Function to count even numbers (updated requirement.txt) 
+function countEvenNumbers(numbersString) {
+    const numbers = numbersString.split(' ').map(num => parseInt(num.trim()));
+    return numbers.filter(num => num % 2 === 0).length;
+}
+
+// Function to split jackpot numbers (latest requirement.txt)
+function splitJackpotNumbers(numbersString) {
+    const numbers = numbersString.split(' ');
+    
+    if (numbers.length === 7) {
+        const jackpot1 = numbers.slice(0, 6).join(' ');  // First 6 numbers
+        const jackpot2 = numbers[6];                      // Last number
+        return { jackpot1, jackpot2 };
+    }
+    
+    // If not 7 numbers, return as is
+    return { jackpot1: numbersString, jackpot2: '' };
+}
+
 // Function to calculate percentages
 function calculatePercentages(counts, total) {
     return counts.map(count => ({
@@ -212,10 +258,27 @@ async function fetchData() {
                 const prize = $(cols[2]).text().trim();
                 
                 if (date && numbers && prize) {
+                    // Split numbers into jackpot1 and jackpot2 (latest requirement.txt)
+                    const { jackpot1, jackpot2 } = splitJackpotNumbers(numbers);
+                    
+                    // Calculate based on jackpot1 (first 6 numbers only)
+                    const total = calculateTotal(jackpot1);
+                    const totalEvenOrOdd = getTotalEvenOrOdd(total);
+                    const numericPrize = extractNumericPrize(prize);
+                    const oddCount = countOddNumbers(jackpot1);
+                    const evenCount = countEvenNumbers(jackpot1);
+                    
                     results.push({
                         date,
-                        numbers,
-                        prize
+                        jackpot1: jackpot1,    // New: first 6 numbers
+                        jackpot2: jackpot2,    // New: last number  
+                        numbers,               // Keep original for compatibility
+                        prize_s: prize,        // Renamed from prize to prize_s
+                        prize: numericPrize,   // New numeric prize field
+                        total: total,          // Based on jackpot1 only
+                        total_even_or_odd: totalEvenOrOdd,
+                        odd_count: oddCount,   // Based on jackpot1 only
+                        even_count: evenCount  // Based on jackpot1 only
                     });
                 }
             }

@@ -44,6 +44,38 @@ function getDayOfMonth(date) {
     return date.getDate();
 }
 
+// Function to calculate total of numbers (requirement.txt)
+function calculateTotal(numbersString) {
+    const numbers = numbersString.split(' ').map(num => parseInt(num.trim()));
+    return numbers.reduce((sum, num) => sum + num, 0);
+}
+
+// Function to determine if total is even or odd (requirement.txt)
+function getTotalEvenOrOdd(total) {
+    return total % 2 === 0 ? 'even' : 'odd';
+}
+
+// Function to extract numeric prize from prize string (updated requirement.txt)
+function extractNumericPrize(prizeString) {
+    const match = prizeString.match(/^([0-9.]+)/);
+    if (match) {
+        return match[1].replace(/\./g, '');
+    }
+    return "0";
+}
+
+// Function to count odd numbers (updated requirement.txt)
+function countOddNumbers(numbersString) {
+    const numbers = numbersString.split(' ').map(num => parseInt(num.trim()));
+    return numbers.filter(num => num % 2 === 1).length;
+}
+
+// Function to count even numbers (updated requirement.txt) 
+function countEvenNumbers(numbersString) {
+    const numbers = numbersString.split(' ').map(num => parseInt(num.trim()));
+    return numbers.filter(num => num % 2 === 0).length;
+}
+
 // Function to calculate percentages
 function calculatePercentages(counts, total) {
     return counts.map(count => ({
@@ -230,10 +262,22 @@ async function fetchData() {
                 const numbers = numbersText.match(/\b\d{1,2}\b/g);
                 
                 if (date && numbers && numbers.length === 6 && prize) {
+                    const numbersStr = numbers.join(" ");
+                    const total = calculateTotal(numbersStr);
+                    const totalEvenOrOdd = getTotalEvenOrOdd(total);
+                    const numericPrize = extractNumericPrize(prize);
+                    const oddCount = countOddNumbers(numbersStr);
+                    const evenCount = countEvenNumbers(numbersStr);
+                    
                     results.push({
                         date,
-                        numbers: numbers.join(" "),
-                        prize
+                        numbers: numbersStr,
+                        prize_s: prize,         // Renamed from prize to prize_s
+                        prize: numericPrize,    // New numeric prize field
+                        total: total,
+                        total_even_or_odd: totalEvenOrOdd,
+                        odd_count: oddCount,    // New odd count field
+                        even_count: evenCount   // New even count field
                     });
                 }
             }
