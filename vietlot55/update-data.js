@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const cheerio = require('cheerio');
+const LotteryPredictor = require('../lottery-prediction.js');
 
 // Create json-data directory if it doesn't exist
 const jsonDataDir = path.join(__dirname, 'json-data');
@@ -218,6 +219,17 @@ function generateSummaries(data) {
         path.join(jsonDataDir, 'day-of-month-summary.json'),
         JSON.stringify(dayOfMonthSummary, null, 2)
     );
+
+    // Generate predictions using Excel-like FORECAST & TREND methods
+    console.log('🔮 Generating predictions using FORECAST & TREND analysis...');
+    const predictor = new LotteryPredictor(data, 55); // 55 numbers for vietlot55
+    const predictionReport = predictor.getPredictionReport();
+    
+    fs.writeFileSync(
+        path.join(jsonDataDir, 'predictions.json'),
+        JSON.stringify(predictionReport, null, 2)
+    );
+    console.log('Generated predictions.json with FORECAST & TREND analysis');
 
     console.log('Summary files generated successfully!');
 }
