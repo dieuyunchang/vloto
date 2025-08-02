@@ -5,11 +5,14 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "update-data": "node vietlot55/update-data.js"
+    "update-data": "node vietlot55/update-data.js",
+    "update-all": "node update-all-data.js",
+    "update-45": "node vietlot45/update-data.js",
+    "update-55": "node vietlot55/update-data.js"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "axios": "^1.6.2",
-    "cheerio": "^1.0.0-rc.12"
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.18.2"
   }
-} 
+}
