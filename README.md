@@ -1,111 +1,168 @@
 # Vietlott Number Generator
 
-A web application for generating and analyzing lottery numbers for Vietlott Mega 6/55 and Mega 6/45 games.
+A comprehensive web application for generating and analyzing lottery numbers for Vietlott Mega 6/55 and Mega 6/45 games using statistical analysis and AI predictions.
 
-## Setup Instructions
+## Features
 
-1. Install Node.js dependencies:
+🎯 **AI-Powered Predictions** - Advanced forecasting using historical data trends  
+📊 **Statistical Analysis** - Frequency analysis by day, month, and date patterns  
+🔢 **Smart Number Generation** - Avoids duplicate combinations and common patterns  
+📱 **Responsive Design** - Works on desktop and mobile devices  
+⚡ **Real-time Updates** - No caching issues, always shows latest data  
+
+## Quick Start
+
+1. **Install Dependencies:**
 ```bash
 npm install
 ```
 
-2. Start the server:
+2. **Start the Server:**
 ```bash
 node server.js
 ```
 
-3. Access the application:
-- Main application: http://localhost:3005
-- Mega 6/55: http://localhost:3005/vietlot55/vietlot55.html
-- Mega 6/45: http://localhost:3005/vietlot45/vietlot45.html
+3. **Access the Application:**
+- **Main Page:** http://localhost:3005
+- **Mega 6/55:** http://localhost:3005/vietlot55/vietlot55.html  
+- **Mega 6/45:** http://localhost:3005/vietlot45/vietlot45.html
 
 ## Project Structure
 
 ```
-vietlot55/
-├── json-data/                  # Directory containing JSON data files
-│   ├── vietlot55-data.json    # Historical drawing data
-│   ├── day-of-week-summary.json
-│   ├── date-even-odd-summary.json
-│   ├── month-summary.json
-│   └── day-of-month-summary.json
-├── vietlot55.html             # Main HTML file for Mega 6/55
-├── vietlot55.js               # JavaScript logic for Mega 6/55
-└── update-data.js             # Script to update and process data
+vloto/
+├── server.js                    # Main Express.js server with cache-busting
+├── vietlot55/                   # Mega 6/55 lottery game
+│   ├── json-data/              # Statistical data files
+│   │   ├── vietlot55-data.json    # Historical drawing data
+│   │   ├── predictions.json       # AI predictions
+│   │   ├── day-of-week-summary.json
+│   │   ├── month-summary.json
+│   │   ├── day-of-month-summary.json
+│   │   └── even-odd-summary.json
+│   ├── vietlot55.html          # Main UI
+│   ├── vietlot55.js            # Game logic
+│   ├── update-data.js          # Data processing script
+│   └── server.js               # Individual server (optional)
+├── vietlot45/                   # Mega 6/45 lottery game  
+│   ├── json-data/              # Statistical data files
+│   │   ├── vietlot45-data.json    # Historical drawing data
+│   │   ├── predictions.json       # AI predictions
+│   │   ├── day-of-week-summary.json
+│   │   ├── month-summary.json
+│   │   ├── day-of-month-summary.json
+│   │   └── even-odd-summary.json
+│   ├── vietlot45.html          # Main UI
+│   ├── vietlot45.js            # Game logic
+│   ├── update-data.js          # Data processing script
+│   └── server.js               # Individual server (optional)
+├── mobile-app/                  # Mobile application
+├── update-all-data.js          # Update all lottery data
+├── lottery-prediction.js       # AI prediction engine
+├── generate_vietlot55.rb       # Ruby data generator
+└── generate_vietlot45.rb       # Ruby data generator
 ```
 
-## Features
+## Core Features
 
-### Data Analysis Functions
+### 🔮 AI Predictions & Forecasting
+- **FORECAST Analysis**: Trend-based predictions using historical patterns
+- **Smart Algorithms**: Machine learning approaches for number selection
+- **Confidence Scoring**: High/Medium/Low confidence indicators
+- **Pattern Recognition**: Identifies hot and cold number cycles
 
-1. `getExistingGroups()`
-   - Returns an array of previously drawn number groups
-   - Used to avoid generating duplicate combinations
+### 📊 Statistical Analysis Dashboard
+- **Day of Week Analysis**: Number frequency by weekday patterns
+- **Monthly Trends**: Seasonal number occurrence patterns  
+- **Date Analysis**: Even/odd date correlation with winning numbers
+- **Frequency Heatmaps**: Visual representation of hot/cold numbers
 
-2. `has3Odd3Even(numbers)`
-   - Checks if a group has exactly 3 odd and 3 even numbers
-   - Returns true/false
+### 🎯 Smart Number Generation
+- **Duplicate Avoidance**: Never generates previously drawn combinations
+- **Pattern Filtering**: Avoids common sequences and obvious patterns
+- **Balanced Selection**: Optimal mix of odd/even and high/low numbers
+- **Customizable Criteria**: User-selectable generation parameters
 
-3. `groupExists(numbers, existingGroups)`
-   - Checks if a number combination already exists
-   - Returns true/false
+### 💻 Modern Web Interface
+- **Responsive Design**: Works perfectly on mobile and desktop
+- **Real-time Navigation**: Seamless switching between game types
+- **Interactive Charts**: Click-to-explore statistical data
+- **Clean URLs**: No cache parameters for better user experience
 
-4. `calculateNumberFrequency()`
-   - Calculates how often each number appears
-   - Used for statistical analysis
+## Technical Architecture
 
-5. `calculatePairFrequency()`
-   - Analyzes frequency of number pairs
-   - Used to avoid common combinations
+### Server Configuration
+- **Express.js Backend**: Robust web server with advanced caching prevention
+- **Aggressive Cache-Busting**: Ensures users always see latest data
+- **Static File Serving**: Optimized delivery of HTML, CSS, and JSON
+- **Cross-Game Navigation**: Unified routing for both lottery types
 
-6. `isCommonPair(num1, num2)`
-   - Checks if two numbers commonly appear together
-   - Returns true/false
+### Data Processing Pipeline
+```bash
+# Update all lottery data
+node update-all-data.js
 
-### Number Generation
+# Update specific game data
+node vietlot55/update-data.js
+node vietlot45/update-data.js
 
-1. `generateGroup()`
-   - Generates a single group of 6 unique numbers
-   - Applies rules to avoid common patterns
+# Generate predictions
+node lottery-prediction.js
+```
 
-2. `generateGroups()`
-   - Generates multiple groups of numbers
-   - Called when clicking the "Generate Numbers" button
+### Cache Management
+The server implements aggressive cache prevention to ensure real-time updates:
+- **HTTP Headers**: `no-cache, no-store, must-revalidate, proxy-revalidate`
+- **Meta Tags**: HTML-level cache prevention directives
+- **Dynamic ETags**: Unique identifiers for each request
+- **Server-side Control**: Complete cache management at application level
 
-### Display Functions
+## Game Rules
 
-1. `showLastDraw()`
-   - Displays the most recent lottery drawing
-   - Shows date and winning numbers
+### Vietlott Mega 6/55
+- **Numbers**: Select 6 from 1-55
+- **Prize Structure**: Multiple prize tiers
+- **Draw Schedule**: Regular weekly draws
 
-2. `calculateSummary()`
-   - Generates statistical summary of numbers
-   - Shows frequency percentages
+### Vietlott Mega 6/45  
+- **Numbers**: Select 6 from 1-45
+- **Prize Structure**: Multiple prize tiers
+- **Draw Schedule**: Regular weekly draws
 
-3. `initializePage()`
-   - Initializes the page with data
-   - Called when the page loads
+## Development
 
-## Data Processing
+### Local Development
+```bash
+# Install dependencies
+npm install
 
-The `update-data.js` script processes lottery data and generates several summary files:
+# Start development server
+node server.js
 
-1. `day-of-week-summary.json`: Number frequency by day of the week
-2. `date-even-odd-summary.json`: Number frequency on even/odd dates
-3. `month-summary.json`: Number frequency by month
-4. `day-of-month-summary.json`: Number frequency by day of month
+# Server runs at http://localhost:3005
+```
 
-## Styling
+### Data Updates
+The application includes several data update mechanisms:
+- `update-all-data.js`: Updates both games simultaneously
+- Individual update scripts in each game folder
+- Ruby generators for bulk data processing
+- Automated statistical summary generation
 
-The application includes responsive styling with:
-- Navigation bar for switching between games
-- Color-coded frequency indicators
-- Hover effects on number displays
-- Mobile-friendly layout
+### File Structure
+- **JSON Data**: Historical draws and statistical summaries
+- **HTML/CSS/JS**: Frontend application files
+- **Server Logic**: Express.js routing and cache management
+- **Mobile App**: React Native mobile application (separate)
 
-## Notes
+## Performance & Reliability
 
-- The application uses historical data to generate statistically informed number combinations
-- Numbers are generated following Vietlott rules (1-55 for Mega 6/55)
-- The system avoids generating previously drawn combinations
-- Statistical analysis is updated with each new drawing 
+- ✅ **Zero Caching Issues**: Advanced cache-busting ensures fresh data
+- ✅ **Fast Navigation**: Optimized routing between game types  
+- ✅ **Mobile Optimized**: Responsive design for all devices
+- ✅ **Real-time Updates**: Immediate reflection of data changes
+- ✅ **Cross-browser Compatible**: Works in all modern browsers
+
+## Support
+
+For issues or questions about the Vietlott Number Generator, check the server logs or verify that all JSON data files are properly updated and accessible. 
