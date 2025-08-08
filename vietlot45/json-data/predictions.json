@@ -2,160 +2,160 @@
   "predictedNumbers": [
     {
       "number": 43,
-      "score": 12.541670094611272,
-      "trend": "neutral",
-      "strength": 0.013812126880916487,
+      "score": 12.349427978861067,
+      "trend": "down",
+      "strength": 0.011718540279534673,
       "confidence": "low",
-      "forecast": 15.677087618264089
+      "forecast": 15.527766351295764
     },
     {
       "number": 12,
-      "score": 11.890366780068101,
-      "trend": "up",
-      "strength": 0.013033113324135481,
+      "score": 11.743973673385439,
+      "trend": "neutral",
+      "strength": 0.01202952482841635,
       "confidence": "low",
-      "forecast": 14.6717400246812
+      "forecast": 14.679967091731797
     },
     {
       "number": 22,
-      "score": 11.766680378445084,
-      "trend": "neutral",
-      "strength": 0.0002103002936618692,
+      "score": 11.728695430459023,
+      "trend": "up",
+      "strength": 0.00018446537877747637,
       "confidence": "low",
-      "forecast": 14.708350473056354
+      "forecast": 14.658165364047717
     },
     {
       "number": 18,
-      "score": 11.562878063343762,
+      "score": 11.570002431847286,
       "trend": "up",
-      "strength": 0.004450865183552755,
+      "strength": 0.004495439838174242,
       "confidence": "low",
-      "forecast": 14.389551624845742
-    },
-    {
-      "number": 34,
-      "score": 11.314516031851038,
-      "trend": "up",
-      "strength": 0.00017412124119553507,
-      "confidence": "low",
-      "forecast": 14.1406828465652
+      "forecast": 14.397778691896338
     },
     {
       "number": 19,
-      "score": 11.303331962155491,
+      "score": 11.241464417935006,
       "trend": "neutral",
-      "strength": 0.000014986273440986686,
+      "strength": 0.000028524752618053206,
       "confidence": "low",
-      "forecast": 14.129164952694364
+      "forecast": 14.051830522418756
+    },
+    {
+      "number": 34,
+      "score": 11.194076511723573,
+      "trend": "neutral",
+      "strength": 0.000030078441031089476,
+      "confidence": "low",
+      "forecast": 13.992595639654464
     }
   ],
   "hotNumbers": [
     {
       "number": 43,
+      "direction": "down",
+      "strength": 0.011718540279534673,
+      "forecast": 15.527766351295764,
+      "currentFrequency": 0,
+      "change": -10,
+      "confidence": "low"
+    },
+    {
+      "number": 12,
       "direction": "neutral",
-      "strength": 0.013812126880916487,
-      "forecast": 15.677087618264089,
-      "currentFrequency": 10,
+      "strength": 0.01202952482841635,
+      "forecast": 14.679967091731797,
+      "currentFrequency": 20,
       "change": 0,
       "confidence": "low"
     },
     {
       "number": 22,
-      "direction": "neutral",
-      "strength": 0.0002103002936618692,
-      "forecast": 14.708350473056354,
-      "currentFrequency": 30,
-      "change": 0,
-      "confidence": "low"
-    },
-    {
-      "number": 12,
       "direction": "up",
-      "strength": 0.013033113324135481,
-      "forecast": 14.6717400246812,
-      "currentFrequency": 20,
-      "change": 10,
+      "strength": 0.00018446537877747637,
+      "forecast": 14.658165364047717,
+      "currentFrequency": 30,
+      "change": 20,
       "confidence": "low"
     },
     {
       "number": 18,
       "direction": "up",
-      "strength": 0.004450865183552755,
-      "forecast": 14.389551624845742,
+      "strength": 0.004495439838174242,
+      "forecast": 14.397778691896338,
       "currentFrequency": 20,
-      "change": 20,
-      "confidence": "low"
-    },
-    {
-      "number": 34,
-      "direction": "up",
-      "strength": 0.00017412124119553507,
-      "forecast": 14.1406828465652,
-      "currentFrequency": 40,
-      "change": 20,
+      "change": 10,
       "confidence": "low"
     },
     {
       "number": 19,
       "direction": "neutral",
-      "strength": 0.000014986273440986686,
-      "forecast": 14.129164952694364,
-      "currentFrequency": 10,
+      "strength": 0.000028524752618053206,
+      "forecast": 14.051830522418756,
+      "currentFrequency": 0,
       "change": 0,
       "confidence": "low"
     },
     {
-      "number": 40,
-      "direction": "up",
-      "strength": 0.0024106860354885518,
-      "forecast": 13.965446318387494,
-      "currentFrequency": 20,
-      "change": 20,
-      "confidence": "low"
-    },
-    {
-      "number": 11,
-      "direction": "down",
-      "strength": 0.00010026597391543657,
-      "forecast": 13.858905800082269,
-      "currentFrequency": 0,
-      "change": -30,
-      "confidence": "low"
-    },
-    {
-      "number": 1,
+      "number": 34,
       "direction": "neutral",
-      "strength": 0.00043093661339943523,
-      "forecast": 13.842451665981077,
-      "currentFrequency": 10,
+      "strength": 0.000030078441031089476,
+      "forecast": 13.992595639654464,
+      "currentFrequency": 30,
       "change": 0,
       "confidence": "low"
     },
     {
       "number": 41,
       "direction": "neutral",
-      "strength": 0.00030075076949953594,
-      "forecast": 13.78815302344714,
+      "strength": 0.00011058766538440956,
+      "forecast": 13.926367749897162,
       "currentFrequency": 0,
       "change": 0,
+      "confidence": "low"
+    },
+    {
+      "number": 11,
+      "direction": "down",
+      "strength": 0.00008821215140231153,
+      "forecast": 13.895516248457424,
+      "currentFrequency": 10,
+      "change": -10,
+      "confidence": "low"
+    },
+    {
+      "number": 40,
+      "direction": "up",
+      "strength": 0.002060244097337627,
+      "forecast": 13.879473467708761,
+      "currentFrequency": 10,
+      "change": 10,
+      "confidence": "low"
+    },
+    {
+      "number": 1,
+      "direction": "down",
+      "strength": 0.00039676135096111675,
+      "forecast": 13.774989716166187,
+      "currentFrequency": 0,
+      "change": -10,
       "confidence": "low"
     }
   ],
   "coldNumbers": [
     {
       "number": 15,
-      "direction": "up",
-      "strength": 0.011383659027184856,
-      "forecast": 9.88852324146442,
-      "currentFrequency": 10,
-      "change": 10,
+      "direction": "neutral",
+      "strength": 0.013397092849148251,
+      "forecast": 9.819827231591937,
+      "currentFrequency": 0,
+      "change": 0,
       "confidence": "low"
     },
     {
       "number": 7,
       "direction": "down",
-      "strength": 0.029445646951581028,
-      "forecast": 10.005758946935416,
+      "strength": 0.027953160922763676,
+      "forecast": 10.111888111888113,
       "currentFrequency": 0,
       "change": -10,
       "confidence": "low"
@@ -163,71 +163,71 @@
     {
       "number": 10,
       "direction": "up",
-      "strength": 0.023954350375469557,
-      "forecast": 10.269025092554504,
+      "strength": 0.021200380430905885,
+      "forecast": 10.366515837104071,
       "currentFrequency": 10,
       "change": 10,
-      "confidence": "low"
-    },
-    {
-      "number": 37,
-      "direction": "neutral",
-      "strength": 0.019151271361965483,
-      "forecast": 10.758535582064994,
-      "currentFrequency": 20,
-      "change": 0,
       "confidence": "low"
     },
     {
       "number": 26,
       "direction": "up",
-      "strength": 0.007896796583190424,
-      "forecast": 10.759358288770052,
+      "strength": 0.012986090235836412,
+      "forecast": 10.488687782805432,
       "currentFrequency": 50,
-      "change": 30,
+      "change": 10,
+      "confidence": "low"
+    },
+    {
+      "number": 37,
+      "direction": "down",
+      "strength": 0.020098072116614962,
+      "forecast": 10.604278074866315,
+      "currentFrequency": 10,
+      "change": -20,
       "confidence": "low"
     },
     {
       "number": 16,
-      "direction": "neutral",
-      "strength": 0.011149756584941883,
-      "forecast": 10.856849033319621,
-      "currentFrequency": 10,
-      "change": 0,
+      "direction": "up",
+      "strength": 0.008630741422220534,
+      "forecast": 10.95187165775401,
+      "currentFrequency": 20,
+      "change": 10,
       "confidence": "low"
     },
     {
       "number": 42,
-      "direction": "down",
-      "strength": 0.005621885569905505,
-      "forecast": 11.203619909502262,
-      "currentFrequency": 20,
-      "change": -10,
-      "confidence": "low"
-    },
-    {
-      "number": 36,
-      "direction": "down",
-      "strength": 0.0013872625483628553,
-      "forecast": 11.39160839160839,
-      "currentFrequency": 0,
-      "change": -20,
+      "direction": "up",
+      "strength": 0.005650136960111185,
+      "forecast": 11.11641299876594,
+      "currentFrequency": 30,
+      "change": 10,
       "confidence": "low"
     },
     {
       "number": 4,
       "direction": "up",
-      "strength": 0.005983174587826601,
-      "forecast": 11.5158371040724,
+      "strength": 0.005936982748063091,
+      "forecast": 11.454545454545453,
       "currentFrequency": 10,
       "change": 10,
       "confidence": "low"
     },
     {
+      "number": 36,
+      "direction": "down",
+      "strength": 0.0009490297578922391,
+      "forecast": 11.484162895927602,
+      "currentFrequency": 0,
+      "change": -10,
+      "confidence": "low"
+    },
+    {
       "number": 27,
       "direction": "down",
-      "strength": 0.00855215971936385,
-      "forecast": 11.526943644590702,
+      "strength": 0.007687816958322435,
+      "forecast": 11.547511312217194,
       "currentFrequency": 10,
       "change": -10,
       "confidence": "low"
@@ -235,367 +235,367 @@
   ],
   "trends": {
     "1": {
-      "direction": "neutral",
-      "strength": 0.00043093661339943523,
-      "forecast": 13.842451665981077,
-      "currentFrequency": 10,
-      "change": 0,
+      "direction": "down",
+      "strength": 0.00039676135096111675,
+      "forecast": 13.774989716166187,
+      "currentFrequency": 0,
+      "change": -10,
       "confidence": "low"
     },
     "2": {
       "direction": "neutral",
-      "strength": 0.00003916102138301625,
-      "forecast": 12.511723570547101,
+      "strength": 0.00012964206466548056,
+      "forecast": 12.596873714520774,
       "currentFrequency": 10,
       "change": 0,
       "confidence": "low"
     },
     "3": {
-      "direction": "up",
-      "strength": 0.002427594146837353,
-      "forecast": 13.215549156725627,
-      "currentFrequency": 20,
-      "change": 10,
+      "direction": "down",
+      "strength": 0.0014703459498409677,
+      "forecast": 13.02426984779926,
+      "currentFrequency": 10,
+      "change": -10,
       "confidence": "low"
     },
     "4": {
       "direction": "up",
-      "strength": 0.005983174587826601,
-      "forecast": 11.5158371040724,
+      "strength": 0.005936982748063091,
+      "forecast": 11.454545454545453,
       "currentFrequency": 10,
       "change": 10,
       "confidence": "low"
     },
     "5": {
-      "direction": "up",
-      "strength": 0.0004437442541872505,
-      "forecast": 13.151378033730975,
-      "currentFrequency": 30,
-      "change": 20,
+      "direction": "neutral",
+      "strength": 0.0008024182168959726,
+      "forecast": 12.995886466474701,
+      "currentFrequency": 20,
+      "change": 0,
       "confidence": "low"
     },
     "6": {
-      "direction": "down",
-      "strength": 0.0000016488289444893667,
-      "forecast": 12.739613327848621,
+      "direction": "neutral",
+      "strength": 0.000048396470598732755,
+      "forecast": 12.842040312628548,
       "currentFrequency": 10,
-      "change": -10,
+      "change": 0,
       "confidence": "low"
     },
     "7": {
       "direction": "down",
-      "strength": 0.029445646951581028,
-      "forecast": 10.005758946935416,
+      "strength": 0.027953160922763676,
+      "forecast": 10.111888111888113,
       "currentFrequency": 0,
       "change": -10,
       "confidence": "low"
     },
     "8": {
       "direction": "up",
-      "strength": 0.0025393052785196435,
-      "forecast": 12.361579596873716,
-      "currentFrequency": 10,
-      "change": 10,
+      "strength": 0.002007083767715079,
+      "forecast": 12.472645002056767,
+      "currentFrequency": 20,
+      "change": 20,
       "confidence": "low"
     },
     "9": {
       "direction": "down",
-      "strength": 0.0001792856140433452,
-      "forecast": 12.45948169477581,
-      "currentFrequency": 10,
+      "strength": 0.00020332806140721527,
+      "forecast": 12.385849444672973,
+      "currentFrequency": 0,
       "change": -10,
       "confidence": "low"
     },
     "10": {
       "direction": "up",
-      "strength": 0.023954350375469557,
-      "forecast": 10.269025092554504,
+      "strength": 0.021200380430905885,
+      "forecast": 10.366515837104071,
       "currentFrequency": 10,
       "change": 10,
       "confidence": "low"
     },
     "11": {
       "direction": "down",
-      "strength": 0.00010026597391543657,
-      "forecast": 13.858905800082269,
-      "currentFrequency": 0,
-      "change": -30,
-      "confidence": "low"
-    },
-    "12": {
-      "direction": "up",
-      "strength": 0.013033113324135481,
-      "forecast": 14.6717400246812,
-      "currentFrequency": 20,
-      "change": 10,
-      "confidence": "low"
-    },
-    "13": {
-      "direction": "down",
-      "strength": 0.0026414479389542667,
-      "forecast": 12.60798025503908,
-      "currentFrequency": 0,
+      "strength": 0.00008821215140231153,
+      "forecast": 13.895516248457424,
+      "currentFrequency": 10,
       "change": -10,
       "confidence": "low"
     },
-    "14": {
+    "12": {
       "direction": "neutral",
-      "strength": 0.0004412786693133164,
-      "forecast": 12.6248457424928,
+      "strength": 0.01202952482841635,
+      "forecast": 14.679967091731797,
       "currentFrequency": 20,
       "change": 0,
       "confidence": "low"
     },
-    "15": {
-      "direction": "up",
-      "strength": 0.011383659027184856,
-      "forecast": 9.88852324146442,
+    "13": {
+      "direction": "neutral",
+      "strength": 0.001670562213183957,
+      "forecast": 12.72151378033731,
       "currentFrequency": 10,
-      "change": 10,
+      "change": 0,
+      "confidence": "low"
+    },
+    "14": {
+      "direction": "down",
+      "strength": 0.0015044699464852318,
+      "forecast": 12.366515837104073,
+      "currentFrequency": 20,
+      "change": -10,
+      "confidence": "low"
+    },
+    "15": {
+      "direction": "neutral",
+      "strength": 0.013397092849148251,
+      "forecast": 9.819827231591937,
+      "currentFrequency": 0,
+      "change": 0,
       "confidence": "low"
     },
     "16": {
-      "direction": "neutral",
-      "strength": 0.011149756584941883,
-      "forecast": 10.856849033319621,
-      "currentFrequency": 10,
-      "change": 0,
+      "direction": "up",
+      "strength": 0.008630741422220534,
+      "forecast": 10.95187165775401,
+      "currentFrequency": 20,
+      "change": 10,
       "confidence": "low"
     },
     "17": {
-      "direction": "neutral",
-      "strength": 0.00030317643944122175,
-      "forecast": 12.014397367338542,
-      "currentFrequency": 10,
-      "change": 0,
+      "direction": "up",
+      "strength": 0.00019909276044327573,
+      "forecast": 12.015220074043603,
+      "currentFrequency": 20,
+      "change": 10,
       "confidence": "low"
     },
     "18": {
       "direction": "up",
-      "strength": 0.004450865183552755,
-      "forecast": 14.389551624845742,
+      "strength": 0.004495439838174242,
+      "forecast": 14.397778691896338,
       "currentFrequency": 20,
-      "change": 20,
+      "change": 10,
       "confidence": "low"
     },
     "19": {
       "direction": "neutral",
-      "strength": 0.000014986273440986686,
-      "forecast": 14.129164952694364,
-      "currentFrequency": 10,
+      "strength": 0.000028524752618053206,
+      "forecast": 14.051830522418756,
+      "currentFrequency": 0,
       "change": 0,
       "confidence": "low"
     },
     "20": {
       "direction": "down",
-      "strength": 0.0032170160233110368,
-      "forecast": 12.674208144796381,
-      "currentFrequency": 10,
-      "change": -20,
+      "strength": 0.003587476576568549,
+      "forecast": 12.702180172768408,
+      "currentFrequency": 20,
+      "change": -10,
       "confidence": "low"
     },
     "21": {
-      "direction": "neutral",
-      "strength": 0.00019922011019624097,
-      "forecast": 12.465651995063759,
-      "currentFrequency": 10,
-      "change": 0,
+      "direction": "up",
+      "strength": 0.0000709290633496007,
+      "forecast": 12.566844919786096,
+      "currentFrequency": 20,
+      "change": 20,
       "confidence": "low"
     },
     "22": {
-      "direction": "neutral",
-      "strength": 0.0002103002936618692,
-      "forecast": 14.708350473056354,
+      "direction": "up",
+      "strength": 0.00018446537877747637,
+      "forecast": 14.658165364047717,
       "currentFrequency": 30,
-      "change": 0,
+      "change": 20,
       "confidence": "low"
     },
     "23": {
       "direction": "up",
-      "strength": 0.00008612753896064529,
-      "forecast": 13.295351707116414,
+      "strength": 0.000018290865362424746,
+      "forecast": 13.408885232414645,
       "currentFrequency": 10,
       "change": 10,
       "confidence": "low"
     },
     "24": {
       "direction": "down",
-      "strength": 0.004511567733078592,
-      "forecast": 12.60798025503908,
+      "strength": 0.005311259777331934,
+      "forecast": 12.62978198272316,
       "currentFrequency": 0,
       "change": -30,
       "confidence": "low"
     },
     "25": {
       "direction": "up",
-      "strength": 0.00007871550121185678,
-      "forecast": 13.131633072809544,
+      "strength": 0.000014226576240949917,
+      "forecast": 13.23159193747429,
       "currentFrequency": 10,
       "change": 10,
       "confidence": "low"
     },
     "26": {
       "direction": "up",
-      "strength": 0.007896796583190424,
-      "forecast": 10.759358288770052,
+      "strength": 0.012986090235836412,
+      "forecast": 10.488687782805432,
       "currentFrequency": 50,
-      "change": 30,
+      "change": 10,
       "confidence": "low"
     },
     "27": {
       "direction": "down",
-      "strength": 0.00855215971936385,
-      "forecast": 11.526943644590702,
+      "strength": 0.007687816958322435,
+      "forecast": 11.547511312217194,
       "currentFrequency": 10,
       "change": -10,
       "confidence": "low"
     },
     "28": {
       "direction": "up",
-      "strength": 0.0069014022754421145,
-      "forecast": 11.564376799670917,
+      "strength": 0.0066976303653950575,
+      "forecast": 11.677910324969147,
       "currentFrequency": 30,
       "change": 20,
       "confidence": "low"
     },
     "29": {
       "direction": "up",
-      "strength": 0.006436182545842217,
-      "forecast": 11.769230769230772,
-      "currentFrequency": 30,
+      "strength": 0.006122109923857644,
+      "forecast": 11.791032496914852,
+      "currentFrequency": 40,
       "change": 10,
       "confidence": "low"
     },
     "30": {
-      "direction": "neutral",
-      "strength": 0.0011727454228220857,
-      "forecast": 12.337309749074455,
-      "currentFrequency": 20,
-      "change": 0,
+      "direction": "down",
+      "strength": 0.0012422317593978605,
+      "forecast": 12.271081859317153,
+      "currentFrequency": 10,
+      "change": -10,
       "confidence": "low"
     },
     "31": {
       "direction": "down",
-      "strength": 0.00006517791503990455,
-      "forecast": 12.790621143562321,
+      "strength": 0.000006424582696507031,
+      "forecast": 12.894282188399837,
       "currentFrequency": 0,
       "change": -10,
       "confidence": "low"
     },
     "32": {
       "direction": "neutral",
-      "strength": 0.0019868162798437616,
-      "forecast": 13.611271081859318,
+      "strength": 0.0024153741924535232,
+      "forecast": 13.70135746606335,
       "currentFrequency": 10,
       "change": 0,
       "confidence": "low"
     },
     "33": {
       "direction": "up",
-      "strength": 0.0032474582359085513,
-      "forecast": 12.224598930481282,
-      "currentFrequency": 20,
-      "change": 20,
+      "strength": 0.003262500112791944,
+      "forecast": 12.154668860551213,
+      "currentFrequency": 10,
+      "change": 10,
       "confidence": "low"
     },
     "34": {
-      "direction": "up",
-      "strength": 0.00017412124119553507,
-      "forecast": 14.1406828465652,
-      "currentFrequency": 40,
-      "change": 20,
+      "direction": "neutral",
+      "strength": 0.000030078441031089476,
+      "forecast": 13.992595639654464,
+      "currentFrequency": 30,
+      "change": 0,
       "confidence": "low"
     },
     "35": {
       "direction": "down",
-      "strength": 0.0026208423010726234,
-      "forecast": 11.808720691073633,
+      "strength": 0.0023401018819848574,
+      "forecast": 11.904977375565613,
       "currentFrequency": 0,
-      "change": -20,
+      "change": -10,
       "confidence": "low"
     },
     "36": {
       "direction": "down",
-      "strength": 0.0013872625483628553,
-      "forecast": 11.39160839160839,
+      "strength": 0.0009490297578922391,
+      "forecast": 11.484162895927602,
       "currentFrequency": 0,
-      "change": -20,
+      "change": -10,
       "confidence": "low"
     },
     "37": {
-      "direction": "neutral",
-      "strength": 0.019151271361965483,
-      "forecast": 10.758535582064994,
-      "currentFrequency": 20,
-      "change": 0,
+      "direction": "down",
+      "strength": 0.020098072116614962,
+      "forecast": 10.604278074866315,
+      "currentFrequency": 10,
+      "change": -20,
       "confidence": "low"
     },
     "38": {
       "direction": "down",
-      "strength": 0.005656974188961272,
-      "forecast": 13.250925545043193,
+      "strength": 0.005933771618154227,
+      "forecast": 13.267791032496916,
       "currentFrequency": 0,
-      "change": -20,
+      "change": -30,
       "confidence": "low"
     },
     "39": {
       "direction": "down",
-      "strength": 0.0027751338453445573,
-      "forecast": 11.56108597285068,
+      "strength": 0.002106520454590921,
+      "forecast": 11.663512957630605,
       "currentFrequency": 0,
       "change": -20,
       "confidence": "low"
     },
     "40": {
       "direction": "up",
-      "strength": 0.0024106860354885518,
-      "forecast": 13.965446318387494,
-      "currentFrequency": 20,
-      "change": 20,
+      "strength": 0.002060244097337627,
+      "forecast": 13.879473467708761,
+      "currentFrequency": 10,
+      "change": 10,
       "confidence": "low"
     },
     "41": {
       "direction": "neutral",
-      "strength": 0.00030075076949953594,
-      "forecast": 13.78815302344714,
+      "strength": 0.00011058766538440956,
+      "forecast": 13.926367749897162,
       "currentFrequency": 0,
       "change": 0,
       "confidence": "low"
     },
     "42": {
-      "direction": "down",
-      "strength": 0.005621885569905505,
-      "forecast": 11.203619909502262,
-      "currentFrequency": 20,
-      "change": -10,
+      "direction": "up",
+      "strength": 0.005650136960111185,
+      "forecast": 11.11641299876594,
+      "currentFrequency": 30,
+      "change": 10,
       "confidence": "low"
     },
     "43": {
-      "direction": "neutral",
-      "strength": 0.013812126880916487,
-      "forecast": 15.677087618264089,
-      "currentFrequency": 10,
-      "change": 0,
+      "direction": "down",
+      "strength": 0.011718540279534673,
+      "forecast": 15.527766351295764,
+      "currentFrequency": 0,
+      "change": -10,
       "confidence": "low"
     },
     "44": {
-      "direction": "neutral",
-      "strength": 0.00046304549685338703,
-      "forecast": 13.4413821472645,
-      "currentFrequency": 10,
-      "change": 0,
+      "direction": "up",
+      "strength": 0.0002512336629980627,
+      "forecast": 13.55738379267791,
+      "currentFrequency": 20,
+      "change": 10,
       "confidence": "low"
     },
     "45": {
       "direction": "down",
-      "strength": 0.0015226973016315704,
-      "forecast": 12.040723981900454,
+      "strength": 0.0012673852512004036,
+      "forecast": 12.130810366104484,
       "currentFrequency": 0,
-      "change": -30,
+      "change": -20,
       "confidence": "low"
     }
   },
-  "analysisDate": "2025-08-02T14:40:07.650Z",
-  "totalDrawsAnalyzed": 2214,
+  "analysisDate": "2025-08-08T14:54:31.584Z",
+  "totalDrawsAnalyzed": 2217,
   "predictionMethod": "Excel-like FORECAST & TREND Analysis"
 }

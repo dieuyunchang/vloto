@@ -1,5 +1,29 @@
 [
   {
+    "date": "T5, 07/08/2025",
+    "jackpot1": "06 24 31 32 39 48",
+    "jackpot2": "52",
+    "numbers": "06 24 31 32 39 48 52",
+    "prize_s": "56.313.287.400≈ 56.3 Tỷ",
+    "prize": "56313287400",
+    "total": 180,
+    "total_even_or_odd": "even",
+    "odd_count": 2,
+    "even_count": 4
+  },
+  {
+    "date": "T3, 05/08/2025",
+    "jackpot1": "08 41 45 51 52 53",
+    "jackpot2": "31",
+    "numbers": "08 41 45 51 52 53 31",
+    "prize_s": "53.813.039.700≈ 53.8 Tỷ",
+    "prize": "53813039700",
+    "total": 250,
+    "total_even_or_odd": "even",
+    "odd_count": 4,
+    "even_count": 2
+  },
+  {
     "date": "T7, 02/08/2025",
     "jackpot1": "12 24 29 33 34 35",
     "jackpot2": "47",

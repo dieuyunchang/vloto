@@ -3,7 +3,7 @@
     {
       "number": 1,
       "count": 74,
-      "percentage": 16
+      "percentage": 15.9
     },
     {
       "number": 2,
@@ -13,7 +13,7 @@
     {
       "number": 3,
       "count": 61,
-      "percentage": 13.2
+      "percentage": 13.1
     },
     {
       "number": 4,
@@ -22,8 +22,8 @@
     },
     {
       "number": 5,
-      "count": 88,
-      "percentage": 19
+      "count": 89,
+      "percentage": 19.2
     },
     {
       "number": 6,
@@ -38,7 +38,7 @@
     {
       "number": 8,
       "count": 61,
-      "percentage": 13.2
+      "percentage": 13.1
     },
     {
       "number": 9,
@@ -53,7 +53,7 @@
     {
       "number": 11,
       "count": 66,
-      "percentage": 14.3
+      "percentage": 14.2
     },
     {
       "number": 12,
@@ -67,13 +67,13 @@
     },
     {
       "number": 14,
-      "count": 59,
-      "percentage": 12.7
+      "count": 60,
+      "percentage": 12.9
     },
     {
       "number": 15,
       "count": 54,
-      "percentage": 11.7
+      "percentage": 11.6
     },
     {
       "number": 16,
@@ -93,7 +93,7 @@
     {
       "number": 19,
       "count": 54,
-      "percentage": 11.7
+      "percentage": 11.6
     },
     {
       "number": 20,
@@ -117,28 +117,28 @@
     },
     {
       "number": 24,
-      "count": 66,
-      "percentage": 14.3
+      "count": 67,
+      "percentage": 14.4
     },
     {
       "number": 25,
       "count": 61,
-      "percentage": 13.2
+      "percentage": 13.1
     },
     {
       "number": 26,
-      "count": 54,
-      "percentage": 11.7
+      "count": 55,
+      "percentage": 11.9
     },
     {
       "number": 27,
       "count": 67,
-      "percentage": 14.5
+      "percentage": 14.4
     },
     {
       "number": 28,
       "count": 61,
-      "percentage": 13.2
+      "percentage": 13.1
     },
     {
       "number": 29,
@@ -158,7 +158,7 @@
     {
       "number": 32,
       "count": 61,
-      "percentage": 13.2
+      "percentage": 13.1
     },
     {
       "number": 33,
@@ -182,8 +182,8 @@
     },
     {
       "number": 37,
-      "count": 58,
-      "percentage": 12.5
+      "count": 59,
+      "percentage": 12.7
     },
     {
       "number": 38,
@@ -198,7 +198,7 @@
     {
       "number": 40,
       "count": 66,
-      "percentage": 14.3
+      "percentage": 14.2
     },
     {
       "number": 41,
@@ -212,8 +212,8 @@
     },
     {
       "number": 43,
-      "count": 57,
-      "percentage": 12.3
+      "count": 58,
+      "percentage": 12.5
     },
     {
       "number": 44,
@@ -223,7 +223,7 @@
     {
       "number": 45,
       "count": 66,
-      "percentage": 14.3
+      "percentage": 14.2
     }
   ],
   "mon": [
@@ -693,8 +693,8 @@
     },
     {
       "number": 3,
-      "count": 56,
-      "percentage": 12.1
+      "count": 57,
+      "percentage": 12.3
     },
     {
       "number": 4,
@@ -704,12 +704,12 @@
     {
       "number": 5,
       "count": 54,
-      "percentage": 11.7
+      "percentage": 11.6
     },
     {
       "number": 6,
       "count": 61,
-      "percentage": 13.2
+      "percentage": 13.1
     },
     {
       "number": 7,
@@ -738,23 +738,23 @@
     },
     {
       "number": 12,
-      "count": 57,
-      "percentage": 12.3
+      "count": 58,
+      "percentage": 12.5
     },
     {
       "number": 13,
       "count": 61,
-      "percentage": 13.2
+      "percentage": 13.1
     },
     {
       "number": 14,
-      "count": 54,
-      "percentage": 11.7
+      "count": 55,
+      "percentage": 11.9
     },
     {
       "number": 15,
       "count": 60,
-      "percentage": 13
+      "percentage": 12.9
     },
     {
       "number": 16,
@@ -764,12 +764,12 @@
     {
       "number": 17,
       "count": 54,
-      "percentage": 11.7
+      "percentage": 11.6
     },
     {
       "number": 18,
-      "count": 60,
-      "percentage": 13
+      "count": 61,
+      "percentage": 13.1
     },
     {
       "number": 19,
@@ -779,7 +779,7 @@
     {
       "number": 20,
       "count": 72,
-      "percentage": 15.6
+      "percentage": 15.5
     },
     {
       "number": 21,
@@ -794,7 +794,7 @@
     {
       "number": 23,
       "count": 66,
-      "percentage": 14.3
+      "percentage": 14.2
     },
     {
       "number": 24,
@@ -809,7 +809,7 @@
     {
       "number": 26,
       "count": 60,
-      "percentage": 13
+      "percentage": 12.9
     },
     {
       "number": 27,
@@ -823,8 +823,8 @@
     },
     {
       "number": 29,
-      "count": 67,
-      "percentage": 14.5
+      "count": 68,
+      "percentage": 14.7
     },
     {
       "number": 30,
@@ -848,8 +848,8 @@
     },
     {
       "number": 34,
-      "count": 70,
-      "percentage": 15.1
+      "count": 71,
+      "percentage": 15.3
     },
     {
       "number": 35,
@@ -869,7 +869,7 @@
     {
       "number": 38,
       "count": 48,
-      "percentage": 10.4
+      "percentage": 10.3
     },
     {
       "number": 39,
@@ -879,7 +879,7 @@
     {
       "number": 40,
       "count": 61,
-      "percentage": 13.2
+      "percentage": 13.1
     },
     {
       "number": 41,
@@ -899,12 +899,12 @@
     {
       "number": 44,
       "count": 66,
-      "percentage": 14.3
+      "percentage": 14.2
     },
     {
       "number": 45,
       "count": 54,
-      "percentage": 11.7
+      "percentage": 11.6
     }
   ],
   "thu": [
@@ -1143,17 +1143,17 @@
     {
       "number": 2,
       "count": 63,
-      "percentage": 13.7
+      "percentage": 13.6
     },
     {
       "number": 3,
       "count": 51,
-      "percentage": 11.1
+      "percentage": 11
     },
     {
       "number": 4,
       "count": 74,
-      "percentage": 16.1
+      "percentage": 16
     },
     {
       "number": 5,
@@ -1187,8 +1187,8 @@
     },
     {
       "number": 11,
-      "count": 68,
-      "percentage": 14.8
+      "count": 69,
+      "percentage": 14.9
     },
     {
       "number": 12,
@@ -1198,7 +1198,7 @@
     {
       "number": 13,
       "count": 68,
-      "percentage": 14.8
+      "percentage": 14.7
     },
     {
       "number": 14,
@@ -1208,7 +1208,7 @@
     {
       "number": 15,
       "count": 57,
-      "percentage": 12.4
+      "percentage": 12.3
     },
     {
       "number": 16,
@@ -1217,8 +1217,8 @@
     },
     {
       "number": 17,
-      "count": 49,
-      "percentage": 10.6
+      "count": 50,
+      "percentage": 10.8
     },
     {
       "number": 18,
@@ -1232,8 +1232,8 @@
     },
     {
       "number": 20,
-      "count": 65,
-      "percentage": 14.1
+      "count": 66,
+      "percentage": 14.3
     },
     {
       "number": 21,
@@ -1243,7 +1243,7 @@
     {
       "number": 22,
       "count": 74,
-      "percentage": 16.1
+      "percentage": 16
     },
     {
       "number": 23,
@@ -1253,27 +1253,27 @@
     {
       "number": 24,
       "count": 68,
-      "percentage": 14.8
+      "percentage": 14.7
     },
     {
       "number": 25,
       "count": 63,
-      "percentage": 13.7
+      "percentage": 13.6
     },
     {
       "number": 26,
-      "count": 68,
-      "percentage": 14.8
+      "count": 69,
+      "percentage": 14.9
     },
     {
       "number": 27,
-      "count": 59,
-      "percentage": 12.8
+      "count": 60,
+      "percentage": 13
     },
     {
       "number": 28,
       "count": 63,
-      "percentage": 13.7
+      "percentage": 13.6
     },
     {
       "number": 29,
@@ -1283,7 +1283,7 @@
     {
       "number": 30,
       "count": 68,
-      "percentage": 14.8
+      "percentage": 14.7
     },
     {
       "number": 31,
@@ -1293,7 +1293,7 @@
     {
       "number": 32,
       "count": 63,
-      "percentage": 13.7
+      "percentage": 13.6
     },
     {
       "number": 33,
@@ -1303,7 +1303,7 @@
     {
       "number": 34,
       "count": 63,
-      "percentage": 13.7
+      "percentage": 13.6
     },
     {
       "number": 35,
@@ -1322,8 +1322,8 @@
     },
     {
       "number": 38,
-      "count": 64,
-      "percentage": 13.9
+      "count": 65,
+      "percentage": 14.1
     },
     {
       "number": 39,
