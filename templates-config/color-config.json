@@ -1,0 +1,90 @@
+{
+  "colorConvention": {
+    "name": "LotoRainbow",
+    "description": "Color mapping for lottery number groups based on tens digit",
+    "groups": [
+      {
+        "group": "G0",
+        "name": "zero",
+        "numbers": "01-09",
+        "numberRange": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "color": "yellow"
+      },
+      {
+        "group": "G1",
+        "name": "one",
+        "numbers": "10-19",
+        "numberRange": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+        "color": "light blue"
+      },
+      {
+        "group": "G2",
+        "name": "two",
+        "numbers": "20-29",
+        "numberRange": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+        "color": "gray"
+      },
+      {
+        "group": "G3",
+        "name": "three",
+        "numbers": "30-39",
+        "numberRange": [30, 31, 32, 33, 34, 35, 36, 37, 38, 39],
+        "color": "green"
+      },
+      {
+        "group": "G4",
+        "name": "four",
+        "numbers": "40-49",
+        "numberRange": [40, 41, 42, 43, 44, 45, 46, 47, 48, 49],
+        "color": "pink"
+      },
+      {
+        "group": "G5",
+        "name": "five",
+        "numbers": "50-59",
+        "numberRange": [50, 51, 52, 53, 54, 55, 56, 57, 58, 59],
+        "color": "ivory"
+      },
+      {
+        "group": "G6",
+        "name": "six",
+        "numbers": "60-69",
+        "numberRange": [60, 61, 62, 63, 64, 65, 66, 67, 68, 69],
+        "color": "red"
+      },
+      {
+        "group": "G7",
+        "name": "seven",
+        "numbers": "70-79",
+        "numberRange": [70, 71, 72, 73, 74, 75, 76, 77, 78, 79],
+        "color": "blue"
+      },
+      {
+        "group": "G8",
+        "name": "eight",
+        "numbers": "80-89",
+        "numberRange": [80, 81, 82, 83, 84, 85, 86, 87, 88, 89],
+        "color": "light green"
+      },
+      {
+        "group": "G9",
+        "name": "nine",
+        "numbers": "90-99",
+        "numberRange": [90, 91, 92, 93, 94, 95, 96, 97, 98, 99],
+        "color": "brown"
+      }
+    ]
+  },
+  "usage": {
+    "vietlot45": {
+      "maxNumber": 45,
+      "applicableGroups": ["G0", "G1", "G2", "G3", "G4"],
+      "note": "Only groups G0-G4 are relevant since max number is 45"
+    },
+    "vietlot55": {
+      "maxNumber": 55,
+      "applicableGroups": ["G0", "G1", "G2", "G3", "G4", "G5"],
+      "note": "Only groups G0-G5 are relevant since max number is 55"
+    }
+  }
+}

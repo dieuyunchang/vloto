@@ -3,6 +3,7 @@ const path = require('path');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const LotteryPredictor = require('../lottery-prediction.js');
+const { updateTemplatesWithNewData } = require('../template-updater.js');
 const totalNumber = 45;
 // Create json-data directory if it doesn't exist
 const jsonDataDir = path.join(__dirname, 'json-data');
@@ -333,6 +334,9 @@ async function updateLocalData() {
             // Save to file
             fs.writeFileSync(DATA_FILE, JSON.stringify(uniqueData, null, 2));
             console.log('Data updated successfully');
+
+            // Update templates with new patterns
+            updateTemplatesWithNewData(newData, 'vietlot45');
 
             // Generate summary files
             generateSummaries(uniqueData);
