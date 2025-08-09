@@ -343,6 +343,11 @@
             color: #856404;
         }
         
+        .number-list .ai-prediction-number {
+            background-color: #e7e3ff;
+            color: #5d4e75;
+        }
+        
         .number-list .excluded-number {
             background-color: #f8d7da;
             color: #721c24;
@@ -374,6 +379,11 @@
         .result-group .couple-number {
             background-color: #fff3cd !important;
             color: #856404;
+        }
+        
+        .result-group .ai-prediction-number {
+            background-color: #e7e3ff !important;
+            color: #5d4e75;
         }
         
         .result-group .excluded-number {
@@ -550,6 +560,14 @@
             </div>
 
             <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="ai-predictions-check">
+                <label class="form-check-label" for="ai-predictions-check">
+                    Include top <input type="number" id="ai-predictions-count" value="6" min="1" max="10" class="count-input"> AI predicted numbers (FORECAST & TREND)
+                </label>
+                <div class="selected-numbers" id="ai-predictions-numbers"></div>
+            </div>
+
+            <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="exclude-recent-check" checked>
                 <label class="form-check-label" for="exclude-recent-check">
                     Exclude numbers from last <input type="number" id="exclude-count" value="2" min="1" max="99" class="count-input"> results
@@ -594,6 +612,10 @@
             <div class="selected-numbers-group">
                 <h4>Couple Numbers</h4>
                 <div id="couple-numbers-list" class="number-list"></div>
+            </div>
+            <div class="selected-numbers-group">
+                <h4>AI Predictions</h4>
+                <div id="ai-predictions-list" class="number-list"></div>
             </div>
             <div class="selected-numbers-group">
                 <h4>Excluded Numbers</h4>
@@ -872,12 +894,12 @@
             initializeCustomNumbers();
             
             // Add event listeners for count inputs and checkboxes
-            ['month-count', 'even-odd-count', 'day-week-count', 'day-month-count', 'exclude-count', 'highest-couple-count'].forEach(id => {
+            ['month-count', 'even-odd-count', 'day-week-count', 'day-month-count', 'exclude-count', 'highest-couple-count', 'ai-predictions-count'].forEach(id => {
                 document.getElementById(id).addEventListener('change', updateSelectedNumbers);
             });
             
             // Add event listeners for checkboxes
-            ['month-check', 'even-odd-check', 'day-week-check', 'day-month-check', 'exclude-recent-check', 'include-highest-couple-check', 'even-odd-balance-check'].forEach(id => {
+            ['month-check', 'even-odd-check', 'day-week-check', 'day-month-check', 'exclude-recent-check', 'include-highest-couple-check', 'ai-predictions-check', 'even-odd-balance-check'].forEach(id => {
                 document.getElementById(id).addEventListener('change', updateSelectedNumbers);
             });
 
@@ -964,6 +986,15 @@
                 document.getElementById('highest-couple-numbers').textContent = '';
             }
 
+            // Get AI prediction numbers
+            window.aiPredictionNumbers = [];
+            if (document.getElementById('ai-predictions-check').checked) {
+                window.aiPredictionNumbers = getTopAIPredictions(parseInt(document.getElementById('ai-predictions-count').value));
+                updateNumberDisplay('ai-predictions-numbers', window.aiPredictionNumbers);
+            } else {
+                document.getElementById('ai-predictions-numbers').textContent = '';
+            }
+
             // Update the display
             updateNumberDisplay('month-numbers', window.monthNumbers);
             updateNumberDisplay('even-odd-numbers', window.evenOddNumbers);
@@ -978,6 +1009,7 @@
             );
             updateNumbersList('custom-numbers-list', Array.from(window.customNumbers), 'custom-number');
             updateNumbersList('couple-numbers-list', Array.from(window.coupleNumbers), 'couple-number');
+            updateNumbersList('ai-predictions-list', window.aiPredictionNumbers, 'ai-prediction-number');
             updateNumbersList('excluded-numbers-list', window.excludedNumbers, 'excluded-number');
 
             updateCustomNumbersState();
@@ -1052,6 +1084,19 @@
                 }
             });
             return Array.from(excludedNumbers).sort((a, b) => a - b);
+        }
+
+        function getTopAIPredictions(count) {
+            // Access the predictions data from the global predictions variable
+            if (!window.predictionsData || !window.predictionsData.predictedNumbers) {
+                console.log('No AI predictions data available');
+                return [];
+            }
+            
+            return window.predictionsData.predictedNumbers
+                .slice(0, count)
+                .map(pred => pred.number)
+                .sort((a, b) => a - b);
         }
 
         function updateNumberDisplay(elementId, numbers) {
@@ -1187,6 +1232,11 @@
             if (document.getElementById('include-highest-couple-check').checked) {
                 window.highestCoupleNumbers.forEach(item => includedNumbers.add(item.couple));
             }
+
+            // Add AI prediction numbers if option is checked
+            if (document.getElementById('ai-predictions-check').checked) {
+                window.aiPredictionNumbers.forEach(num => includedNumbers.add(num));
+            }
             
             // Get excluded numbers
             const excludedNumbers = new Set();
@@ -1225,6 +1275,8 @@
             const customNumbers = new Set();
             
             // Categorize numbers
+            const aiPredictionNumbers = new Set();
+            
             if (document.getElementById('month-check').checked) {
                 window.monthNumbers.forEach(num => selectedNumbers.add(num));
             }
@@ -1240,6 +1292,9 @@
             if (document.getElementById('include-highest-couple-check').checked) {
                 window.highestCoupleNumbers.forEach(item => coupleNumbers.add(item.couple));
             }
+            if (document.getElementById('ai-predictions-check').checked) {
+                window.aiPredictionNumbers.forEach(num => aiPredictionNumbers.add(num));
+            }
             if (document.getElementById('custom-numbers-check').checked) {
                 window.customNumbers.forEach(num => customNumbers.add(num));
             }
@@ -1249,6 +1304,8 @@
                 let className = '';
                 if (customNumbers.has(num)) {
                     className = 'custom-number';
+                } else if (aiPredictionNumbers.has(num)) {
+                    className = 'ai-prediction-number';
                 } else if (coupleNumbers.has(num)) {
                     className = 'couple-number';
                 } else if (selectedNumbers.has(num)) {
@@ -1430,6 +1487,7 @@
             // Get all selected numbers from checked categories
             const selectedNumbers = new Set();
             const coupleNumbers = new Set();
+            const aiPredictionNumbers = new Set();
             const excludedNumbers = new Set();
             
             if (document.getElementById('month-check').checked) {
@@ -1451,6 +1509,10 @@
             if (document.getElementById('include-highest-couple-check').checked) {
                 window.highestCoupleNumbers.forEach(item => coupleNumbers.add(item.couple));
             }
+
+            if (document.getElementById('ai-predictions-check').checked) {
+                window.aiPredictionNumbers.forEach(num => aiPredictionNumbers.add(num));
+            }
             
             if (document.getElementById('exclude-recent-check').checked) {
                 window.excludedNumbers.forEach(num => excludedNumbers.add(num));
@@ -1467,6 +1529,8 @@
                                 let className = '';
                                 if (selectedNumbers.has(num)) {
                                     className = 'selected-number';
+                                } else if (aiPredictionNumbers.has(num)) {
+                                    className = 'ai-prediction-number';
                                 } else if (coupleNumbers.has(num)) {
                                     className = 'couple-number';
                                 } else if (excludedNumbers.has(num)) {
@@ -1774,6 +1838,10 @@
                     throw new Error('Failed to load predictions');
                 }
                 const predictions = await response.json();
+                
+                // Store predictions data globally for use in AI predictions feature
+                window.predictionsData = predictions;
+                
                 displayPredictions(predictions);
             } catch (error) {
                 console.error('Error loading predictions:', error);
