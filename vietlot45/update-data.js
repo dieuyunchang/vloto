@@ -331,15 +331,15 @@ async function updateLocalData() {
                 index === self.findIndex((t) => t.date === item.date)
             );
             
-            // Save to file
-            fs.writeFileSync(DATA_FILE, JSON.stringify(uniqueData, null, 2));
+            // Update templates with new patterns and get data with template IDs
+            const dataWithTemplateIds = updateTemplatesWithNewData(uniqueData, 'vietlot45');
+
+            // Save to file with template IDs
+            fs.writeFileSync(DATA_FILE, JSON.stringify(dataWithTemplateIds, null, 2));
             console.log('Data updated successfully');
 
-            // Update templates with new patterns
-            updateTemplatesWithNewData(newData, 'vietlot45');
-
             // Generate summary files
-            generateSummaries(uniqueData);
+            generateSummaries(dataWithTemplateIds);
         } else {
             console.log('No new data found');
             if (existingData.length > 0) {

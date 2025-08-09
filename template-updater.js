@@ -53,6 +53,44 @@ function writeTemplatesInline(templates) {
     fs.writeFileSync(templatesPath, output);
 }
 
+// Function to assign template IDs to lottery entries
+function assignTemplateIds(lotteryData, dataSource) {
+    const existingTemplates = readExistingTemplates();
+    const templateLookup = new Map();
+    
+    // Create lookup map
+    existingTemplates.forEach(template => {
+        const sortedPattern = [...template.group].sort();
+        const patternKey = patternToString(sortedPattern);
+        templateLookup.set(patternKey, template.id);
+    });
+    
+    // Assign template IDs to each entry
+    return lotteryData.map(entry => {
+        let numbersStr = null;
+        
+        // Handle different data sources
+        if (dataSource === 'vietlot45' && entry.numbers) {
+            numbersStr = entry.numbers;
+        } else if (dataSource === 'vietlot55' && entry.jackpot1) {
+            numbersStr = entry.jackpot1;
+        }
+        
+        if (numbersStr) {
+            const pattern = numbersToPattern(numbersStr);
+            const patternKey = patternToString(pattern);
+            const templateId = templateLookup.get(patternKey);
+            
+            return {
+                ...entry,
+                template_id: templateId || null
+            };
+        }
+        
+        return entry;
+    });
+}
+
 // Main function to update templates with new data
 function updateTemplatesWithNewData(newLotteryData, dataSource = 'unknown') {
     console.log(`\n🔄 Updating templates with new ${dataSource} data...`);
@@ -125,13 +163,19 @@ function updateTemplatesWithNewData(newLotteryData, dataSource = 'unknown') {
             console.log(`ℹ️  No new templates needed for ${dataSource}`);
         }
         
+        // Always assign template IDs to the data after processing templates
+        console.log(`🏷️  Assigning template IDs to ${dataSource} entries...`);
+        return assignTemplateIds(newLotteryData, dataSource);
+        
     } catch (error) {
         console.error(`❌ Error updating templates:`, error.message);
+        return newLotteryData; // Return original data if error
     }
 }
 
 module.exports = {
     updateTemplatesWithNewData,
+    assignTemplateIds,
     numbersToPattern,
     numberToGroup
 };
