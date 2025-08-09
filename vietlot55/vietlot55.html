@@ -8,6 +8,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Vietlott Mega 6/55 Number Generator</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -330,6 +331,11 @@
             background-color: #f8d7da;
             color: #721c24;
         }
+        
+        .number-list .no-numbers {
+            color: #6c757d;
+            font-style: italic;
+        }
 
         .result-group .number-group span {
             padding: 8px 12px;
@@ -578,6 +584,17 @@
                 <div id="excluded-numbers-list" class="number-list"></div>
             </div>
         </div>
+        
+        <!-- Final Numbers Pool - Full Width at Bottom -->
+        <div style="margin-top: 15px; padding: 15px; background-color: white; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <h5 style="margin: 0 0 10px 0; color: #333; font-size: 1.1em;">Final Numbers Pool</h5>
+            <div id="final-numbers-display" class="number-list">
+                <span class="no-numbers">No numbers calculated yet</span>
+            </div>
+            <div id="final-numbers-summary" style="margin-top: 10px; font-size: 0.9em; color: #666;">
+                <!-- Summary will be displayed here -->
+            </div>
+        </div>
     </div>
 
     <div class="action-button">
@@ -691,6 +708,9 @@
                 
                 // Load and display predictions
                 loadPredictions();
+                
+                // Initialize final numbers display
+                displayFinalNumbers();
             } catch (error) {
                 console.error('Error loading data:', error);
                 document.getElementById("summary").innerHTML = "Error loading data. Please try again later.";
@@ -840,7 +860,7 @@
             });
             
             // Add event listeners for checkboxes
-            ['month-check', 'even-odd-check', 'day-week-check', 'day-month-check', 'exclude-recent-check', 'include-highest-couple-check'].forEach(id => {
+            ['month-check', 'even-odd-check', 'day-week-check', 'day-month-check', 'exclude-recent-check', 'include-highest-couple-check', 'even-odd-balance-check'].forEach(id => {
                 document.getElementById(id).addEventListener('change', updateSelectedNumbers);
             });
 
@@ -944,6 +964,9 @@
             updateNumbersList('excluded-numbers-list', window.excludedNumbers, 'excluded-number');
 
             updateCustomNumbersState();
+            
+            // Update final numbers display
+            displayFinalNumbers();
         }
 
         function getTopNumbersFromMonth(month, count) {
@@ -1122,7 +1145,7 @@
             return Array.from(weights.values()).reduce((sum, weight) => sum + weight, 0);
         }
 
-        function generateGroups() {
+        function calculateFinalNumbers() {
             // Get all selected numbers from checked categories
             const includedNumbers = new Set();
             
@@ -1163,6 +1186,85 @@
             const finalNumbers = Array.from(includedNumbers).filter(num => 
                 !excludedNumbers.has(num) || window.customNumbers.has(num)
             );
+            
+            return { finalNumbers, excludedNumbers };
+        }
+
+        function displayFinalNumbers() {
+            const { finalNumbers, excludedNumbers } = calculateFinalNumbers();
+            const displayElement = document.getElementById('final-numbers-display');
+            const summaryElement = document.getElementById('final-numbers-summary');
+            
+            if (finalNumbers.length === 0) {
+                displayElement.innerHTML = '<span class="no-numbers">No numbers selected</span>';
+                summaryElement.innerHTML = '';
+                return;
+            }
+            
+            // Sort numbers and categorize them
+            const sortedNumbers = finalNumbers.sort((a, b) => a - b);
+            const selectedNumbers = new Set();
+            const coupleNumbers = new Set();
+            const customNumbers = new Set();
+            
+            // Categorize numbers
+            if (document.getElementById('month-check').checked) {
+                window.monthNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            if (document.getElementById('even-odd-check').checked) {
+                window.evenOddNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            if (document.getElementById('day-week-check').checked) {
+                window.dayWeekNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            if (document.getElementById('day-month-check').checked) {
+                window.dayMonthNumbers.forEach(num => selectedNumbers.add(num));
+            }
+            if (document.getElementById('include-highest-couple-check').checked) {
+                window.highestCoupleNumbers.forEach(item => coupleNumbers.add(item.couple));
+            }
+            if (document.getElementById('custom-numbers-check').checked) {
+                window.customNumbers.forEach(num => customNumbers.add(num));
+            }
+            
+            // Display numbers with appropriate styling
+            displayElement.innerHTML = sortedNumbers.map(num => {
+                let className = '';
+                if (customNumbers.has(num)) {
+                    className = 'custom-number';
+                } else if (coupleNumbers.has(num)) {
+                    className = 'couple-number';
+                } else if (selectedNumbers.has(num)) {
+                    className = 'selected-number';
+                } else {
+                    className = 'selected-number'; // fallback
+                }
+                return `<span class="${className}">${String(num).padStart(2, '0')}</span>`;
+            }).join('');
+            
+            // Display summary
+            const evenCount = sortedNumbers.filter(num => num % 2 === 0).length;
+            const oddCount = sortedNumbers.length - evenCount;
+            const excludedCount = Array.from(excludedNumbers).length;
+            
+            let summaryHTML = `Total: ${sortedNumbers.length} numbers | Even: ${evenCount} | Odd: ${oddCount}`;
+            if (excludedCount > 0) {
+                summaryHTML += ` | Excluded: ${excludedCount}`;
+            }
+            
+            if (sortedNumbers.length < 6) {
+                summaryHTML += `<br><span style="color: #dc3545;">⚠️ Need ${6 - sortedNumbers.length} more numbers (will be randomly selected)</span>`;
+            } else if (sortedNumbers.length === 6) {
+                summaryHTML += `<br><span style="color: #28a745;">✓ Exactly 6 numbers (will generate 1 group)</span>`;
+            } else {
+                summaryHTML += `<br><span style="color: #007bff;">✓ ${sortedNumbers.length} numbers (will generate combinations)</span>`;
+            }
+            
+            summaryElement.innerHTML = summaryHTML;
+        }
+
+        function generateGroups() {
+            const { finalNumbers, excludedNumbers } = calculateFinalNumbers();
             
             // Get group limit
             const groupLimit = parseInt(document.getElementById('group-limit').value) || 2;
