@@ -1,5 +1,93 @@
 [
   {
+    "date": "T4, 27/08/2025",
+    "numbers": "03 11 18 39 40 42",
+    "prize_s": "48.376.258.000≈ 48.4 Tỷ",
+    "prize": "48376258000",
+    "total": 153,
+    "total_even_or_odd": "odd",
+    "odd_count": 3,
+    "even_count": 3,
+    "template_id": "T66"
+  },
+  {
+    "date": "CN, 24/08/2025",
+    "numbers": "02 09 20 28 32 43",
+    "prize_s": "43.923.409.000≈ 43.9 Tỷ",
+    "prize": "43923409000",
+    "total": 134,
+    "total_even_or_odd": "even",
+    "odd_count": 2,
+    "even_count": 4,
+    "template_id": "T113"
+  },
+  {
+    "date": "T6, 22/08/2025",
+    "numbers": "01 09 10 13 37 39",
+    "prize_s": "39.660.369.000≈ 39.7 Tỷ",
+    "prize": "39660369000",
+    "total": 109,
+    "total_even_or_odd": "odd",
+    "odd_count": 5,
+    "even_count": 1,
+    "template_id": "T70"
+  },
+  {
+    "date": "T4, 20/08/2025",
+    "numbers": "04 09 27 32 38 42",
+    "prize_s": "35.445.053.000≈ 35.4 Tỷ",
+    "prize": "35445053000",
+    "total": 152,
+    "total_even_or_odd": "even",
+    "odd_count": 2,
+    "even_count": 4,
+    "template_id": "T76"
+  },
+  {
+    "date": "CN, 17/08/2025",
+    "numbers": "15 24 26 29 31 42",
+    "prize_s": "31.340.556.500≈ 31.3 Tỷ",
+    "prize": "31340556500",
+    "total": 167,
+    "total_even_or_odd": "odd",
+    "odd_count": 3,
+    "even_count": 3,
+    "template_id": "T20"
+  },
+  {
+    "date": "T6, 15/08/2025",
+    "numbers": "05 22 27 36 43 45",
+    "prize_s": "29.027.737.000≈ 29 Tỷ",
+    "prize": "29027737000",
+    "total": 178,
+    "total_even_or_odd": "even",
+    "odd_count": 4,
+    "even_count": 2,
+    "template_id": "T26"
+  },
+  {
+    "date": "T4, 13/08/2025",
+    "numbers": "10 15 28 30 35 45",
+    "prize_s": "27.337.504.000≈ 27.3 Tỷ",
+    "prize": "27337504000",
+    "total": 163,
+    "total_even_or_odd": "odd",
+    "odd_count": 3,
+    "even_count": 3,
+    "template_id": "T79"
+  },
+  {
+    "date": "CN, 10/08/2025",
+    "numbers": "13 21 26 28 31 35",
+    "prize_s": "25.554.421.000≈ 25.6 Tỷ",
+    "prize": "25554421000",
+    "total": 154,
+    "total_even_or_odd": "even",
+    "odd_count": 4,
+    "even_count": 2,
+    "template_id": "T65"
+  },
+  {
     "date": "T6, 08/08/2025",
     "numbers": "11 17 20 26 27 38",
     "prize_s": "23.666.692.000≈ 23.7 Tỷ",
