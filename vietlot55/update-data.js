@@ -252,7 +252,7 @@ function calculateTemplateTrackingFields(dataWithTemplateIds) {
             return {
                 ...entry,
                 template_appear_comback_from_prev_count: 0,
-                continuos_count: 1,
+                template_continuos_count: 1,
                 template_appear_count: 1
             };
         }
@@ -261,7 +261,7 @@ function calculateTemplateTrackingFields(dataWithTemplateIds) {
         const history = templateHistory.get(templateId);
         
         let template_appear_comback_from_prev_count = 0;
-        let continuos_count = 1;
+        let template_continuos_count = 1;
         let template_appear_count = 1;
         
         if (history) {
@@ -271,9 +271,9 @@ function calculateTemplateTrackingFields(dataWithTemplateIds) {
             
             // Check if this is continuous (same template as previous entry)
             if (index > 0 && sortedData[index - 1].template_id === templateId) {
-                continuos_count = history.continuousCount + 1;
+                template_continuos_count = history.continuousCount + 1;
             } else {
-                continuos_count = 1;
+                template_continuos_count = 1;
             }
             
             template_appear_count = history.totalCount + 1;
@@ -282,14 +282,14 @@ function calculateTemplateTrackingFields(dataWithTemplateIds) {
         // Update history
         templateHistory.set(templateId, {
             lastAppearance: currentDate,
-            continuousCount: continuos_count,
+            continuousCount: template_continuos_count,
             totalCount: template_appear_count
         });
         
         return {
             ...entry,
             template_appear_comback_from_prev_count,
-            continuos_count,
+            template_continuos_count,
             template_appear_count
         };
     }).reverse(); // Reverse back to original order (newest first)
