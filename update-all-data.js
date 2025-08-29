@@ -4,6 +4,7 @@ const path = require('path');
 /**
  * Script to update data for both Vietlot 6/45 and Vietlot 6/55
  * This script runs the update-data.js files in both vietlot45 and vietlot55 directories
+ * and generates template predictions
  */
 
 console.log('🎲 Starting Vietlot Data Update Process...\n');
@@ -43,12 +44,19 @@ async function updateAllData() {
         // Update Vietlot 6/55 data
         await runUpdateScript('vietlot55', 'Vietlot 6/55');
         
+        // Generate template predictions
+        console.log('🔮 Generating template predictions...');
+        const generateTemplatePredictions = require('./generate-template-predictions.js');
+        await generateTemplatePredictions();
+        
         console.log('🎉 All data updates completed successfully!');
         console.log('📁 Updated files:');
         console.log('   - vietlot45/json-data/vietlot45-data.json');
         console.log('   - vietlot45/json-data/*.json (summary files)');
+        console.log('   - vietlot45/json-data/template-predictions.json');
         console.log('   - vietlot55/json-data/vietlot55-data.json');
         console.log('   - vietlot55/json-data/*.json (summary files)');
+        console.log('   - vietlot55/json-data/template-predictions.json');
         
     } catch (error) {
         console.error('💥 Error during data update process:', error.message);

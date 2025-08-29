@@ -59,6 +59,7 @@ vloto/
 ├── mobile-app/                  # Mobile application
 ├── update-all-data.js          # Update all lottery data
 ├── lottery-prediction.js       # AI prediction engine
+├── generate-template-predictions.js  # Template prediction generator
 ├── generate_vietlot55.rb       # Ruby data generator
 └── generate_vietlot45.rb       # Ruby data generator
 ```
@@ -70,6 +71,13 @@ vloto/
 - **Smart Algorithms**: Machine learning approaches for number selection
 - **Confidence Scoring**: High/Medium/Low confidence indicators
 - **Pattern Recognition**: Identifies hot and cold number cycles
+
+### 🎯 Template Predictions
+- **Pattern-based Analysis**: Analyzes number group patterns (G0-G5)
+- **Comeback Intervals**: Tracks how often patterns repeat
+- **Continuous Sequences**: Identifies consecutive pattern appearances
+- **Frequency Analysis**: Statistical probability calculations
+- **Confidence Levels**: Data quality and reliability scoring
 
 ### 📊 Statistical Analysis Dashboard
 - **Day of Week Analysis**: Number frequency by weekday patterns
@@ -144,10 +152,11 @@ node server.js
 
 ### Data Updates
 The application includes several data update mechanisms:
-- `update-all-data.js`: Updates both games simultaneously
+- `update-all-data.js`: Updates both games simultaneously and generates template predictions
 - Individual update scripts in each game folder
 - Ruby generators for bulk data processing
 - Automated statistical summary generation
+- Template prediction generation for pattern analysis
 
 ### File Structure
 - **JSON Data**: Historical draws and statistical summaries

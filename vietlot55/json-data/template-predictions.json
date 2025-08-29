@@ -1,0 +1,5052 @@
+{
+  "data_source": "vietlot55",
+  "total_templates_analyzed": 276,
+  "prediction_summary": {
+    "high_probability": 0,
+    "medium_probability": 0,
+    "low_probability": 276
+  },
+  "top_predictions": [
+    {
+      "template_id": "T55",
+      "total_appearances": 9,
+      "days_since_last": 1218,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 134.8,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 80,
+        "recent_trend": 0
+      },
+      "overall_probability": 20,
+      "confidence_level": 35,
+      "last_appearance": "T7, 03/09/2022"
+    },
+    {
+      "template_id": "T191",
+      "total_appearances": 7,
+      "days_since_last": 1272,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 154,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 80,
+        "recent_trend": 0
+      },
+      "overall_probability": 20,
+      "confidence_level": 35,
+      "last_appearance": "T7, 15/10/2022"
+    },
+    {
+      "template_id": "T188",
+      "total_appearances": 5,
+      "days_since_last": 1662,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 158.8,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 79.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 19.9,
+      "confidence_level": 30,
+      "last_appearance": "T5, 17/08/2023"
+    },
+    {
+      "template_id": "T6",
+      "total_appearances": 11,
+      "days_since_last": 723,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 130.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 76.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 19,
+      "confidence_level": 60,
+      "last_appearance": "T7, 17/07/2021"
+    },
+    {
+      "template_id": "T214",
+      "total_appearances": 13,
+      "days_since_last": 567,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 112,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 70.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 17.6,
+      "confidence_level": 60,
+      "last_appearance": "T5, 18/03/2021"
+    },
+    {
+      "template_id": "T56",
+      "total_appearances": 7,
+      "days_since_last": 930,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 184.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 62.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 15.6,
+      "confidence_level": 35,
+      "last_appearance": "T5, 20/01/2022"
+    },
+    {
+      "template_id": "T175",
+      "total_appearances": 4,
+      "days_since_last": 1539,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 262.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 58.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 14.7,
+      "confidence_level": 10,
+      "last_appearance": "T7, 13/05/2023"
+    },
+    {
+      "template_id": "T122",
+      "total_appearances": 5,
+      "days_since_last": 1230,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 187.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 58.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 14.7,
+      "confidence_level": 30,
+      "last_appearance": "T3, 13/09/2022"
+    },
+    {
+      "template_id": "T192",
+      "total_appearances": 22,
+      "days_since_last": 240,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 83.3,
+      "max_continuous_count": 2,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 4.5,
+        "frequency_pattern": 50.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 13.8,
+      "confidence_level": 80,
+      "last_appearance": "T5, 02/07/2020"
+    },
+    {
+      "template_id": "T200",
+      "total_appearances": 4,
+      "days_since_last": 1392,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 316.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 53.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 13.3,
+      "confidence_level": 10,
+      "last_appearance": "T3, 17/01/2023"
+    },
+    {
+      "template_id": "T195",
+      "total_appearances": 8,
+      "days_since_last": 402,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 228.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 14.3,
+        "continuous_pattern": 0,
+        "frequency_pattern": 30.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 12.7,
+      "confidence_level": 35,
+      "last_appearance": "T7, 07/11/2020"
+    },
+    {
+      "template_id": "T102",
+      "total_appearances": 3,
+      "days_since_last": 1737,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 331.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 49.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 12.5,
+      "confidence_level": 10,
+      "last_appearance": "T7, 14/10/2023"
+    },
+    {
+      "template_id": "T12",
+      "total_appearances": 3,
+      "days_since_last": 1644,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 360.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 47.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 11.8,
+      "confidence_level": 10,
+      "last_appearance": "T5, 03/08/2023"
+    },
+    {
+      "template_id": "T206",
+      "total_appearances": 5,
+      "days_since_last": 978,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 264.8,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 46.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 11.7,
+      "confidence_level": 30,
+      "last_appearance": "T3, 01/03/2022"
+    },
+    {
+      "template_id": "T126",
+      "total_appearances": 6,
+      "days_since_last": 765,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 263.2,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 43.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 11,
+      "confidence_level": 35,
+      "last_appearance": "T3, 14/09/2021"
+    },
+    {
+      "template_id": "T138",
+      "total_appearances": 2,
+      "days_since_last": 2271,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 65,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 43.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 10.9,
+      "confidence_level": 20,
+      "last_appearance": "T5, 05/12/2024"
+    },
+    {
+      "template_id": "T186",
+      "total_appearances": 3,
+      "days_since_last": 1488,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 388.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 42.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 10.7,
+      "confidence_level": 10,
+      "last_appearance": "T3, 04/04/2023"
+    },
+    {
+      "template_id": "T181",
+      "total_appearances": 3,
+      "days_since_last": 1476,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 402.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 42.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 10.6,
+      "confidence_level": 30,
+      "last_appearance": "T7, 25/03/2023"
+    },
+    {
+      "template_id": "T15",
+      "total_appearances": 3,
+      "days_since_last": 1446,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 415.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 41.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 10.4,
+      "confidence_level": 10,
+      "last_appearance": "T5, 02/03/2023"
+    },
+    {
+      "template_id": "T142",
+      "total_appearances": 5,
+      "days_since_last": 93,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 379.8,
+      "max_continuous_count": 2,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 20,
+        "frequency_pattern": 21.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 10.4,
+      "confidence_level": 30,
+      "last_appearance": "T7, 15/02/2020"
+    }
+  ],
+  "all_predictions": [
+    {
+      "template_id": "T55",
+      "total_appearances": 9,
+      "days_since_last": 1218,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 134.8,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 80,
+        "recent_trend": 0
+      },
+      "overall_probability": 20,
+      "confidence_level": 35,
+      "last_appearance": "T7, 03/09/2022"
+    },
+    {
+      "template_id": "T191",
+      "total_appearances": 7,
+      "days_since_last": 1272,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 154,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 80,
+        "recent_trend": 0
+      },
+      "overall_probability": 20,
+      "confidence_level": 35,
+      "last_appearance": "T7, 15/10/2022"
+    },
+    {
+      "template_id": "T188",
+      "total_appearances": 5,
+      "days_since_last": 1662,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 158.8,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 79.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 19.9,
+      "confidence_level": 30,
+      "last_appearance": "T5, 17/08/2023"
+    },
+    {
+      "template_id": "T6",
+      "total_appearances": 11,
+      "days_since_last": 723,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 130.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 76.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 19,
+      "confidence_level": 60,
+      "last_appearance": "T7, 17/07/2021"
+    },
+    {
+      "template_id": "T214",
+      "total_appearances": 13,
+      "days_since_last": 567,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 112,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 70.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 17.6,
+      "confidence_level": 60,
+      "last_appearance": "T5, 18/03/2021"
+    },
+    {
+      "template_id": "T56",
+      "total_appearances": 7,
+      "days_since_last": 930,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 184.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 62.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 15.6,
+      "confidence_level": 35,
+      "last_appearance": "T5, 20/01/2022"
+    },
+    {
+      "template_id": "T175",
+      "total_appearances": 4,
+      "days_since_last": 1539,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 262.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 58.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 14.7,
+      "confidence_level": 10,
+      "last_appearance": "T7, 13/05/2023"
+    },
+    {
+      "template_id": "T122",
+      "total_appearances": 5,
+      "days_since_last": 1230,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 187.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 58.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 14.7,
+      "confidence_level": 30,
+      "last_appearance": "T3, 13/09/2022"
+    },
+    {
+      "template_id": "T192",
+      "total_appearances": 22,
+      "days_since_last": 240,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 83.3,
+      "max_continuous_count": 2,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 4.5,
+        "frequency_pattern": 50.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 13.8,
+      "confidence_level": 80,
+      "last_appearance": "T5, 02/07/2020"
+    },
+    {
+      "template_id": "T200",
+      "total_appearances": 4,
+      "days_since_last": 1392,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 316.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 53.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 13.3,
+      "confidence_level": 10,
+      "last_appearance": "T3, 17/01/2023"
+    },
+    {
+      "template_id": "T195",
+      "total_appearances": 8,
+      "days_since_last": 402,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 228.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 14.3,
+        "continuous_pattern": 0,
+        "frequency_pattern": 30.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 12.7,
+      "confidence_level": 35,
+      "last_appearance": "T7, 07/11/2020"
+    },
+    {
+      "template_id": "T102",
+      "total_appearances": 3,
+      "days_since_last": 1737,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 331.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 49.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 12.5,
+      "confidence_level": 10,
+      "last_appearance": "T7, 14/10/2023"
+    },
+    {
+      "template_id": "T12",
+      "total_appearances": 3,
+      "days_since_last": 1644,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 360.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 47.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 11.8,
+      "confidence_level": 10,
+      "last_appearance": "T5, 03/08/2023"
+    },
+    {
+      "template_id": "T206",
+      "total_appearances": 5,
+      "days_since_last": 978,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 264.8,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 46.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 11.7,
+      "confidence_level": 30,
+      "last_appearance": "T3, 01/03/2022"
+    },
+    {
+      "template_id": "T126",
+      "total_appearances": 6,
+      "days_since_last": 765,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 263.2,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 43.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 11,
+      "confidence_level": 35,
+      "last_appearance": "T3, 14/09/2021"
+    },
+    {
+      "template_id": "T138",
+      "total_appearances": 2,
+      "days_since_last": 2271,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 65,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 43.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 10.9,
+      "confidence_level": 20,
+      "last_appearance": "T5, 05/12/2024"
+    },
+    {
+      "template_id": "T186",
+      "total_appearances": 3,
+      "days_since_last": 1488,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 388.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 42.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 10.7,
+      "confidence_level": 10,
+      "last_appearance": "T3, 04/04/2023"
+    },
+    {
+      "template_id": "T181",
+      "total_appearances": 3,
+      "days_since_last": 1476,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 402.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 42.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 10.6,
+      "confidence_level": 30,
+      "last_appearance": "T7, 25/03/2023"
+    },
+    {
+      "template_id": "T15",
+      "total_appearances": 3,
+      "days_since_last": 1446,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 415.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 41.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 10.4,
+      "confidence_level": 10,
+      "last_appearance": "T5, 02/03/2023"
+    },
+    {
+      "template_id": "T142",
+      "total_appearances": 5,
+      "days_since_last": 93,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 379.8,
+      "max_continuous_count": 2,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 20,
+        "frequency_pattern": 21.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 10.4,
+      "confidence_level": 30,
+      "last_appearance": "T7, 15/02/2020"
+    },
+    {
+      "template_id": "T97",
+      "total_appearances": 7,
+      "days_since_last": 606,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 226,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 40.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 10.1,
+      "confidence_level": 35,
+      "last_appearance": "T7, 17/04/2021"
+    },
+    {
+      "template_id": "T208",
+      "total_appearances": 8,
+      "days_since_last": 513,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 206.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 39.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 9.8,
+      "confidence_level": 35,
+      "last_appearance": "T3, 02/02/2021"
+    },
+    {
+      "template_id": "T231",
+      "total_appearances": 2,
+      "days_since_last": 2049,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 21,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 39.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 9.8,
+      "confidence_level": 20,
+      "last_appearance": "T7, 15/06/2024"
+    },
+    {
+      "template_id": "T274",
+      "total_appearances": 4,
+      "days_since_last": 351,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 276.7,
+      "max_continuous_count": 2,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 25,
+        "frequency_pattern": 14.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 9.8,
+      "confidence_level": 10,
+      "last_appearance": "T3, 29/09/2020"
+    },
+    {
+      "template_id": "T16",
+      "total_appearances": 16,
+      "days_since_last": 39,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 126.9,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 13.3,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 9.7,
+      "confidence_level": 60,
+      "last_appearance": "T5, 02/01/2020"
+    },
+    {
+      "template_id": "T26",
+      "total_appearances": 5,
+      "days_since_last": 804,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 281.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 38.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 9.6,
+      "confidence_level": 30,
+      "last_appearance": "T5, 14/10/2021"
+    },
+    {
+      "template_id": "T221",
+      "total_appearances": 2,
+      "days_since_last": 1953,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 186,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 37.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 9.3,
+      "confidence_level": 20,
+      "last_appearance": "T3, 02/04/2024"
+    },
+    {
+      "template_id": "T44",
+      "total_appearances": 7,
+      "days_since_last": 558,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 186.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 37.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 9.3,
+      "confidence_level": 35,
+      "last_appearance": "T5, 11/03/2021"
+    },
+    {
+      "template_id": "T228",
+      "total_appearances": 3,
+      "days_since_last": 1281,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 318.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 36.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 9.2,
+      "confidence_level": 10,
+      "last_appearance": "T7, 22/10/2022"
+    },
+    {
+      "template_id": "T98",
+      "total_appearances": 4,
+      "days_since_last": 948,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 331.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 36.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 9.1,
+      "confidence_level": 10,
+      "last_appearance": "T7, 05/02/2022"
+    },
+    {
+      "template_id": "T45",
+      "total_appearances": 2,
+      "days_since_last": 1881,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 143,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 36,
+        "recent_trend": 0
+      },
+      "overall_probability": 9,
+      "confidence_level": 20,
+      "last_appearance": "T7, 03/02/2024"
+    },
+    {
+      "template_id": "T260",
+      "total_appearances": 3,
+      "days_since_last": 1251,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 137.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 35.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 9,
+      "confidence_level": 10,
+      "last_appearance": "T5, 29/09/2022"
+    },
+    {
+      "template_id": "T238",
+      "total_appearances": 8,
+      "days_since_last": 465,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 175,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 35.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 8.9,
+      "confidence_level": 35,
+      "last_appearance": "T7, 26/12/2020"
+    },
+    {
+      "template_id": "T27",
+      "total_appearances": 2,
+      "days_since_last": 1839,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 140,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 35.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 8.8,
+      "confidence_level": 20,
+      "last_appearance": "T3, 02/01/2024"
+    },
+    {
+      "template_id": "T32",
+      "total_appearances": 2,
+      "days_since_last": 1830,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 77,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 35,
+        "recent_trend": 0
+      },
+      "overall_probability": 8.8,
+      "confidence_level": 20,
+      "last_appearance": "T3, 26/12/2023"
+    },
+    {
+      "template_id": "T75",
+      "total_appearances": 5,
+      "days_since_last": 714,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 375.8,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 34.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 8.5,
+      "confidence_level": 30,
+      "last_appearance": "T7, 10/07/2021"
+    },
+    {
+      "template_id": "T174",
+      "total_appearances": 7,
+      "days_since_last": 501,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 271.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 33.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 8.4,
+      "confidence_level": 35,
+      "last_appearance": "T7, 23/01/2021"
+    },
+    {
+      "template_id": "T242",
+      "total_appearances": 2,
+      "days_since_last": 1704,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 170,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 32.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 8.2,
+      "confidence_level": 20,
+      "last_appearance": "T3, 19/09/2023"
+    },
+    {
+      "template_id": "T2",
+      "total_appearances": 3,
+      "days_since_last": 1134,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 548.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 32.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 8.1,
+      "confidence_level": 10,
+      "last_appearance": "T5, 30/06/2022"
+    },
+    {
+      "template_id": "T78",
+      "total_appearances": 3,
+      "days_since_last": 1128,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 490,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 32.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 8.1,
+      "confidence_level": 10,
+      "last_appearance": "T7, 25/06/2022"
+    },
+    {
+      "template_id": "T229",
+      "total_appearances": 2,
+      "days_since_last": 1695,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 308,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 32.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 8.1,
+      "confidence_level": 20,
+      "last_appearance": "T3, 12/09/2023"
+    },
+    {
+      "template_id": "T161",
+      "total_appearances": 2,
+      "days_since_last": 1680,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 114,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 32.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 8,
+      "confidence_level": 20,
+      "last_appearance": "T5, 31/08/2023"
+    },
+    {
+      "template_id": "T178",
+      "total_appearances": 11,
+      "days_since_last": 45,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 199.9,
+      "max_continuous_count": 2,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 9.1,
+        "frequency_pattern": 21.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 7.6,
+      "confidence_level": 60,
+      "last_appearance": "T3, 07/01/2020"
+    },
+    {
+      "template_id": "T182",
+      "total_appearances": 5,
+      "days_since_last": 627,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 372,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 30,
+        "recent_trend": 0
+      },
+      "overall_probability": 7.5,
+      "confidence_level": 30,
+      "last_appearance": "T3, 04/05/2021"
+    },
+    {
+      "template_id": "T187",
+      "total_appearances": 4,
+      "days_since_last": 789,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 441,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 30.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 7.5,
+      "confidence_level": 10,
+      "last_appearance": "T7, 02/10/2021"
+    },
+    {
+      "template_id": "T20",
+      "total_appearances": 6,
+      "days_since_last": 522,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 286.4,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 30,
+        "recent_trend": 0
+      },
+      "overall_probability": 7.5,
+      "confidence_level": 35,
+      "last_appearance": "T3, 09/02/2021"
+    },
+    {
+      "template_id": "T246",
+      "total_appearances": 2,
+      "days_since_last": 1572,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 210,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 30.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 7.5,
+      "confidence_level": 20,
+      "last_appearance": "T5, 08/06/2023"
+    },
+    {
+      "template_id": "T252",
+      "total_appearances": 3,
+      "days_since_last": 1011,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 302.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 29,
+        "recent_trend": 0
+      },
+      "overall_probability": 7.3,
+      "confidence_level": 10,
+      "last_appearance": "T7, 26/03/2022"
+    },
+    {
+      "template_id": "T172",
+      "total_appearances": 4,
+      "days_since_last": 753,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 470.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 28.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 7.2,
+      "confidence_level": 10,
+      "last_appearance": "T7, 04/09/2021"
+    },
+    {
+      "template_id": "T93",
+      "total_appearances": 2,
+      "days_since_last": 1515,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 599,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 29,
+        "recent_trend": 0
+      },
+      "overall_probability": 7.2,
+      "confidence_level": 20,
+      "last_appearance": "T3, 25/04/2023"
+    },
+    {
+      "template_id": "T107",
+      "total_appearances": 2,
+      "days_since_last": 1461,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 777,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 28,
+        "recent_trend": 0
+      },
+      "overall_probability": 7,
+      "confidence_level": 20,
+      "last_appearance": "T3, 14/03/2023"
+    },
+    {
+      "template_id": "T209",
+      "total_appearances": 2,
+      "days_since_last": 1467,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 663,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 28.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 7,
+      "confidence_level": 20,
+      "last_appearance": "T7, 18/03/2023"
+    },
+    {
+      "template_id": "T212",
+      "total_appearances": 8,
+      "days_since_last": 153,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 242.4,
+      "max_continuous_count": 2,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 12.5,
+        "frequency_pattern": 15.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 7,
+      "confidence_level": 35,
+      "last_appearance": "T7, 25/04/2020"
+    },
+    {
+      "template_id": "T66",
+      "total_appearances": 7,
+      "days_since_last": 411,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 269.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 27.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.9,
+      "confidence_level": 35,
+      "last_appearance": "T7, 14/11/2020"
+    },
+    {
+      "template_id": "T213",
+      "total_appearances": 7,
+      "days_since_last": 261,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 265.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 11,
+        "recent_trend": 26.7
+      },
+      "overall_probability": 6.8,
+      "confidence_level": 35,
+      "last_appearance": "T7, 18/07/2020"
+    },
+    {
+      "template_id": "T234",
+      "total_appearances": 2,
+      "days_since_last": 1422,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 467,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 27.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.8,
+      "confidence_level": 20,
+      "last_appearance": "T7, 11/02/2023"
+    },
+    {
+      "template_id": "T91",
+      "total_appearances": 2,
+      "days_since_last": 1404,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 672,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 26.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.7,
+      "confidence_level": 20,
+      "last_appearance": "T7, 28/01/2023"
+    },
+    {
+      "template_id": "T113",
+      "total_appearances": 3,
+      "days_since_last": 549,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 543.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 12.4,
+        "recent_trend": 22.5
+      },
+      "overall_probability": 6.5,
+      "confidence_level": 10,
+      "last_appearance": "T5, 04/03/2021"
+    },
+    {
+      "template_id": "T53",
+      "total_appearances": 2,
+      "days_since_last": 1344,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 633,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 25.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.4,
+      "confidence_level": 20,
+      "last_appearance": "T7, 10/12/2022"
+    },
+    {
+      "template_id": "T239",
+      "total_appearances": 2,
+      "days_since_last": 1332,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 485,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 25.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.4,
+      "confidence_level": 20,
+      "last_appearance": "T5, 01/12/2022"
+    },
+    {
+      "template_id": "T173",
+      "total_appearances": 7,
+      "days_since_last": 378,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 287.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 25.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.3,
+      "confidence_level": 35,
+      "last_appearance": "T3, 20/10/2020"
+    },
+    {
+      "template_id": "T194",
+      "total_appearances": 2,
+      "days_since_last": 0,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1948,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 25,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.3,
+      "confidence_level": 20,
+      "last_appearance": "T3, 03/12/2019"
+    },
+    {
+      "template_id": "T261",
+      "total_appearances": 2,
+      "days_since_last": 1323,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 212,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 25.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.3,
+      "confidence_level": 20,
+      "last_appearance": "T5, 24/11/2022"
+    },
+    {
+      "template_id": "T43",
+      "total_appearances": 15,
+      "days_since_last": 3,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 146.9,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.2,
+      "confidence_level": 60,
+      "last_appearance": "T5, 05/12/2019"
+    },
+    {
+      "template_id": "T185",
+      "total_appearances": 4,
+      "days_since_last": 12,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 662.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.2,
+      "confidence_level": 10,
+      "last_appearance": "T5, 12/12/2019"
+    },
+    {
+      "template_id": "T117",
+      "total_appearances": 3,
+      "days_since_last": 15,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 609,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.2,
+      "confidence_level": 10,
+      "last_appearance": "T7, 14/12/2019"
+    },
+    {
+      "template_id": "T133",
+      "total_appearances": 3,
+      "days_since_last": 9,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 467.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.2,
+      "confidence_level": 10,
+      "last_appearance": "T3, 10/12/2019"
+    },
+    {
+      "template_id": "T319",
+      "total_appearances": 1,
+      "days_since_last": 48,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.2,
+      "confidence_level": 20,
+      "last_appearance": "T5, 09/01/2020"
+    },
+    {
+      "template_id": "T320",
+      "total_appearances": 1,
+      "days_since_last": 36,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.2,
+      "confidence_level": 20,
+      "last_appearance": "T3, 31/12/2019"
+    },
+    {
+      "template_id": "T25",
+      "total_appearances": 1,
+      "days_since_last": 21,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.2,
+      "confidence_level": 20,
+      "last_appearance": "T5, 19/12/2019"
+    },
+    {
+      "template_id": "T203",
+      "total_appearances": 12,
+      "days_since_last": 6,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 171.6,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.1,
+      "confidence_level": 60,
+      "last_appearance": "T7, 07/12/2019"
+    },
+    {
+      "template_id": "T1",
+      "total_appearances": 2,
+      "days_since_last": 33,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1806,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.1,
+      "confidence_level": 20,
+      "last_appearance": "T7, 28/12/2019"
+    },
+    {
+      "template_id": "T41",
+      "total_appearances": 4,
+      "days_since_last": 18,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 581,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.1,
+      "confidence_level": 10,
+      "last_appearance": "T3, 17/12/2019"
+    },
+    {
+      "template_id": "T251",
+      "total_appearances": 2,
+      "days_since_last": 30,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1430,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.1,
+      "confidence_level": 20,
+      "last_appearance": "T5, 26/12/2019"
+    },
+    {
+      "template_id": "T312",
+      "total_appearances": 2,
+      "days_since_last": 27,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 231,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.1,
+      "confidence_level": 20,
+      "last_appearance": "T3, 24/12/2019"
+    },
+    {
+      "template_id": "T11",
+      "total_appearances": 2,
+      "days_since_last": 51,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 166,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.1,
+      "confidence_level": 20,
+      "last_appearance": "T7, 11/01/2020"
+    },
+    {
+      "template_id": "T124",
+      "total_appearances": 1,
+      "days_since_last": 90,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.1,
+      "confidence_level": 20,
+      "last_appearance": "T5, 13/02/2020"
+    },
+    {
+      "template_id": "T317",
+      "total_appearances": 1,
+      "days_since_last": 63,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.1,
+      "confidence_level": 20,
+      "last_appearance": "T3, 21/01/2020"
+    },
+    {
+      "template_id": "T318",
+      "total_appearances": 1,
+      "days_since_last": 54,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 6.1,
+      "confidence_level": 20,
+      "last_appearance": "T3, 14/01/2020"
+    },
+    {
+      "template_id": "T76",
+      "total_appearances": 6,
+      "days_since_last": 24,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 407.4,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 23.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 6,
+      "confidence_level": 35,
+      "last_appearance": "T7, 21/12/2019"
+    },
+    {
+      "template_id": "T316",
+      "total_appearances": 1,
+      "days_since_last": 135,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 24,
+        "recent_trend": 0
+      },
+      "overall_probability": 6,
+      "confidence_level": 20,
+      "last_appearance": "T5, 19/03/2020"
+    },
+    {
+      "template_id": "T278",
+      "total_appearances": 7,
+      "days_since_last": 294,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 139.2,
+      "max_continuous_count": 2,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 14.3,
+        "frequency_pattern": 9.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.9,
+      "confidence_level": 35,
+      "last_appearance": "T5, 13/08/2020"
+    },
+    {
+      "template_id": "T293",
+      "total_appearances": 2,
+      "days_since_last": 99,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 656,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 23.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.9,
+      "confidence_level": 20,
+      "last_appearance": "T5, 20/02/2020"
+    },
+    {
+      "template_id": "T315",
+      "total_appearances": 1,
+      "days_since_last": 162,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 23.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.9,
+      "confidence_level": 20,
+      "last_appearance": "T7, 02/05/2020"
+    },
+    {
+      "template_id": "T199",
+      "total_appearances": 6,
+      "days_since_last": 42,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 377.2,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 23.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.8,
+      "confidence_level": 35,
+      "last_appearance": "T7, 04/01/2020"
+    },
+    {
+      "template_id": "T9",
+      "total_appearances": 4,
+      "days_since_last": 60,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 578,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 23.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.8,
+      "confidence_level": 10,
+      "last_appearance": "T7, 18/01/2020"
+    },
+    {
+      "template_id": "T139",
+      "total_appearances": 2,
+      "days_since_last": 114,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 296,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 23.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.8,
+      "confidence_level": 20,
+      "last_appearance": "T3, 03/03/2020"
+    },
+    {
+      "template_id": "T29",
+      "total_appearances": 1,
+      "days_since_last": 243,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 23.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.8,
+      "confidence_level": 20,
+      "last_appearance": "T7, 04/07/2020"
+    },
+    {
+      "template_id": "T74",
+      "total_appearances": 2,
+      "days_since_last": 144,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1349,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 22.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.7,
+      "confidence_level": 20,
+      "last_appearance": "T5, 26/03/2020"
+    },
+    {
+      "template_id": "T311",
+      "total_appearances": 1,
+      "days_since_last": 300,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 22.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.7,
+      "confidence_level": 20,
+      "last_appearance": "T3, 18/08/2020"
+    },
+    {
+      "template_id": "T313",
+      "total_appearances": 1,
+      "days_since_last": 285,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 22.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.7,
+      "confidence_level": 20,
+      "last_appearance": "T5, 06/08/2020"
+    },
+    {
+      "template_id": "T314",
+      "total_appearances": 2,
+      "days_since_last": 147,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 103,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 22.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.7,
+      "confidence_level": 20,
+      "last_appearance": "T7, 28/03/2020"
+    },
+    {
+      "template_id": "T103",
+      "total_appearances": 6,
+      "days_since_last": 57,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 336,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 22.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.6,
+      "confidence_level": 35,
+      "last_appearance": "T5, 16/01/2020"
+    },
+    {
+      "template_id": "T159",
+      "total_appearances": 2,
+      "days_since_last": 159,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 567,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 22.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.6,
+      "confidence_level": 20,
+      "last_appearance": "T5, 30/04/2020"
+    },
+    {
+      "template_id": "T264",
+      "total_appearances": 3,
+      "days_since_last": 123,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 584.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 22.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.5,
+      "confidence_level": 10,
+      "last_appearance": "T3, 10/03/2020"
+    },
+    {
+      "template_id": "T276",
+      "total_appearances": 3,
+      "days_since_last": 138,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 505.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 21.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.5,
+      "confidence_level": 10,
+      "last_appearance": "T7, 21/03/2020"
+    },
+    {
+      "template_id": "T308",
+      "total_appearances": 1,
+      "days_since_last": 387,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 22,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.5,
+      "confidence_level": 20,
+      "last_appearance": "T3, 27/10/2020"
+    },
+    {
+      "template_id": "T309",
+      "total_appearances": 1,
+      "days_since_last": 372,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 22.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.5,
+      "confidence_level": 20,
+      "last_appearance": "T5, 15/10/2020"
+    },
+    {
+      "template_id": "T310",
+      "total_appearances": 1,
+      "days_since_last": 366,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 22.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.5,
+      "confidence_level": 20,
+      "last_appearance": "T7, 10/10/2020"
+    },
+    {
+      "template_id": "T249",
+      "total_appearances": 4,
+      "days_since_last": 111,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 456.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 21.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.4,
+      "confidence_level": 10,
+      "last_appearance": "T7, 29/02/2020"
+    },
+    {
+      "template_id": "T288",
+      "total_appearances": 2,
+      "days_since_last": 234,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 658,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 21.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.4,
+      "confidence_level": 20,
+      "last_appearance": "T7, 27/06/2020"
+    },
+    {
+      "template_id": "T80",
+      "total_appearances": 1,
+      "days_since_last": 468,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 21.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.4,
+      "confidence_level": 20,
+      "last_appearance": "T3, 29/12/2020"
+    },
+    {
+      "template_id": "T42",
+      "total_appearances": 1,
+      "days_since_last": 459,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 21.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.4,
+      "confidence_level": 20,
+      "last_appearance": "T3, 22/12/2020"
+    },
+    {
+      "template_id": "T47",
+      "total_appearances": 6,
+      "days_since_last": 81,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 378,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 21.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.3,
+      "confidence_level": 35,
+      "last_appearance": "T5, 06/02/2020"
+    },
+    {
+      "template_id": "T233",
+      "total_appearances": 7,
+      "days_since_last": 69,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 263.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 21.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.3,
+      "confidence_level": 35,
+      "last_appearance": "T3, 28/01/2020"
+    },
+    {
+      "template_id": "T94",
+      "total_appearances": 3,
+      "days_since_last": 165,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 453.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 21.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.3,
+      "confidence_level": 20,
+      "last_appearance": "T3, 05/05/2020"
+    },
+    {
+      "template_id": "T306",
+      "total_appearances": 1,
+      "days_since_last": 477,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 21.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.3,
+      "confidence_level": 20,
+      "last_appearance": "T3, 05/01/2021"
+    },
+    {
+      "template_id": "T179",
+      "total_appearances": 7,
+      "days_since_last": 75,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 328.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 21,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.2,
+      "confidence_level": 35,
+      "last_appearance": "T7, 01/02/2020"
+    },
+    {
+      "template_id": "T180",
+      "total_appearances": 4,
+      "days_since_last": 132,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 640.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 21,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.2,
+      "confidence_level": 10,
+      "last_appearance": "T3, 17/03/2020"
+    },
+    {
+      "template_id": "T198",
+      "total_appearances": 5,
+      "days_since_last": 108,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 458.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.2,
+      "confidence_level": 30,
+      "last_appearance": "T5, 27/02/2020"
+    },
+    {
+      "template_id": "T266",
+      "total_appearances": 3,
+      "days_since_last": 180,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 528.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.2,
+      "confidence_level": 10,
+      "last_appearance": "T7, 16/05/2020"
+    },
+    {
+      "template_id": "T304",
+      "total_appearances": 1,
+      "days_since_last": 546,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.2,
+      "confidence_level": 20,
+      "last_appearance": "T3, 02/03/2021"
+    },
+    {
+      "template_id": "T307",
+      "total_appearances": 2,
+      "days_since_last": 276,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 117,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.2,
+      "confidence_level": 20,
+      "last_appearance": "T5, 30/07/2020"
+    },
+    {
+      "template_id": "T176",
+      "total_appearances": 8,
+      "days_since_last": 78,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 282.6,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.1,
+      "confidence_level": 35,
+      "last_appearance": "T3, 04/02/2020"
+    },
+    {
+      "template_id": "T177",
+      "total_appearances": 8,
+      "days_since_last": 72,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 283,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.1,
+      "confidence_level": 35,
+      "last_appearance": "T5, 30/01/2020"
+    },
+    {
+      "template_id": "T189",
+      "total_appearances": 7,
+      "days_since_last": 87,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 319.2,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.1,
+      "confidence_level": 35,
+      "last_appearance": "T3, 11/02/2020"
+    },
+    {
+      "template_id": "T18",
+      "total_appearances": 5,
+      "days_since_last": 120,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 440,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.1,
+      "confidence_level": 30,
+      "last_appearance": "T7, 07/03/2020"
+    },
+    {
+      "template_id": "T127",
+      "total_appearances": 2,
+      "days_since_last": 303,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1391,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.1,
+      "confidence_level": 20,
+      "last_appearance": "T5, 20/08/2020"
+    },
+    {
+      "template_id": "T240",
+      "total_appearances": 4,
+      "days_since_last": 150,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 483.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.1,
+      "confidence_level": 10,
+      "last_appearance": "T3, 31/03/2020"
+    },
+    {
+      "template_id": "T244",
+      "total_appearances": 6,
+      "days_since_last": 102,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 283.8,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.1,
+      "confidence_level": 35,
+      "last_appearance": "T7, 22/02/2020"
+    },
+    {
+      "template_id": "T73",
+      "total_appearances": 3,
+      "days_since_last": 195,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 491,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.1,
+      "confidence_level": 10,
+      "last_appearance": "T5, 28/05/2020"
+    },
+    {
+      "template_id": "T295",
+      "total_appearances": 3,
+      "days_since_last": 204,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 259,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.1,
+      "confidence_level": 10,
+      "last_appearance": "T5, 04/06/2020"
+    },
+    {
+      "template_id": "T104",
+      "total_appearances": 1,
+      "days_since_last": 597,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.1,
+      "confidence_level": 20,
+      "last_appearance": "T7, 10/04/2021"
+    },
+    {
+      "template_id": "T65",
+      "total_appearances": 1,
+      "days_since_last": 576,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 5.1,
+      "confidence_level": 20,
+      "last_appearance": "T5, 25/03/2021"
+    },
+    {
+      "template_id": "T86",
+      "total_appearances": 5,
+      "days_since_last": 129,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 459.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 5,
+      "confidence_level": 30,
+      "last_appearance": "T7, 14/03/2020"
+    },
+    {
+      "template_id": "T302",
+      "total_appearances": 1,
+      "days_since_last": 636,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 5,
+      "confidence_level": 20,
+      "last_appearance": "T3, 11/05/2021"
+    },
+    {
+      "template_id": "T305",
+      "total_appearances": 2,
+      "days_since_last": 324,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 149,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 20,
+        "recent_trend": 0
+      },
+      "overall_probability": 5,
+      "confidence_level": 20,
+      "last_appearance": "T3, 08/09/2020"
+    },
+    {
+      "template_id": "T193",
+      "total_appearances": 6,
+      "days_since_last": 117,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 372,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 19.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.9,
+      "confidence_level": 35,
+      "last_appearance": "T5, 05/03/2020"
+    },
+    {
+      "template_id": "T205",
+      "total_appearances": 5,
+      "days_since_last": 141,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 443.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 19.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.9,
+      "confidence_level": 30,
+      "last_appearance": "T3, 24/03/2020"
+    },
+    {
+      "template_id": "T109",
+      "total_appearances": 3,
+      "days_since_last": 237,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 546,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 19.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.9,
+      "confidence_level": 10,
+      "last_appearance": "T3, 30/06/2020"
+    },
+    {
+      "template_id": "T268",
+      "total_appearances": 4,
+      "days_since_last": 177,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 349.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 19.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.9,
+      "confidence_level": 10,
+      "last_appearance": "T5, 14/05/2020"
+    },
+    {
+      "template_id": "T299",
+      "total_appearances": 1,
+      "days_since_last": 720,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 19.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.9,
+      "confidence_level": 20,
+      "last_appearance": "T5, 15/07/2021"
+    },
+    {
+      "template_id": "T300",
+      "total_appearances": 1,
+      "days_since_last": 708,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 19.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.9,
+      "confidence_level": 20,
+      "last_appearance": "T3, 06/07/2021"
+    },
+    {
+      "template_id": "T301",
+      "total_appearances": 1,
+      "days_since_last": 705,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 19.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.9,
+      "confidence_level": 20,
+      "last_appearance": "T7, 03/07/2021"
+    },
+    {
+      "template_id": "T105",
+      "total_appearances": 5,
+      "days_since_last": 156,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 467.8,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 19,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.8,
+      "confidence_level": 30,
+      "last_appearance": "T3, 28/04/2020"
+    },
+    {
+      "template_id": "T207",
+      "total_appearances": 2,
+      "days_since_last": 369,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1561,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 19.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.8,
+      "confidence_level": 20,
+      "last_appearance": "T3, 13/10/2020"
+    },
+    {
+      "template_id": "T5",
+      "total_appearances": 3,
+      "days_since_last": 252,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 820.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 19.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.8,
+      "confidence_level": 10,
+      "last_appearance": "T7, 11/07/2020"
+    },
+    {
+      "template_id": "T218",
+      "total_appearances": 3,
+      "days_since_last": 246,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 782.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 19.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.8,
+      "confidence_level": 10,
+      "last_appearance": "T3, 07/07/2020"
+    },
+    {
+      "template_id": "T297",
+      "total_appearances": 1,
+      "days_since_last": 768,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 19.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.8,
+      "confidence_level": 20,
+      "last_appearance": "T5, 16/09/2021"
+    },
+    {
+      "template_id": "T298",
+      "total_appearances": 1,
+      "days_since_last": 741,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 19.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.8,
+      "confidence_level": 20,
+      "last_appearance": "T5, 26/08/2021"
+    },
+    {
+      "template_id": "T10",
+      "total_appearances": 2,
+      "days_since_last": 408,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1615,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 18.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.7,
+      "confidence_level": 20,
+      "last_appearance": "T5, 12/11/2020"
+    },
+    {
+      "template_id": "T296",
+      "total_appearances": 1,
+      "days_since_last": 819,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 18.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.7,
+      "confidence_level": 20,
+      "last_appearance": "T3, 26/10/2021"
+    },
+    {
+      "template_id": "T294",
+      "total_appearances": 1,
+      "days_since_last": 837,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 18.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.6,
+      "confidence_level": 20,
+      "last_appearance": "T3, 09/11/2021"
+    },
+    {
+      "template_id": "T303",
+      "total_appearances": 2,
+      "days_since_last": 426,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 126,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 18.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.6,
+      "confidence_level": 20,
+      "last_appearance": "T5, 26/11/2020"
+    },
+    {
+      "template_id": "T171",
+      "total_appearances": 3,
+      "days_since_last": 306,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 899.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 18,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.5,
+      "confidence_level": 10,
+      "last_appearance": "T7, 22/08/2020"
+    },
+    {
+      "template_id": "T54",
+      "total_appearances": 2,
+      "days_since_last": 456,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1669,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 18,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.5,
+      "confidence_level": 20,
+      "last_appearance": "T7, 19/12/2020"
+    },
+    {
+      "template_id": "T134",
+      "total_appearances": 2,
+      "days_since_last": 450,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 891,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 18.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.5,
+      "confidence_level": 20,
+      "last_appearance": "T3, 15/12/2020"
+    },
+    {
+      "template_id": "T273",
+      "total_appearances": 5,
+      "days_since_last": 183,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 241.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 18,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.5,
+      "confidence_level": 30,
+      "last_appearance": "T3, 19/05/2020"
+    },
+    {
+      "template_id": "T147",
+      "total_appearances": 1,
+      "days_since_last": 924,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 17.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.5,
+      "confidence_level": 20,
+      "last_appearance": "T7, 15/01/2022"
+    },
+    {
+      "template_id": "T291",
+      "total_appearances": 1,
+      "days_since_last": 900,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 18.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.5,
+      "confidence_level": 20,
+      "last_appearance": "T3, 28/12/2021"
+    },
+    {
+      "template_id": "T292",
+      "total_appearances": 1,
+      "days_since_last": 891,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 18.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.5,
+      "confidence_level": 20,
+      "last_appearance": "T3, 21/12/2021"
+    },
+    {
+      "template_id": "T37",
+      "total_appearances": 9,
+      "days_since_last": 105,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 204.1,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 17.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.4,
+      "confidence_level": 35,
+      "last_appearance": "T3, 25/02/2020"
+    },
+    {
+      "template_id": "T225",
+      "total_appearances": 2,
+      "days_since_last": 489,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1302,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 17.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.4,
+      "confidence_level": 20,
+      "last_appearance": "T5, 14/01/2021"
+    },
+    {
+      "template_id": "T237",
+      "total_appearances": 3,
+      "days_since_last": 315,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 674,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 17.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.4,
+      "confidence_level": 10,
+      "last_appearance": "T3, 01/09/2020"
+    },
+    {
+      "template_id": "T145",
+      "total_appearances": 1,
+      "days_since_last": 990,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 17.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.4,
+      "confidence_level": 20,
+      "last_appearance": "T5, 10/03/2022"
+    },
+    {
+      "template_id": "T85",
+      "total_appearances": 3,
+      "days_since_last": 348,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 852,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 17,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.3,
+      "confidence_level": 10,
+      "last_appearance": "T7, 26/09/2020"
+    },
+    {
+      "template_id": "T99",
+      "total_appearances": 3,
+      "days_since_last": 339,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 741,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 17.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.3,
+      "confidence_level": 10,
+      "last_appearance": "T7, 19/09/2020"
+    },
+    {
+      "template_id": "T250",
+      "total_appearances": 3,
+      "days_since_last": 345,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 580,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 17.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.3,
+      "confidence_level": 10,
+      "last_appearance": "T5, 24/09/2020"
+    },
+    {
+      "template_id": "T60",
+      "total_appearances": 2,
+      "days_since_last": 510,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1022,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 17.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.3,
+      "confidence_level": 20,
+      "last_appearance": "T7, 30/01/2021"
+    },
+    {
+      "template_id": "T30",
+      "total_appearances": 8,
+      "days_since_last": 126,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 190,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 17.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.3,
+      "confidence_level": 35,
+      "last_appearance": "T5, 12/03/2020"
+    },
+    {
+      "template_id": "T128",
+      "total_appearances": 1,
+      "days_since_last": 1035,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 17.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.3,
+      "confidence_level": 20,
+      "last_appearance": "T5, 14/04/2022"
+    },
+    {
+      "template_id": "T168",
+      "total_appearances": 5,
+      "days_since_last": 216,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 470.8,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 16.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.2,
+      "confidence_level": 30,
+      "last_appearance": "T7, 13/06/2020"
+    },
+    {
+      "template_id": "T235",
+      "total_appearances": 3,
+      "days_since_last": 363,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 659,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 16.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.2,
+      "confidence_level": 10,
+      "last_appearance": "T5, 08/10/2020"
+    },
+    {
+      "template_id": "T132",
+      "total_appearances": 2,
+      "days_since_last": 534,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 913,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 16.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.2,
+      "confidence_level": 20,
+      "last_appearance": "T7, 20/02/2021"
+    },
+    {
+      "template_id": "T262",
+      "total_appearances": 5,
+      "days_since_last": 213,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 276,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 16.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.2,
+      "confidence_level": 30,
+      "last_appearance": "T5, 11/06/2020"
+    },
+    {
+      "template_id": "T51",
+      "total_appearances": 1,
+      "days_since_last": 1092,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 16.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.2,
+      "confidence_level": 20,
+      "last_appearance": "T7, 28/05/2022"
+    },
+    {
+      "template_id": "T167",
+      "total_appearances": 1,
+      "days_since_last": 1083,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 16.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.2,
+      "confidence_level": 20,
+      "last_appearance": "T7, 21/05/2022"
+    },
+    {
+      "template_id": "T152",
+      "total_appearances": 1,
+      "days_since_last": 1065,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 16.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.2,
+      "confidence_level": 20,
+      "last_appearance": "T7, 07/05/2022"
+    },
+    {
+      "template_id": "T287",
+      "total_appearances": 1,
+      "days_since_last": 1056,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 16.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.2,
+      "confidence_level": 20,
+      "last_appearance": "T7, 30/04/2022"
+    },
+    {
+      "template_id": "T285",
+      "total_appearances": 1,
+      "days_since_last": 1119,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 16.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.1,
+      "confidence_level": 20,
+      "last_appearance": "T7, 18/06/2022"
+    },
+    {
+      "template_id": "T286",
+      "total_appearances": 1,
+      "days_since_last": 1107,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 16.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 4.1,
+      "confidence_level": 20,
+      "last_appearance": "T5, 09/06/2022"
+    },
+    {
+      "template_id": "T270",
+      "total_appearances": 3,
+      "days_since_last": 384,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 423.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 16.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 4,
+      "confidence_level": 10,
+      "last_appearance": "T7, 24/10/2020"
+    },
+    {
+      "template_id": "T121",
+      "total_appearances": 1,
+      "days_since_last": 1197,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 15.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 4,
+      "confidence_level": 20,
+      "last_appearance": "T5, 18/08/2022"
+    },
+    {
+      "template_id": "T284",
+      "total_appearances": 1,
+      "days_since_last": 1176,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 16,
+        "recent_trend": 0
+      },
+      "overall_probability": 4,
+      "confidence_level": 20,
+      "last_appearance": "T3, 02/08/2022"
+    },
+    {
+      "template_id": "T290",
+      "total_appearances": 2,
+      "days_since_last": 588,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 329,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 16,
+        "recent_trend": 0
+      },
+      "overall_probability": 4,
+      "confidence_level": 20,
+      "last_appearance": "T7, 03/04/2021"
+    },
+    {
+      "template_id": "T148",
+      "total_appearances": 2,
+      "days_since_last": 615,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1400,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 15.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.9,
+      "confidence_level": 20,
+      "last_appearance": "T7, 24/04/2021"
+    },
+    {
+      "template_id": "T282",
+      "total_appearances": 1,
+      "days_since_last": 1254,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 15.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.9,
+      "confidence_level": 20,
+      "last_appearance": "T7, 01/10/2022"
+    },
+    {
+      "template_id": "T70",
+      "total_appearances": 1,
+      "days_since_last": 1227,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 15.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.9,
+      "confidence_level": 20,
+      "last_appearance": "T7, 10/09/2022"
+    },
+    {
+      "template_id": "T283",
+      "total_appearances": 1,
+      "days_since_last": 1221,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 15.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.9,
+      "confidence_level": 20,
+      "last_appearance": "T3, 06/09/2022"
+    },
+    {
+      "template_id": "T63",
+      "total_appearances": 2,
+      "days_since_last": 618,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 242,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 15.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.9,
+      "confidence_level": 20,
+      "last_appearance": "T3, 27/04/2021"
+    },
+    {
+      "template_id": "T67",
+      "total_appearances": 2,
+      "days_since_last": 642,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1006,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 15.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.8,
+      "confidence_level": 20,
+      "last_appearance": "T7, 15/05/2021"
+    },
+    {
+      "template_id": "T279",
+      "total_appearances": 1,
+      "days_since_last": 1299,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 15.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.8,
+      "confidence_level": 20,
+      "last_appearance": "T7, 05/11/2022"
+    },
+    {
+      "template_id": "T92",
+      "total_appearances": 1,
+      "days_since_last": 1287,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 15.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.8,
+      "confidence_level": 20,
+      "last_appearance": "T5, 27/10/2022"
+    },
+    {
+      "template_id": "T281",
+      "total_appearances": 1,
+      "days_since_last": 1269,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 15.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.8,
+      "confidence_level": 20,
+      "last_appearance": "T5, 13/10/2022"
+    },
+    {
+      "template_id": "T38",
+      "total_appearances": 5,
+      "days_since_last": 264,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 463.8,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 14.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.7,
+      "confidence_level": 30,
+      "last_appearance": "T3, 21/07/2020"
+    },
+    {
+      "template_id": "T49",
+      "total_appearances": 3,
+      "days_since_last": 438,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 850.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 14.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.7,
+      "confidence_level": 10,
+      "last_appearance": "T7, 05/12/2020"
+    },
+    {
+      "template_id": "T170",
+      "total_appearances": 4,
+      "days_since_last": 336,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 592,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 14.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.7,
+      "confidence_level": 10,
+      "last_appearance": "T5, 17/09/2020"
+    },
+    {
+      "template_id": "T62",
+      "total_appearances": 3,
+      "days_since_last": 447,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 737.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 14.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.7,
+      "confidence_level": 20,
+      "last_appearance": "T7, 12/12/2020"
+    },
+    {
+      "template_id": "T257",
+      "total_appearances": 3,
+      "days_since_last": 444,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 476,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 14.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.7,
+      "confidence_level": 10,
+      "last_appearance": "T5, 10/12/2020"
+    },
+    {
+      "template_id": "T277",
+      "total_appearances": 1,
+      "days_since_last": 1350,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 14.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.7,
+      "confidence_level": 20,
+      "last_appearance": "T5, 15/12/2022"
+    },
+    {
+      "template_id": "T48",
+      "total_appearances": 1,
+      "days_since_last": 1320,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 14.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.7,
+      "confidence_level": 20,
+      "last_appearance": "T3, 22/11/2022"
+    },
+    {
+      "template_id": "T90",
+      "total_appearances": 2,
+      "days_since_last": 666,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 112,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 14.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.7,
+      "confidence_level": 20,
+      "last_appearance": "T5, 03/06/2021"
+    },
+    {
+      "template_id": "T36",
+      "total_appearances": 2,
+      "days_since_last": 690,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 602,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 14.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.6,
+      "confidence_level": 20,
+      "last_appearance": "T3, 22/06/2021"
+    },
+    {
+      "template_id": "T271",
+      "total_appearances": 1,
+      "days_since_last": 1407,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 14.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.6,
+      "confidence_level": 20,
+      "last_appearance": "T3, 31/01/2023"
+    },
+    {
+      "template_id": "T64",
+      "total_appearances": 2,
+      "days_since_last": 687,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 434,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 14.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.6,
+      "confidence_level": 20,
+      "last_appearance": "T7, 19/06/2021"
+    },
+    {
+      "template_id": "T79",
+      "total_appearances": 4,
+      "days_since_last": 360,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 546,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 14,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.5,
+      "confidence_level": 10,
+      "last_appearance": "T3, 06/10/2020"
+    },
+    {
+      "template_id": "T269",
+      "total_appearances": 1,
+      "days_since_last": 1455,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 13.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.5,
+      "confidence_level": 20,
+      "last_appearance": "T5, 09/03/2023"
+    },
+    {
+      "template_id": "T156",
+      "total_appearances": 1,
+      "days_since_last": 1428,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 14.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.5,
+      "confidence_level": 20,
+      "last_appearance": "T5, 16/02/2023"
+    },
+    {
+      "template_id": "T3",
+      "total_appearances": 8,
+      "days_since_last": 186,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 175.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 13.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.4,
+      "confidence_level": 35,
+      "last_appearance": "T5, 21/05/2020"
+    },
+    {
+      "template_id": "T160",
+      "total_appearances": 2,
+      "days_since_last": 738,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 65,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 13.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.4,
+      "confidence_level": 20,
+      "last_appearance": "T3, 24/08/2021"
+    },
+    {
+      "template_id": "T61",
+      "total_appearances": 6,
+      "days_since_last": 258,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 337,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 13.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.3,
+      "confidence_level": 35,
+      "last_appearance": "T5, 16/07/2020"
+    },
+    {
+      "template_id": "T263",
+      "total_appearances": 1,
+      "days_since_last": 1563,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 13,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.3,
+      "confidence_level": 20,
+      "last_appearance": "T5, 01/06/2023"
+    },
+    {
+      "template_id": "T118",
+      "total_appearances": 1,
+      "days_since_last": 1557,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 13.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.3,
+      "confidence_level": 20,
+      "last_appearance": "T7, 27/05/2023"
+    },
+    {
+      "template_id": "T272",
+      "total_appearances": 3,
+      "days_since_last": 519,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 356,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 13.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.3,
+      "confidence_level": 10,
+      "last_appearance": "T7, 06/02/2021"
+    },
+    {
+      "template_id": "T259",
+      "total_appearances": 1,
+      "days_since_last": 1614,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 12.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.2,
+      "confidence_level": 20,
+      "last_appearance": "T3, 11/07/2023"
+    },
+    {
+      "template_id": "T110",
+      "total_appearances": 2,
+      "days_since_last": 792,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 553,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 12.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.2,
+      "confidence_level": 20,
+      "last_appearance": "T3, 05/10/2021"
+    },
+    {
+      "template_id": "T227",
+      "total_appearances": 2,
+      "days_since_last": 825,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 997,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 12.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.1,
+      "confidence_level": 20,
+      "last_appearance": "T7, 30/10/2021"
+    },
+    {
+      "template_id": "T256",
+      "total_appearances": 2,
+      "days_since_last": 834,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 637,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 12.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.1,
+      "confidence_level": 20,
+      "last_appearance": "T7, 06/11/2021"
+    },
+    {
+      "template_id": "T52",
+      "total_appearances": 1,
+      "days_since_last": 1638,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 12.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.1,
+      "confidence_level": 20,
+      "last_appearance": "T7, 29/07/2023"
+    },
+    {
+      "template_id": "T289",
+      "total_appearances": 2,
+      "days_since_last": 828,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 151,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 12.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 3.1,
+      "confidence_level": 20,
+      "last_appearance": "T3, 02/11/2021"
+    },
+    {
+      "template_id": "T77",
+      "total_appearances": 3,
+      "days_since_last": 570,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 754,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 11.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 3,
+      "confidence_level": 10,
+      "last_appearance": "T7, 20/03/2021"
+    },
+    {
+      "template_id": "T201",
+      "total_appearances": 6,
+      "days_since_last": 282,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 332.2,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 12,
+        "recent_trend": 0
+      },
+      "overall_probability": 3,
+      "confidence_level": 35,
+      "last_appearance": "T3, 04/08/2020"
+    },
+    {
+      "template_id": "T247",
+      "total_appearances": 2,
+      "days_since_last": 840,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 770,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 12.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 3,
+      "confidence_level": 20,
+      "last_appearance": "T5, 11/11/2021"
+    },
+    {
+      "template_id": "T162",
+      "total_appearances": 1,
+      "days_since_last": 1710,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 11.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 3,
+      "confidence_level": 20,
+      "last_appearance": "T7, 23/09/2023"
+    },
+    {
+      "template_id": "T255",
+      "total_appearances": 1,
+      "days_since_last": 1701,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 12,
+        "recent_trend": 0
+      },
+      "overall_probability": 3,
+      "confidence_level": 20,
+      "last_appearance": "T7, 16/09/2023"
+    },
+    {
+      "template_id": "T111",
+      "total_appearances": 2,
+      "days_since_last": 861,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 388,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 11.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 3,
+      "confidence_level": 20,
+      "last_appearance": "T7, 27/11/2021"
+    },
+    {
+      "template_id": "T248",
+      "total_appearances": 2,
+      "days_since_last": 882,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 735,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 11.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.9,
+      "confidence_level": 20,
+      "last_appearance": "T3, 14/12/2021"
+    },
+    {
+      "template_id": "T253",
+      "total_appearances": 1,
+      "days_since_last": 1755,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 11.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.9,
+      "confidence_level": 20,
+      "last_appearance": "T7, 28/10/2023"
+    },
+    {
+      "template_id": "T223",
+      "total_appearances": 3,
+      "days_since_last": 600,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 798,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 11.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.8,
+      "confidence_level": 10,
+      "last_appearance": "T3, 13/04/2021"
+    },
+    {
+      "template_id": "T72",
+      "total_appearances": 1,
+      "days_since_last": 1779,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 11.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.8,
+      "confidence_level": 20,
+      "last_appearance": "T5, 16/11/2023"
+    },
+    {
+      "template_id": "T34",
+      "total_appearances": 2,
+      "days_since_last": 903,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 119,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 11.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.8,
+      "confidence_level": 20,
+      "last_appearance": "T5, 30/12/2021"
+    },
+    {
+      "template_id": "T190",
+      "total_appearances": 13,
+      "days_since_last": 168,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 161.6,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8.3,
+        "recent_trend": 4.4
+      },
+      "overall_probability": 2.7,
+      "confidence_level": 60,
+      "last_appearance": "T5, 07/05/2020"
+    },
+    {
+      "template_id": "T245",
+      "total_appearances": 1,
+      "days_since_last": 1848,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 10.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.7,
+      "confidence_level": 20,
+      "last_appearance": "T3, 09/01/2024"
+    },
+    {
+      "template_id": "T241",
+      "total_appearances": 1,
+      "days_since_last": 1929,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 10.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.6,
+      "confidence_level": 20,
+      "last_appearance": "T5, 14/03/2024"
+    },
+    {
+      "template_id": "T129",
+      "total_appearances": 1,
+      "days_since_last": 1908,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 10.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.6,
+      "confidence_level": 20,
+      "last_appearance": "T3, 27/02/2024"
+    },
+    {
+      "template_id": "T243",
+      "total_appearances": 1,
+      "days_since_last": 1899,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 10.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.6,
+      "confidence_level": 20,
+      "last_appearance": "T3, 20/02/2024"
+    },
+    {
+      "template_id": "T153",
+      "total_appearances": 1,
+      "days_since_last": 1887,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 10.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.6,
+      "confidence_level": 20,
+      "last_appearance": "T5, 08/02/2024"
+    },
+    {
+      "template_id": "T8",
+      "total_appearances": 6,
+      "days_since_last": 330,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 275,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 9.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.5,
+      "confidence_level": 35,
+      "last_appearance": "T7, 12/09/2020"
+    },
+    {
+      "template_id": "T141",
+      "total_appearances": 1,
+      "days_since_last": 1977,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 9.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.5,
+      "confidence_level": 20,
+      "last_appearance": "T7, 20/04/2024"
+    },
+    {
+      "template_id": "T71",
+      "total_appearances": 2,
+      "days_since_last": 972,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 110,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 10.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.5,
+      "confidence_level": 20,
+      "last_appearance": "T5, 24/02/2022"
+    },
+    {
+      "template_id": "T150",
+      "total_appearances": 1,
+      "days_since_last": 2034,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 9.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.4,
+      "confidence_level": 20,
+      "last_appearance": "T3, 04/06/2024"
+    },
+    {
+      "template_id": "T84",
+      "total_appearances": 1,
+      "days_since_last": 1992,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 9.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.4,
+      "confidence_level": 20,
+      "last_appearance": "T5, 02/05/2024"
+    },
+    {
+      "template_id": "T254",
+      "total_appearances": 2,
+      "days_since_last": 1002,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 579,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 9.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.4,
+      "confidence_level": 20,
+      "last_appearance": "T7, 19/03/2022"
+    },
+    {
+      "template_id": "T112",
+      "total_appearances": 5,
+      "days_since_last": 435,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 425.3,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8.4,
+        "recent_trend": 1.3
+      },
+      "overall_probability": 2.3,
+      "confidence_level": 30,
+      "last_appearance": "T5, 03/12/2020"
+    },
+    {
+      "template_id": "T82",
+      "total_appearances": 2,
+      "days_since_last": 1032,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1082,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 9.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.3,
+      "confidence_level": 20,
+      "last_appearance": "T3, 12/04/2022"
+    },
+    {
+      "template_id": "T19",
+      "total_appearances": 1,
+      "days_since_last": 2082,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 9.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.3,
+      "confidence_level": 20,
+      "last_appearance": "T5, 11/07/2024"
+    },
+    {
+      "template_id": "T232",
+      "total_appearances": 1,
+      "days_since_last": 2070,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 9.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.3,
+      "confidence_level": 20,
+      "last_appearance": "T3, 02/07/2024"
+    },
+    {
+      "template_id": "T100",
+      "total_appearances": 1,
+      "days_since_last": 2064,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 9.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.3,
+      "confidence_level": 20,
+      "last_appearance": "T5, 27/06/2024"
+    },
+    {
+      "template_id": "T88",
+      "total_appearances": 4,
+      "days_since_last": 525,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 495.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.2,
+      "confidence_level": 10,
+      "last_appearance": "T7, 13/02/2021"
+    },
+    {
+      "template_id": "T135",
+      "total_appearances": 1,
+      "days_since_last": 2139,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.2,
+      "confidence_level": 20,
+      "last_appearance": "T7, 24/08/2024"
+    },
+    {
+      "template_id": "T224",
+      "total_appearances": 1,
+      "days_since_last": 2133,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.2,
+      "confidence_level": 20,
+      "last_appearance": "T3, 20/08/2024"
+    },
+    {
+      "template_id": "T226",
+      "total_appearances": 1,
+      "days_since_last": 2115,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.2,
+      "confidence_level": 20,
+      "last_appearance": "T3, 06/08/2024"
+    },
+    {
+      "template_id": "T95",
+      "total_appearances": 4,
+      "days_since_last": 528,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 354.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.2,
+      "confidence_level": 10,
+      "last_appearance": "T3, 16/02/2021"
+    },
+    {
+      "template_id": "T13",
+      "total_appearances": 2,
+      "days_since_last": 1050,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 518,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.2,
+      "confidence_level": 20,
+      "last_appearance": "T3, 26/04/2022"
+    },
+    {
+      "template_id": "T39",
+      "total_appearances": 4,
+      "days_since_last": 531,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 304,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.2,
+      "confidence_level": 10,
+      "last_appearance": "T5, 18/02/2021"
+    },
+    {
+      "template_id": "T222",
+      "total_appearances": 1,
+      "days_since_last": 2175,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 2.1,
+      "confidence_level": 20,
+      "last_appearance": "T7, 21/09/2024"
+    },
+    {
+      "template_id": "T215",
+      "total_appearances": 1,
+      "days_since_last": 2247,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 7.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 2,
+      "confidence_level": 20,
+      "last_appearance": "T7, 16/11/2024"
+    },
+    {
+      "template_id": "T216",
+      "total_appearances": 1,
+      "days_since_last": 2235,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 7.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 2,
+      "confidence_level": 20,
+      "last_appearance": "T5, 07/11/2024"
+    },
+    {
+      "template_id": "T217",
+      "total_appearances": 1,
+      "days_since_last": 2223,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8,
+        "recent_trend": 0
+      },
+      "overall_probability": 2,
+      "confidence_level": 20,
+      "last_appearance": "T3, 29/10/2024"
+    },
+    {
+      "template_id": "T219",
+      "total_appearances": 1,
+      "days_since_last": 2202,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 2,
+      "confidence_level": 20,
+      "last_appearance": "T7, 12/10/2024"
+    },
+    {
+      "template_id": "T220",
+      "total_appearances": 1,
+      "days_since_last": 2196,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 2,
+      "confidence_level": 20,
+      "last_appearance": "T3, 08/10/2024"
+    },
+    {
+      "template_id": "T265",
+      "total_appearances": 3,
+      "days_since_last": 732,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 309,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 8.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 2,
+      "confidence_level": 10,
+      "last_appearance": "T5, 19/08/2021"
+    },
+    {
+      "template_id": "T183",
+      "total_appearances": 4,
+      "days_since_last": 564,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 511.7,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 7.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.9,
+      "confidence_level": 10,
+      "last_appearance": "T3, 16/03/2021"
+    },
+    {
+      "template_id": "T184",
+      "total_appearances": 7,
+      "days_since_last": 327,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 286.2,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 7.5,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.9,
+      "confidence_level": 35,
+      "last_appearance": "T5, 10/09/2020"
+    },
+    {
+      "template_id": "T31",
+      "total_appearances": 5,
+      "days_since_last": 453,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 392.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 7.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.9,
+      "confidence_level": 30,
+      "last_appearance": "T5, 17/12/2020"
+    },
+    {
+      "template_id": "T130",
+      "total_appearances": 2,
+      "days_since_last": 1167,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 1059,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 7.1,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.8,
+      "confidence_level": 20,
+      "last_appearance": "T3, 26/07/2022"
+    },
+    {
+      "template_id": "T204",
+      "total_appearances": 1,
+      "days_since_last": 2346,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 7,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.8,
+      "confidence_level": 20,
+      "last_appearance": "T3, 04/02/2025"
+    },
+    {
+      "template_id": "T236",
+      "total_appearances": 2,
+      "days_since_last": 1164,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 663,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 7.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.8,
+      "confidence_level": 20,
+      "last_appearance": "T7, 23/07/2022"
+    },
+    {
+      "template_id": "T275",
+      "total_appearances": 2,
+      "days_since_last": 1158,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 163,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 7.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.8,
+      "confidence_level": 20,
+      "last_appearance": "T3, 19/07/2022"
+    },
+    {
+      "template_id": "T280",
+      "total_appearances": 2,
+      "days_since_last": 1152,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 98,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 7.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.8,
+      "confidence_level": 20,
+      "last_appearance": "T5, 14/07/2022"
+    },
+    {
+      "template_id": "T197",
+      "total_appearances": 1,
+      "days_since_last": 2388,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 6.7,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.7,
+      "confidence_level": 20,
+      "last_appearance": "T7, 08/03/2025"
+    },
+    {
+      "template_id": "T202",
+      "total_appearances": 1,
+      "days_since_last": 2361,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 6.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.7,
+      "confidence_level": 20,
+      "last_appearance": "T7, 15/02/2025"
+    },
+    {
+      "template_id": "T210",
+      "total_appearances": 2,
+      "days_since_last": 1185,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 872,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 6.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.7,
+      "confidence_level": 20,
+      "last_appearance": "T3, 09/08/2022"
+    },
+    {
+      "template_id": "T211",
+      "total_appearances": 3,
+      "days_since_last": 801,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 582,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 6.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.7,
+      "confidence_level": 10,
+      "last_appearance": "T3, 12/10/2021"
+    },
+    {
+      "template_id": "T196",
+      "total_appearances": 1,
+      "days_since_last": 2406,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 6.6,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.6,
+      "confidence_level": 20,
+      "last_appearance": "T7, 22/03/2025"
+    },
+    {
+      "template_id": "T267",
+      "total_appearances": 2,
+      "days_since_last": 1215,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 217,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 6.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.6,
+      "confidence_level": 20,
+      "last_appearance": "T5, 01/09/2022"
+    },
+    {
+      "template_id": "T21",
+      "total_appearances": 2,
+      "days_since_last": 1212,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 212,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 6.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.6,
+      "confidence_level": 20,
+      "last_appearance": "T3, 30/08/2022"
+    },
+    {
+      "template_id": "T22",
+      "total_appearances": 6,
+      "days_since_last": 417,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 333.6,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 5.8,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.5,
+      "confidence_level": 35,
+      "last_appearance": "T5, 19/11/2020"
+    },
+    {
+      "template_id": "T146",
+      "total_appearances": 2,
+      "days_since_last": 1245,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 413,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 5.9,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.5,
+      "confidence_level": 20,
+      "last_appearance": "T7, 24/09/2022"
+    },
+    {
+      "template_id": "T258",
+      "total_appearances": 2,
+      "days_since_last": 1242,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 299,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 6,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.5,
+      "confidence_level": 20,
+      "last_appearance": "T5, 22/09/2022"
+    },
+    {
+      "template_id": "T114",
+      "total_appearances": 4,
+      "days_since_last": 621,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 231,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 6,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.5,
+      "confidence_level": 10,
+      "last_appearance": "T5, 29/04/2021"
+    },
+    {
+      "template_id": "T23",
+      "total_appearances": 1,
+      "days_since_last": 2592,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 5.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.3,
+      "confidence_level": 20,
+      "last_appearance": "T5, 14/08/2025"
+    },
+    {
+      "template_id": "T169",
+      "total_appearances": 1,
+      "days_since_last": 2580,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 0,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 5.3,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.3,
+      "confidence_level": 20,
+      "last_appearance": "T3, 05/08/2025"
+    },
+    {
+      "template_id": "T14",
+      "total_appearances": 3,
+      "days_since_last": 870,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 506.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 5,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.3,
+      "confidence_level": 10,
+      "last_appearance": "T7, 04/12/2021"
+    },
+    {
+      "template_id": "T230",
+      "total_appearances": 3,
+      "days_since_last": 855,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 479.5,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 5.4,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.3,
+      "confidence_level": 10,
+      "last_appearance": "T3, 23/11/2021"
+    },
+    {
+      "template_id": "T46",
+      "total_appearances": 2,
+      "days_since_last": 1296,
+      "current_continuous_count": 1,
+      "average_comeback_interval": 261,
+      "max_continuous_count": 0,
+      "probability_components": {
+        "comeback_pattern": 0,
+        "continuous_pattern": 0,
+        "frequency_pattern": 5.2,
+        "recent_trend": 0
+      },
+      "overall_probability": 1.3,
+      "confidence_level": 20,
+      "last_appearance": "T5, 03/11/2022"
+    }
+  ],
+  "generated_at": "2025-08-29T10:19:24.528Z",
+  "methodology": {
+    "comeback_pattern_weight": 35,
+    "continuous_pattern_weight": 25,
+    "frequency_pattern_weight": 25,
+    "recent_trend_weight": 15
+  }
+}

@@ -4,6 +4,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const LotteryPredictor = require('../lottery-prediction.js');
 const { updateTemplatesWithNewData } = require('../template-updater.js');
+const TemplatePredictor = require('../template-prediction.js');
 
 // Create json-data directory if it doesn't exist
 const jsonDataDir = path.join(__dirname, 'json-data');
@@ -295,6 +296,33 @@ function calculateTemplateTrackingFields(dataWithTemplateIds) {
     }).reverse(); // Reverse back to original order (newest first)
 }
 
+// Function to generate template predictions
+function generateTemplatePredictions(dataWithTrackingFields) {
+    console.log('🔮 Generating template predictions...');
+    
+    try {
+        const templatePredictor = new TemplatePredictor(dataWithTrackingFields, 'vietlot55');
+        const predictionReport = templatePredictor.generatePredictionReport();
+        
+        fs.writeFileSync(
+            path.join(jsonDataDir, 'template-predictions.json'),
+            JSON.stringify(predictionReport, null, 2)
+        );
+        console.log('Generated template-predictions.json with advanced pattern analysis');
+        
+        // Log top 5 predictions
+        console.log('\n📊 Top 5 Template Predictions:');
+        predictionReport.top_predictions.slice(0, 5).forEach((pred, index) => {
+            console.log(`${index + 1}. Template ${pred.template_id}: ${pred.overall_probability}% (Confidence: ${pred.confidence_level}%)`);
+        });
+        
+        return predictionReport;
+    } catch (error) {
+        console.error('Error generating template predictions:', error.message);
+        return null;
+    }
+}
+
 async function fetchData() {
     try {
         // Get today's date in DD-MM-YYYY format
@@ -406,11 +434,17 @@ async function updateLocalData() {
                 fs.writeFileSync(DATA_FILE, JSON.stringify(dataWithTrackingFields, null, 2));
                 console.log('Data updated successfully with template tracking fields');
 
+                // Generate template predictions
+                generateTemplatePredictions(dataWithTrackingFields);
+
                 // Generate summary files
                 generateSummaries(dataWithTrackingFields);
             }
         } else {
             console.log('Data is up to date');
+            // Generate template predictions with existing data
+            generateTemplatePredictions(existingData);
+            
             // Generate summary files with existing data
             generateSummaries(existingData);
         }
