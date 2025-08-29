@@ -239,6 +239,66 @@ function generateSummaries(data) {
     console.log('Summary files generated successfully!');
 }
 
+// Function to calculate template tracking fields
+function calculateTemplateTrackingFields(dataWithTemplateIds) {
+    console.log('🔍 Calculating template tracking fields...');
+    
+    // Create a map to track template history
+    const templateHistory = new Map(); // template_id -> { lastAppearance: date, continuousCount: number, totalCount: number }
+    
+    // Process data in chronological order (oldest first)
+    const sortedData = [...dataWithTemplateIds].reverse();
+    
+    return sortedData.map((entry, index) => {
+        const templateId = entry.template_id;
+        
+        if (!templateId) {
+            return {
+                ...entry,
+                template_appear_comback_from_prev_count: 0,
+                continuos_count: 1,
+                template_appear_count: 1
+            };
+        }
+        
+        const currentDate = parseDate(entry.date);
+        const history = templateHistory.get(templateId);
+        
+        let template_appear_comback_from_prev_count = 0;
+        let continuos_count = 1;
+        let template_appear_count = 1;
+        
+        if (history) {
+            // Calculate days between current and last appearance
+            const daysDiff = Math.floor((currentDate - history.lastAppearance) / (1000 * 60 * 60 * 24));
+            template_appear_comback_from_prev_count = daysDiff;
+            
+            // Check if this is continuous (same template as previous entry)
+            if (index > 0 && sortedData[index - 1].template_id === templateId) {
+                continuos_count = history.continuousCount + 1;
+            } else {
+                continuos_count = 1;
+            }
+            
+            template_appear_count = history.totalCount + 1;
+        }
+        
+        // Update history
+        templateHistory.set(templateId, {
+            lastAppearance: currentDate,
+            continuousCount: continuos_count,
+            totalCount: template_appear_count
+        });
+        
+        return {
+            ...entry,
+            template_appear_comback_from_prev_count,
+            continuos_count,
+            template_appear_count
+        };
+    }).reverse(); // Reverse back to original order (newest first)
+}
+
 async function fetchData() {
     try {
         // Get today's date in DD-MM-YYYY format
@@ -334,12 +394,15 @@ async function updateLocalData() {
             // Update templates with new patterns and get data with template IDs
             const dataWithTemplateIds = updateTemplatesWithNewData(uniqueData, 'vietlot45');
 
-            // Save to file with template IDs
-            fs.writeFileSync(DATA_FILE, JSON.stringify(dataWithTemplateIds, null, 2));
-            console.log('Data updated successfully');
+            // Calculate template tracking fields
+            const dataWithTrackingFields = calculateTemplateTrackingFields(dataWithTemplateIds);
+
+            // Save to file with template IDs and tracking fields
+            fs.writeFileSync(DATA_FILE, JSON.stringify(dataWithTrackingFields, null, 2));
+            console.log('Data updated successfully with template tracking fields');
 
             // Generate summary files
-            generateSummaries(dataWithTemplateIds);
+            generateSummaries(dataWithTrackingFields);
         } else {
             console.log('No new data found');
             if (existingData.length > 0) {

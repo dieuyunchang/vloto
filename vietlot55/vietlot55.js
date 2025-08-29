@@ -175,11 +175,13 @@ function showLastDraw() {
         .map(n => n.trim())  // Remove whitespace
         .filter(n => n !== "");  // Remove empty strings
     const numbers = list_numbers.map(n => `<span>${n}</span>`).join("");
+    const templateId = lastDraw.template_id || 'N/A';
     const lastDrawHTML = `
         <div class="last-draw">
             <h2>Last Draw (${lastDraw.date})</h2>
             <p>Numbers: <span class='number-group'>${numbers}</span></p>
             <p>Prize: ${lastDraw.prize_s}</p>
+            <p>Template ID: <strong>${templateId}</strong></p>
         </div>
     `;
     document.getElementById("last-draw").innerHTML = lastDrawHTML;
