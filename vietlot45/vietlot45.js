@@ -163,8 +163,25 @@ function showLastDraw() {
     const list_numbers = lastDraw.numbers
         .split(/\s+/)  // Split by any whitespace (spaces, tabs, newlines)
         .map(n => n.trim())  // Remove whitespace
-        .filter(n => n !== "");  // Remove empty strings
-    const numbers = list_numbers.map(n => `<span>${n}</span>`).join("");
+        .filter(n => n !== "")  // Remove empty strings
+        .map(n => parseInt(n));  // Convert to integers
+    
+    // Function to get group for a number
+    function getNumberGroup(num) {
+        if (num >= 1 && num <= 9) return 'G0';
+        if (num >= 10 && num <= 19) return 'G1';
+        if (num >= 20 && num <= 29) return 'G2';
+        if (num >= 30 && num <= 39) return 'G3';
+        if (num >= 40 && num <= 45) return 'G4';
+        return 'G0'; // fallback
+    }
+    
+    // Create numbers with group colors
+    const numbers = list_numbers.map(n => {
+        const groupClass = getNumberGroup(n).toLowerCase();
+        return `<span class="last-draw-number group-${groupClass}">${String(n).padStart(2, '0')}</span>`;
+    }).join("");
+    
     const templateId = lastDraw.template_id || 'N/A';
     const lastDrawHTML = `
         <div class="last-draw">

@@ -173,8 +173,30 @@ function showLastDraw() {
     const list_numbers = lastDraw.numbers
         .split(/\s+/)  // Split by any whitespace (spaces, tabs, newlines)
         .map(n => n.trim())  // Remove whitespace
-        .filter(n => n !== "");  // Remove empty strings
-    const numbers = list_numbers.map(n => `<span>${n}</span>`).join("");
+        .filter(n => n !== "")  // Remove empty strings
+        .map(n => parseInt(n));  // Convert to integers
+    
+    // Function to get group for a number (Vietlot55: 1-55)
+    function getNumberGroup(num) {
+        if (num >= 1 && num <= 9) return 'G0';
+        if (num >= 10 && num <= 19) return 'G1';
+        if (num >= 20 && num <= 29) return 'G2';
+        if (num >= 30 && num <= 39) return 'G3';
+        if (num >= 40 && num <= 49) return 'G4';
+        if (num >= 50 && num <= 55) return 'G5';
+        return 'G0'; // fallback
+    }
+    
+    // Create numbers with group colors (exclude the last number which is not part of Vietlot55)
+    const numbers = list_numbers.map((n, index) => {
+        // // Don't color the last number (index 5) as it's not part of Vietlot55
+        if (index === 6) {
+            return `<span class="last-draw-number jackpot2">${String(n).padStart(2, '0')}</span>`;
+        }
+        const groupClass = getNumberGroup(n).toLowerCase();
+        return `<span class="last-draw-number group-${groupClass}">${String(n).padStart(2, '0')}</span>`;
+    }).join("");
+    
     const templateId = lastDraw.template_id || 'N/A';
     const lastDrawHTML = `
         <div class="last-draw">
